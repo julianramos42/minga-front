@@ -8,11 +8,11 @@ export default function HeroInfo() {
         <div className='hero-info'>
             <Image className='character' src='./images/character.png'/>
             <Image className='manga' src='./images/manga.png'/>
-            <div className='manga-info'>
+            <section className='manga-info'>
                 <h2>Trigun Stampede</h2>
                 <span className='manga-title'>Manga</span>
                 <p>TRIGUN is a popular action manga by Yasuhiro Nightow that follows the story of Vash Stampede, a legendary gunfighter and pacifist with a huge bounty on his head.</p>
-            </div>
+            </section>
         </div>
     </div>
   )

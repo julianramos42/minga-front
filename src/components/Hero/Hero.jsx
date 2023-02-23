@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../Header/Header'
 import HeroInfo from '../HeroInfo/HeroInfo'
+import HeroManga from '../HeroManga/HeroManga'
 import './hero.css'
 
 export default function Hero() {
@@ -8,6 +9,7 @@ export default function Hero() {
     <div className='hero'>
       <Header />
       <HeroInfo />
+      <HeroManga />
     </div>
   )
 }
