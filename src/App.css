@@ -12,9 +12,3 @@ body::-webkit-scrollbar{
 body{
   background: #EBEBEB;
 }
-
-@media (max-width: 1023px){
-  .register{
-    display: none !important;
-  }
-}
