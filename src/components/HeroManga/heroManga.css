@@ -1,9 +1,6 @@
-
-
-
 .background-hero {
     height: 34.438rem;
-    background: url(../../../public/images/hero-background.png);
+    background: url(../../images/explore-background.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -21,7 +18,7 @@
     padding: 0px;
     margin-top: 1rem;
     gap: 15px;
-    width: 1037px;
+    width: 83.8%;
     height: 199px;
     color: #FFF;
 }

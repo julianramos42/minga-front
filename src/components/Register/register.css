@@ -2,11 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .register>div{
-    margin: 25px 360px;
+    margin: 0 360px 25px 360px;
 }
 
 .form{

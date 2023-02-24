@@ -6,22 +6,19 @@
     display: flex;
     align-items: center;
     border-radius: 6px;
+    gap: 101px;
 }
 
 .hero-info-container .hero-info .character {
-    position: absolute;
+    margin-bottom: 19px;
     width: 277px;
     height: 307px;
-    left: 91px;
-    top: 113px;
 }
 
 .hero-info-container .hero-info .manga {
-    position: absolute;
     width: 180px;
     height: 284px;
-    left: 469px;
-    top: 103px;
+    margin-bottom: 62px;
 }
 
 .hero-info-container .hero-info .manga-info {
@@ -30,11 +27,10 @@
     align-items: flex-start;
     padding: 0px;
     gap: 10px;
-
-    position: absolute;
     width: 356px;
     left: 776px;
     color: #FFFFFF;
+    /* position: absolute; */
 }
 
 .hero-info-container .hero-info .manga-info h2 {

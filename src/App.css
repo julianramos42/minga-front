@@ -12,3 +12,13 @@ body::-webkit-scrollbar{
 body{
   background: #EBEBEB;
 }
+
+@media (max-width: 1023px){
+  *{
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .register{
+    display: none !important;
+  }
+}
