@@ -2,7 +2,7 @@
     background: linear-gradient(153.39deg, #F9A8D4 -13.9%, #F472B6 58.69%);
     margin-top: 2.563rem;
     margin-bottom: 1.688rem;
-    height: 16.563rem;
+    height: 25.88vh;
     display: flex;
     align-items: center;
     border-radius: 6px;
@@ -12,12 +12,12 @@
 .hero-info-container .hero-info .character {
     margin-bottom: 19px;
     width: 277px;
-    height: 307px;
+    height: 29.98046875vh;
 }
 
 .hero-info-container .hero-info .manga {
     width: 180px;
-    height: 284px;
+    height: 27.734375vh;
     margin-bottom: 62px;
 }
 
