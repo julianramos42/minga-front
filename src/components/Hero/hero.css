@@ -1,4 +1,4 @@
 .hero{
     margin: 0.875rem 5.688rem 1.063rem 5.688rem;
-    max-height: 100vh;
+    min-height: 100vh;
 }
