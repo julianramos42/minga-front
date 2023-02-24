@@ -1,0 +1,64 @@
+
+
+
+.background-hero {
+    height: 34.438rem;
+    background: url(../../../public/images/hero-background.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-hero .explore-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    margin-top: 1rem;
+    gap: 15px;
+    width: 1037px;
+    height: 199px;
+    color: #FFF;
+}
+
+.background-hero .explore-section h2{
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 95.19%;
+    text-shadow: 1px 8px 50px rgba(255, 255, 255, 0.25);
+}
+
+.background-hero .explore-section h3{
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 95.19%;
+}
+
+.background-hero .explore-section span{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 95.19%;
+}
+
+.background-hero .explore-section .explore-btn{
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 95.19%;
+    text-decoration: none;
+    color: #FFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    gap: 10px;
+    width: 240px;
+    height: 55px;
+    background: linear-gradient(153.39deg, #F9A8D4 -13.9%, #F472B6 58.69%);
+    border-radius: 6px;
+}
