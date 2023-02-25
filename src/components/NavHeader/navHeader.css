@@ -1,0 +1,57 @@
+.open-nav .navHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 46px;
+}
+
+.open-nav .navHeader .picAndText{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.open-nav .navHeader .profilePic{
+    height: 46px;
+    width: 46px;
+}
+
+.open-nav .navHeader .nameAndMail{
+    width: 17.5vw;
+    color: #FFFFFF;
+}
+
+.open-nav .navHeader .nameAndMail h2{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+}
+
+.open-nav .navHeader .nameAndMail p{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 12px;
+}
+
+@media (max-width: 1023px){
+    .open-nav .navHeader .nameAndMail{
+        width: 252px;
+    }
+}
+
+@media (max-width: 1199px){
+    .open-nav .navHeader{
+        height: auto;
+    }
+
+    .open-nav .navHeader .picAndText{
+        flex-direction: column;
+    }
+
+    .open-nav .navHeader .nameAndMail{
+        text-align: center;
+        width: 100%;
+    }
+}
