@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: center;
     gap: 22px;
-    height: 80vh;
 }
 
 .form .notification-check{
