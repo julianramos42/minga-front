@@ -1,8 +1,11 @@
 import React from 'react'
-import Index from '../../components/Index/Index'
+import Header from '../../components/Header/Header'
 
-export default function IndexLayout() {
+export default function IndexLayout({children}) {
   return (
-    <Index />
+    <>
+      <Header />
+      {children}
+    </>
   )
 }

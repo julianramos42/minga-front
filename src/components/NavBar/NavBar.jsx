@@ -5,8 +5,8 @@ import menuHam from '../../images/Menu.svg'
 
 export default function NavBar({onClick}) {
     return (
-        <a onClick={onClick}>
+        <div onClick={onClick} className='ham-menu'>
             <Image className='hamburguer-menu' src={menuHam} alt='menu-hamburguesa'/>
-        </a>
+        </div>
     )
 }

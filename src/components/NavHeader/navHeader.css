@@ -35,6 +35,10 @@
     line-height: 12px;
 }
 
+.open-nav .navHeader .closeBtn{
+    cursor: pointer;
+}
+
 @media (max-width: 1023px){
     .open-nav .navHeader .nameAndMail{
         width: 252px;

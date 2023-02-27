@@ -7,8 +7,6 @@ import { useState } from 'react'
 import OpenHamNav from '../OpenHamNav/OpenHamNav'
 
 export default function Header() {
-
-  let header = document.getElementById('header')
   const [render, setRender] = useState(false)
 
   function handleRender(){
@@ -16,7 +14,7 @@ export default function Header() {
   }
   
   return (
-    <header id='header'>
+    <header>
         <NavBar onClick={handleRender}/>
         { render ? <OpenHamNav handleRender={handleRender} /> : "" }
         <Image className='logo' src={logo} alt='logo'/>

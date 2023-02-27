@@ -16,7 +16,7 @@ export default function NavHeader({handleRender}) {
                     <P text='lucasezequielsilva@gmail.com' />
                 </div>
             </div>
-            <div onClick={handleRender}>
+            <div onClick={handleRender} className='closeBtn'>
                 <Image src={closeBtn} />
             </div>
         </div>
