@@ -12,7 +12,6 @@ import axios from 'axios'
 
 export default function RegisterForm() {
     let dataForm = useRef()
-    let form = document.getElementById('form')
 
     async function handleSubmit(e){
         e.preventDefault()
@@ -35,8 +34,8 @@ export default function RegisterForm() {
         if(formInputs[2].value === formInputs[3].value){
             try{
                 await axios.post(url,data)
-                form.reset()
                 alert("Registro exitoso")
+                dataForm.current.reset()
               }catch(error){
                 console.log(error)
                 console.log("ocurrio un error")
@@ -49,7 +48,7 @@ export default function RegisterForm() {
     }
 
     return (
-        <form className='form' id='form' onSubmit={handleSubmit} ref={dataForm}>
+        <form className='form' onSubmit={handleSubmit} ref={dataForm}>
             <RegisterFieldset legendText='Name' inputType='text' inputName='name' inputId='name' imgSrc={profile} imgAlt='person' />
             <RegisterFieldset legendText='Email' inputType='email' inputName='mail' inputId='mail' imgSrc={email} imgAlt='@' />
             <RegisterFieldset id='field-password' legendText='Password' inputType='password' inputName='password' inputId='password' imgSrc={lock} imgAlt='lock' />

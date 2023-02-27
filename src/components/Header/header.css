@@ -4,6 +4,7 @@ header{
     justify-content: space-between;
     padding-top: 0.875rem;
     height: 9.9609375vh;
+    margin: 0 5.688rem;
 }
 
 .logo{
@@ -17,5 +18,6 @@ header{
         position: absolute;
         top: 0;
         width: 100%;
+        margin: 0;
     }
 }

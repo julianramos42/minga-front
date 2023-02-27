@@ -3,8 +3,10 @@ import './navbar.css'
 import Image from '../Image/Image'
 import menuHam from '../../images/Menu.svg'
 
-export default function NavBar() {
+export default function NavBar({onClick}) {
     return (
-        <Image className='hamburguer-menu' src={menuHam} alt='menu-hamburguesa'/>
+        <div onClick={onClick} className='ham-menu'>
+            <Image className='hamburguer-menu' src={menuHam} alt='menu-hamburguesa'/>
+        </div>
     )
 }

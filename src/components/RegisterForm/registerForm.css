@@ -93,3 +93,9 @@
         width: 300px;
     }
 }
+
+@media (max-height: 699px){
+    .form{
+        gap: 10px;
+    }
+}
