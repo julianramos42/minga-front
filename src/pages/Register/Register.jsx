@@ -1,9 +1,9 @@
 import React from 'react'
 import './register.css'
-import WelcomeSection from '../WelcomeSection/WelcomeSection'
-import RegisterForm from '../RegisterForm/RegisterForm'
+import WelcomeSection from '../../components/WelcomeSection/WelcomeSection'
+import RegisterForm from '../../components/RegisterForm/RegisterForm'
 import registerImg from '../../images/registerImg.png'
-import Image from '../Image/Image'
+import Image from '../../components/Image/Image'
 
 export default function Register() {
     

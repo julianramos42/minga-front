@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from '../Header/Header'
-import HeroInfo from '../HeroInfo/HeroInfo'
-import HeroManga from '../HeroManga/HeroManga'
+import Header from '../../components/Header/Header'
+import HeroInfo from '../../components/HeroInfo/HeroInfo'
+import HeroManga from '../../components/HeroManga/HeroManga'
 import './hero.css'
 
 export default function Hero() {

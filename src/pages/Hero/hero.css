@@ -1,6 +1,6 @@
 .hero{
     margin: 0 5.688rem;
-    min-height: 100vh;
+    min-height: 85vh;
 }
 
 @media (max-width: 1023px){
