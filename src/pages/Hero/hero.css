@@ -1,6 +1,7 @@
 .hero{
     margin: 0 5.688rem;
-    min-height: 85vh;
+    min-height: 100vh;
+    padding-top: 10.058vh;
 }
 
 @media (max-width: 1023px){
