@@ -8,6 +8,7 @@ import GoBackToHome from '../GoBackToHome/GoBackToHome'
 import { Link as Anchor } from 'react-router-dom'
 import { useRef } from 'react'
 import axios from 'axios'
+import toast, { Toaster } from 'react-hot-toast'
 
 export default function LoginForm({renderRegister}) {
   let dataForm = useRef()
@@ -30,13 +31,12 @@ export default function LoginForm({renderRegister}) {
 
         let url = 'http://localhost:8080/auth/signin'
         try{
-            await axios.post(url,data) // guardar en local storage el token
+            await axios.post(url,data)
             .then(res => {localStorage.setItem('token', res.data.token)})
-            alert("Inicio Exitoso")
+            toast.success("Inicio Exitoso")
             dataForm.current.reset()
           }catch(error){
-            console.log(error)
-            console.log("ocurrio un error")
+            toast.error('Credenciales Incorrectas')
         }      
     }
 
@@ -48,6 +48,7 @@ export default function LoginForm({renderRegister}) {
             <SignInWithGoogle />
             <p>You don´t have an account yet? <Anchor onClick={renderRegister} className='link'>Sign Up</Anchor></p>
             <GoBackToHome />
+            <Toaster position="top-right" />
       </form>
     )
 }

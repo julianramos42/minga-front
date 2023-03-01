@@ -10,8 +10,8 @@ header{
 }
 
 .logo{
-    width: 5.5rem;
-    height: 8.59375vh;
+    width: 10vh;
+    height: 10vh;
 }
 
 @media (max-width: 1023px) {

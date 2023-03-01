@@ -1,13 +1,16 @@
 import React from 'react'
-import { Link as Anchor } from 'react-router-dom'
-import './auth1.css'
+import './authForm.css'
 import { useState } from 'react'
-import { useEffect } from 'react'
 import Register from '../Register/Register'
 import Login from '../Login/Login'
+import { useEffect } from 'react'
 
-export default function Auth1() {
+export default function Auth1({state}) {
   const [render, setRender] = useState(false)
+
+  useEffect(() => {
+    setRender(state)
+  },[state])
 
   function renderRegister(){
     handleRender('register')

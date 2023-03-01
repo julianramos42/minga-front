@@ -12,6 +12,7 @@ import axios from 'axios'
 import SignBtn from '../SignBtn/SignBtn'
 import GoBackToHome from '../GoBackToHome/GoBackToHome'
 import { Link as Anchor } from 'react-router-dom'
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function RegisterForm({renderLogin}) {
     let dataForm = useRef()
@@ -37,11 +38,11 @@ export default function RegisterForm({renderLogin}) {
         let url = 'http://localhost:8080/auth/signup'
         try{
             await axios.post(url,data)
-            alert("Registro exitoso")
+            toast.success("Registro exitoso")
             dataForm.current.reset()
           }catch(error){
             console.log(error)
-            console.log("ocurrio un error")
+            toast.error("Ocurrio un error")
         }      
     }
 
@@ -60,6 +61,7 @@ export default function RegisterForm({renderLogin}) {
             <SignInWithGoogle />
             <p>Already have an account? <Anchor onClick={renderLogin} className='link'>Log in</Anchor></p>
             <GoBackToHome />
+            <Toaster position='top-left' />
         </form>
     )
 }
