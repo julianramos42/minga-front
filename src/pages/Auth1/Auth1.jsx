@@ -23,7 +23,7 @@ export default function Auth1() {
 
   return (
     <div className='auth'>
-      { !render ? <div className='btns'><div className='btnR'><Anchor onClick={renderRegister}>Register</Anchor></div><div className='btnL'><Anchor onClick={renderLogin}>Login</Anchor></div></div> : "" }
+      { !render ? <Register renderLogin={renderLogin} /> : "" }
       { render === 'register' ? <Register renderLogin={renderLogin}/> : "" }
       { render === 'login' ? <Login renderRegister={renderRegister} /> : "" }
     </div>

@@ -34,7 +34,7 @@ export default function RegisterForm({renderLogin}) {
             [formInputs[3].name]: formInputs[3].value,
         }
 
-        let url = 'http://localhost:8080/users'
+        let url = 'http://localhost:8080/auth/signup'
         try{
             await axios.post(url,data)
             alert("Registro exitoso")
