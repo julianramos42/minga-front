@@ -13,6 +13,7 @@ export default function NavBody() {
         try{
             await axios.post(url,"",headers)
             toast.success("Usuario deslogueado")
+            localStorage.setItem('token', "")
           }catch(error){
             console.log(error)
             toast.error("Ocurrio un error")
