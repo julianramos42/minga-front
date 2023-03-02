@@ -7,7 +7,7 @@ export default function OpenHamNav({handleRender}) {
   return (
     <nav className='open-nav' id='nav'>
         <NavHeader handleRender={handleRender}/>
-        <NavBody />
+        <NavBody handleRender={handleRender}/>
     </nav>
   )
 }
