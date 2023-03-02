@@ -24,7 +24,7 @@ export default function NavBody({handleRender}) {
 
     return (
         <div className='navBody'>
-            <Anchor to='/index'>Home</Anchor>
+            <Anchor to='/'>Home</Anchor>
             {/* <Anchor to='/'>Mangas</Anchor>
             <Anchor to='/'>My mangas</Anchor>
             <Anchor to='/'>Favourites</Anchor> */}
