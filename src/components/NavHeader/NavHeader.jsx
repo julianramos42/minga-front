@@ -10,9 +10,20 @@ import { useEffect } from 'react'
 
 export default function NavHeader({handleRender}) {
     let token = localStorage.getItem('token')
-    let photo = localStorage.getItem('photo')
-    let name = localStorage.getItem('name')
-    let mail = localStorage.getItem('mail')
+    
+    if(!token){
+        localStorage.setItem('user',JSON.stringify({
+            name: "",
+            mail: "",
+            photo: ""
+        }))
+    }
+
+    let user = JSON.parse(localStorage.getItem('user'))
+    let name = user.name
+    let mail = user.mail
+    let photo = user.photo
+
     useEffect(() => {
         let url = `http://localhost:8080/auth/token`
         if (token) {

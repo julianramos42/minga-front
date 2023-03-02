@@ -34,9 +34,11 @@ export default function LoginForm({renderRegister}) {
             await axios.post(url,data)
             .then(res => {
               localStorage.setItem('token', res.data.token)
-              localStorage.setItem('photo', res.data.user.photo)
-              localStorage.setItem('name', res.data.user.name)
-              localStorage.setItem('mail', res.data.user.mail)
+              localStorage.setItem('user', JSON.stringify({
+                name: res.data.user.name,
+                mail: res.data.user.mail,
+                photo: res.data.user.photo,
+              }))
               setInterval(() => window.location.href='/index', 1000)
             })
             toast.success("Inicio Exitoso")

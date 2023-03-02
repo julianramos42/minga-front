@@ -61,7 +61,7 @@ export default function RegisterForm({renderLogin}) {
             <SignInWithGoogle />
             <p>Already have an account? <Anchor onClick={renderLogin} className='link'>Log in</Anchor></p>
             <GoBackToHome />
-            <Toaster position='top-left' />
+            <Toaster position='top-right' />
         </form>
     )
 }
