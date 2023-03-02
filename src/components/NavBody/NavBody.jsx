@@ -31,7 +31,7 @@ export default function NavBody({handleRender}) {
             <Anchor to='/'>My mangas</Anchor>
             <Anchor to='/'>Favourites</Anchor> */}
             <Anchor to='/auth'>Auth</Anchor>
-            { token ? <Anchor onClick={handleLogout}>Logout</Anchor>: <><Anchor to='/register'>Register</Anchor><Anchor to='/signin'>Login</Anchor></> }
+            { token ? <Anchor onClick={handleLogout}>Logout</Anchor>: <><Anchor to='/register' onClick={handleRender}>Register</Anchor><Anchor to='/signin' onClick={handleRender}>Login</Anchor></> }
             <Toaster position='top-left' />
         </div>
     )
