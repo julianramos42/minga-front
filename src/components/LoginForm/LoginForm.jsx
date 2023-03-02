@@ -32,7 +32,13 @@ export default function LoginForm({renderRegister}) {
         let url = 'http://localhost:8080/auth/signin'
         try{
             await axios.post(url,data)
-            .then(res => {localStorage.setItem('token', res.data.token)})
+            .then(res => {
+              localStorage.setItem('token', res.data.token)
+              localStorage.setItem('photo', res.data.user.photo)
+              localStorage.setItem('name', res.data.user.name)
+              localStorage.setItem('mail', res.data.user.mail)
+              setInterval(() => window.location.href='/index', 1000)
+            })
             toast.success("Inicio Exitoso")
             dataForm.current.reset()
           }catch(error){

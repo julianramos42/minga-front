@@ -4,7 +4,7 @@ import { Link as Anchor } from 'react-router-dom'
 import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast'
 
-export default function NavBody() {
+export default function NavBody({handleRender}) {
     let token = localStorage.getItem('token')
     let headers = {headers:{'Authorization':`Bearer ${token}`}}
     let url = 'http://localhost:8080/auth/signout'
@@ -14,6 +14,10 @@ export default function NavBody() {
             await axios.post(url,"",headers)
             toast.success("Usuario deslogueado")
             localStorage.setItem('token', "")
+            localStorage.setItem('photo', "")
+            localStorage.setItem('name', "")
+            localStorage.setItem('mail', "")
+            handleRender()
           }catch(error){
             console.log(error)
             toast.error("Ocurrio un error")
@@ -27,9 +31,7 @@ export default function NavBody() {
             <Anchor to='/'>My mangas</Anchor>
             <Anchor to='/'>Favourites</Anchor> */}
             <Anchor to='/auth'>Auth</Anchor>
-            <Anchor to='/register'>Register</Anchor>
-            <Anchor to='/signin'>Login</Anchor>
-            <Anchor onClick={handleLogout}>Logout</Anchor>
+            { token ? <Anchor onClick={handleLogout}>Logout</Anchor>: <><Anchor to='/register'>Register</Anchor><Anchor to='/signin'>Login</Anchor></> }
             <Toaster position='top-left' />
         </div>
     )

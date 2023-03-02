@@ -9,25 +9,31 @@ import axios from 'axios'
 import { useEffect } from 'react'
 
 export default function NavHeader({handleRender}) {
+    let token = localStorage.getItem('token')
+    let photo = localStorage.getItem('photo')
+    let name = localStorage.getItem('name')
+    let mail = localStorage.getItem('mail')
     useEffect(() => {
         let url = `http://localhost:8080/auth/token`
-        let token = localStorage.getItem('token')
         if (token) {
             let headers = {headers:{'Authorization':`Bearer ${token}`}}
             axios.post(url,null,headers)
         }
-        
     },[])
 
     return (
         <div className='navHeader'>
-            <div className='picAndText'>
-                <Image className='profilePic' src={profilePic} alt='profile-picture' />
-                <div className='nameAndMail'>
-                    <H2 text='Lucas Ezequiel Silva' />
-                    <P text='lucasezequielsilva@gmail.com' />
-                </div>
-            </div>
+        
+            {
+                token ? <div className='picAndText'>
+                        <Image className='profilePic' src={photo} alt='profile-picture' />
+                        <div className='nameAndMail'>
+                            <H2 text={name} />
+                            <P text={mail} />
+                        </div>
+                        </div>
+                        : ""
+            }
             <div onClick={handleRender} className='closeBtn'>
                 <Image src={closeBtn} />
             </div>
