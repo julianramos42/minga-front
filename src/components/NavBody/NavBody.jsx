@@ -12,25 +12,24 @@ export default function NavBody({handleRender}) {
     async function handleLogout(){
         try{
             await axios.post(url,"",headers)
-            toast.success("Usuario deslogueado")
+            toast.success("Logout Successful")
             localStorage.setItem('token', "")
             localStorage.setItem('user', "")
             handleRender()
           }catch(error){
             console.log(error)
-            toast.error("Ocurrio un error")
+            toast.error("Something Went Wrong")
         }      
     }
 
     return (
         <div className='navBody'>
             <Anchor to='/'>Home</Anchor>
-            {/* <Anchor to='/'>Mangas</Anchor>
-            <Anchor to='/'>My mangas</Anchor>
-            <Anchor to='/'>Favourites</Anchor> */}
-            <Anchor to='/auth'>Auth</Anchor>
-            
-            { token ? <Anchor onClick={handleLogout}>Logout</Anchor>: <><Anchor to='/register' onClick={handleRender}>Register</Anchor><Anchor to='/signin' onClick={handleRender}>Login</Anchor></> }
+            { token ? <Anchor to='/author-form'>New Author</Anchor> : "" }
+            { token ? <Anchor onClick={handleLogout}>Logout</Anchor>: "" }
+            { token ? "" : <Anchor to='/auth'>Auth</Anchor> }
+            { token ? "" : <Anchor to='/register' onClick={handleRender}>Register</Anchor> }
+            { token ? "" : <Anchor to='/signin' onClick={handleRender}>Login</Anchor> }
         </div>
     )
 }
