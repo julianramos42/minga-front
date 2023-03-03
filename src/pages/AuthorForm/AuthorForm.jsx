@@ -39,6 +39,7 @@ export default function AuthorForm() {
         try{
             await axios.post(url,data,headers)
             toast.success("New Author Created")
+            dataForm.current.reset()
         }catch(error){
             toast.error("Something Went Wrong")
         }
