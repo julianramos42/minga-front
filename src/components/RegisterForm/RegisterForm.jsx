@@ -38,11 +38,11 @@ export default function RegisterForm({renderLogin}) {
         let url = 'http://localhost:8080/auth/signup'
         try{
             await axios.post(url,data)
-            toast.success("Registro exitoso")
+            toast.success("Register Successful")
             dataForm.current.reset()
           }catch(error){
             console.log(error)
-            toast.error("Ocurrio un error")
+            toast.error("Something Went Wrong")
         }      
     }
 

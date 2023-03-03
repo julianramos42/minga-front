@@ -5,7 +5,6 @@ import Image from '../Image/Image'
 import logo from '../../images/Logo.png'
 import { useState } from 'react'
 import OpenHamNav from '../OpenHamNav/OpenHamNav'
-import { useEffect } from 'react'
 
 export default function Header() {
   const [render, setRender] = useState(false)
