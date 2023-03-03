@@ -33,7 +33,7 @@ export default function CreateManga() {
             console.log(setSelectValue())
     
     } catch (error) {
-        // console.log(error)
+        console.log(error)
         console.log("ocurrio un error")
     }
     }
@@ -56,7 +56,7 @@ return (
     <div className='author'>
         <div className='author-content'>
             <section className='new-author'>
-                <H2 text='New Author' />
+                <H2 text='New Manga' />
                 <Image src={pic} />
             </section>
             <form className='author-form' onSubmit={handleSubmit}>
