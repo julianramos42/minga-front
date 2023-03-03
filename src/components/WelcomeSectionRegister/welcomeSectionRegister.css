@@ -5,6 +5,7 @@
     justify-content: center;
     margin: 0 136px;
     text-align: center;
+    gap: 11px;
 }
 
 .welcome-section h2{

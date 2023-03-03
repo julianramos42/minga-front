@@ -1,5 +1,5 @@
 import React from 'react'
-import './welcomeSection.css'
+import './welcomeSectionRegister.css'
 import H2 from '../H2/H2'
 
 export default function WelcomeSection() {

@@ -2,14 +2,16 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 0.875rem;
+    padding-top: 2rem;
     height: 10vh;
-    margin: 0 5.688rem;
+    position: absolute;
+    width: 87.361vw;
+    margin-left: 91px;
 }
 
 .logo{
-    width: 5.5rem;
-    height: 8.59375vh;
+    width: 10vh;
+    height: 10vh;
 }
 
 @media (max-width: 1023px) {

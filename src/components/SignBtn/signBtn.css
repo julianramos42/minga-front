@@ -1,8 +1,8 @@
-.send{
-    width: 30vw;
-    height: 7.403vh;
+.form .sign{
+    width: 384px;
+    height: 48px;
     background: linear-gradient(153.39deg, #F9A8D4 -13.9%, #F472B6 58.69%);
-    border-radius: 50000px;
+    border-radius: 10px;
     border: none;
     display: flex;
     justify-content: center;
@@ -12,6 +12,13 @@
     line-height: 17px;
     color: #EBEBEB;
     letter-spacing: 0.05em;
+    box-shadow: 5px 5px rgb(244, 179, 51);
     text-decoration: none;
     margin: 0 auto;
+}
+
+@media (max-width: 814px){
+    .form .sign{
+        width: 300px;
+    }
 }

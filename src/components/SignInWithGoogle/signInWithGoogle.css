@@ -1,0 +1,28 @@
+.form .sign-in-google{
+    width: 384px;
+    height: 48px;
+    background: #EBEBEB;
+    border: 1px solid #1F1F1F;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 2px;
+    text-decoration: none;
+    margin: 0 auto;
+}
+
+.form .sign-in-google span{
+    opacity: 0.5;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #1F1F1F;
+}
+
+@media (max-width: 814px){
+    .form .sign-in-google{
+        width: 300px;
+    }
+}
