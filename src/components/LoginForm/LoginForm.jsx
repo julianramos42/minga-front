@@ -39,12 +39,12 @@ export default function LoginForm({renderRegister}) {
                 mail: res.data.user.mail,
                 photo: res.data.user.photo,
               }))
-              setInterval(() => window.location.href='/index', 1000)
+              setInterval(() => window.location.href='/', 1000)
             })
-            toast.success("Inicio Exitoso")
+            toast.success("Login Successful")
             dataForm.current.reset()
           }catch(error){
-            toast.error('Credenciales Incorrectas')
+            toast.error('Wrong Credentials')
         }      
     }
 
