@@ -12,58 +12,62 @@ import axios from 'axios'
 
 export default function ChaptherForm() {
     let dataForm = useRef()
-    let {manga_id} = useParams()
-    async function handleSubmit(e){
+    let { manga_id } = useParams()
+    async function handleSubmit(e) {
         e.preventDefault()
 
         let formInputs = []
-        
-        Object.values(dataForm.current).forEach( (e) => {
-            if(e.name){
+
+        Object.values(dataForm.current).forEach((e) => {
+            if (e.name) {
                 formInputs.push(e.value)
             }
-        } )
+        })
 
         let data = {
-            title : formInputs[0],
+            title: formInputs[0],
             order: formInputs[1],
             pages: formInputs[2].split(','),
             manga_id,
         }
         let url = 'http://localhost:8080/chapthers'
         let token = localStorage.getItem('token')
-        let headers = {headers:{'Authorization':`Bearer ${token}`}}
-        
-        try{
-            await axios.post(url,data,headers)
-           
-           toast.success('Chapther created')
-            dataForm.current.reset()
-          }catch(error){
+        let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
-            if(typeof error.response.data.message === 'string'){
-                toast.error(error.response.data.message)
-               }else{
-                error.response.data.message.forEach(err => toast.error(err))
-               }
-        }      
+        try {
+            await axios.post(url, data, headers)
+
+            toast.success('Chapther created')
+            dataForm.current.reset()
+        } catch (error) {
+            if (error.response.data === 'Unauthorized') {
+                toast.error('You need to Login')
+            } else {
+                if (typeof error.response.data.message === 'string') {
+                    toast.error(error.response.data.message)
+                } else {
+                    error.response.data.message.forEach(err => toast.error(err))
+                }
+
+            }
+        }
     }
 
-  return (
-    <div className='chapther'>
-        <div className='chapther-content'>
-            <section className='new-chapther'>
-                <H2 text='New Chapther' />
-                <Image src={pic} />
-            </section>
-            <form className='chapther-form' ref={dataForm} onSubmit={handleSubmit}>
-                <Input className='chapther-input' type='text' name='title' placeholder='Insert Title'/>
-                <Input className='chapther-input' type='text' name='order' placeholder='Insert order'/>
-                <Input className='chapther-input' type='text' name='pages' placeholder='Insert pages'/>
-                <SendBtn />
-                <Toaster />
-            </form>
+    return (
+        <div className='chapther'>
+            <div className='chapther-content'>
+                <section className='new-chapther'>
+                    <H2 text='New Chapther' />
+                    <Image src={pic} />
+                </section>
+                <form className='chapther-form' ref={dataForm} onSubmit={handleSubmit}>
+                    <Input className='chapther-input' type='text' name='title' placeholder='Insert Title' />
+                    <Input className='chapther-input' type='text' name='order' placeholder='Insert order' />
+                    <Input className='chapther-input' type='text' name='pages' placeholder='Insert pages' />
+                    <SendBtn />
+                    <Toaster />
+                </form>
+            </div>
         </div>
-    </div>
-  )
+    )
 }

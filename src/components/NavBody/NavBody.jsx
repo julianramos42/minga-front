@@ -17,9 +17,12 @@ export default function NavBody({handleRender}) {
             localStorage.setItem('user', "")
             handleRender()
           }catch(error){
-            console.log(error)
-            toast.error("Something Went Wrong")
-        }      
+            if(typeof error.response.data.message === 'string'){
+             toast.error(error.response.data.message)
+            }else{
+             error.response.data.message.forEach(err => toast.error(err))
+            }
+        } 
     }
 
     return (
