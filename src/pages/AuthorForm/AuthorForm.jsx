@@ -32,7 +32,7 @@ export default function AuthorForm() {
             [formInputs[4].name]: formInputs[4].value,
         }
 
-        let url = 'http://localhost:8080/author-form'
+        let url = 'http://localhost:8080/authors'
         let token = localStorage.getItem('token')
         let headers = {headers:{'Authorization':`Bearer ${token}`}}
 
