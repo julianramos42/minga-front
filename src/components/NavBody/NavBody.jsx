@@ -2,7 +2,7 @@ import React from 'react'
 import './navBody.css'
 import { Link as Anchor } from 'react-router-dom'
 import axios from 'axios'
-import toast, { Toaster } from 'react-hot-toast'
+import toast from 'react-hot-toast'
 
 export default function NavBody({handleRender}) {
     let token = localStorage.getItem('token')
@@ -29,6 +29,7 @@ export default function NavBody({handleRender}) {
             <Anchor to='/'>My mangas</Anchor>
             <Anchor to='/'>Favourites</Anchor> */}
             <Anchor to='/auth'>Auth</Anchor>
+            
             { token ? <Anchor onClick={handleLogout}>Logout</Anchor>: <><Anchor to='/register' onClick={handleRender}>Register</Anchor><Anchor to='/signin' onClick={handleRender}>Login</Anchor></> }
         </div>
     )

@@ -39,7 +39,7 @@ export default function LoginForm({renderRegister}) {
                 mail: res.data.user.mail,
                 photo: res.data.user.photo,
               }))
-              setInterval(() => window.location.href='/index', 1000)
+              setInterval(() => window.location.href='/', 1000)
             })
             toast.success("Inicio Exitoso")
             dataForm.current.reset()
