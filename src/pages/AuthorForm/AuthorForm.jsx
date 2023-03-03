@@ -41,7 +41,15 @@ export default function AuthorForm() {
             toast.success("New Author Created")
             dataForm.current.reset()
         }catch(error){
-            toast.error("Something Went Wrong")
+            if(error.response.data === 'Unauthorized'){
+                toast.error('You need to Login')
+            }else{
+                if(typeof error.response.data.message === 'string'){
+                 toast.error(error.response.data.message)
+                }else{
+                 error.response.data.message.forEach(err => toast.error(err))
+                }
+            }
         }
     }
 
