@@ -1,0 +1,10 @@
+.mangas{
+    min-height: 100vh;
+    padding-top: 9.763vh;
+}
+
+.mangas .title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
