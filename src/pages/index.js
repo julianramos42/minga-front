@@ -2,6 +2,7 @@ import Hero from "./Hero/Hero";
 import IndexLayout from "../layouts/IndexLayout/IndexLayout";
 import MainLayout from '../layouts/MainLayout/MainLayout'
 import Index from "./Index/Index";
+import MangaForm from "./MangaForm/MangaForm";
 import AuthForm from "./AuthForm/AuthForm";
 import ChaptherForm from "./ChaptherForm/ChaptherForm";
 import AuthorForm from './AuthorForm/AuthorForm'
@@ -27,7 +28,8 @@ export const router = createBrowserRouter([
             { path: '/signin' , element: <AuthForm state='login'/> },
             { path: '/chapther-form/:manga_id' , element: <ChaptherForm /> },
             { path: '/author-form' , element: <AuthorForm /> },
-            { path: '/comics/:page' , element: <Comics /> }
+            { path: '/comics/:page' , element: <Comics /> },
+            {path: "/manga-form", element:<MangaForm/>}
         ]
     }
 ])
