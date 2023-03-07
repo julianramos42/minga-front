@@ -7,3 +7,4 @@ export default function SendBtn() {
     <Input className='send' type='submit' value='Send'/>
   )
 }
+
