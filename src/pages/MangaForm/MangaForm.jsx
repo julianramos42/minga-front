@@ -5,7 +5,9 @@ import SendBtn from '../../components/SendBtn/SendBtn'
 import pic from '../../images/navBarProfile.png'
 import { useRef } from 'react';
 import './mangaForm.css';
+import toast, { Toaster } from "react-hot-toast";
 import axios from 'axios';
+
 
 export default function CreateManga() {
     const [categorias, setCategorias ] = useState([])
@@ -21,14 +23,13 @@ export default function CreateManga() {
         e.preventDefault();
 
         if (isDisabled) {
-          alert("falta categoria");
+          toast.error("Select a category");
           return;
         }
 
         const filteredCategory = categorias.find((category) => (category.name == categoria))
         let manga = {
             title: title.current.value,
-            categoria: categoria,
             description: description.current.value,
             cover_photo: coverPhoto.current.value,
             category_id: filteredCategory._id     
@@ -40,12 +41,12 @@ export default function CreateManga() {
         console.log(manga)
     try {
         await axios.post(url, manga, headers)
-        alert("Manga created successfully")
+        toast.success("Manga created successfully")
             e.target.reset()
     
     } catch (error) {
         console.log(error)
-        console.log("ocurrio un error")
+        toast.error("Cant create manga");
     }
     }
     
@@ -56,25 +57,51 @@ export default function CreateManga() {
     console.log(categorias)
 
 return (
-    <div className='author'>
-        <div className='author-content'>
-            <section className='new-author'>
-                <H2 text='New Manga' />
-                <Image src={pic} />
-            </section>
-            <form className='author-form' onSubmit={handleSubmit}>
-                    <input className='author-input' type='text' placeholder='Insert title' ref={title} />
-                    <select className='author-input' id='selectMove' ref={category} onClick={renderCategory} onChange={(e)=> setCategoria(e.target.value)}>
-                    <option value=''> Insert category</option>
-                        {categorias.map(categoria =>  <option key={categoria.name} value={categoria.name}>{categoria.name}</option>)}
-                    </select>
-                    <input className='author-input' type='text' placeholder='Insert description' ref={description} />
-                    <input className='author-input' type='text' placeholder='Insert cover photo' ref={coverPhoto} />
-                    <SendBtn/>
-            </form>
-        </div>
+  <div className="author">
+    <div className="author-content">
+      <section className="new-author">
+        <H2 text="New Manga" />
+        <Image src={pic} />
+      </section>
+      <form className="author-form" onSubmit={handleSubmit}>
+        <input
+          className="author-input"
+          type="text"
+          placeholder="Insert title"
+          ref={title}
+        />
+        <select
+          className="author-input"
+          id="selectMove"
+          ref={category}
+          onClick={renderCategory}
+          onChange={(e) => setCategoria(e.target.value)}
+        >
+          <option value=""> Insert category</option>
+          {categorias.map((categoria) => (
+            <option key={categoria.name} value={categoria.name}>
+              {categoria.name}
+            </option>
+          ))}
+        </select>
+        <input
+          className="author-input"
+          type="text"
+          placeholder="Insert description"
+          ref={description}
+        />
+        <input
+          className="author-input"
+          type="text"
+          placeholder="Insert cover photo"
+          ref={coverPhoto}
+        />
+        <SendBtn />
+        <Toaster />
+      </form>
     </div>
-)
+  </div>
+);
 }
 
 
