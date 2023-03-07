@@ -34,11 +34,11 @@ export default function CreateManga() {
             cover_photo: coverPhoto.current.value,
             category_id: filteredCategory._id     
         };
-        console.log({filteredCategory});
+        
         const url = 'http://localhost:8080/mangas'
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-        console.log(manga)
+        // console.log(manga)
     try {
         await axios.post(url, manga, headers)
         toast.success("Manga created successfully")
