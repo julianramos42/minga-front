@@ -1,0 +1,64 @@
+.author{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.author .author-content{
+    width: 65.11vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6.54vh;
+}
+
+.author .author-content .new-author{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5.04vh;
+}
+
+.author .author-content .new-author h2{
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+    text-align: center;
+    width: 69.0625vw;
+}
+
+.author .author-content .new-author img{
+    width: 88px;
+    height: 88px;
+    border-radius: 50px;
+}
+
+.author .author-content .author-form{
+    display: flex;
+    flex-direction: column;
+    gap: 5.364vh;
+}
+
+.author .author-content .author-form .author-input{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #424242;;
+    height: 2.467vh;
+}
+#selectMove {
+    border: 0;
+    width: 70vw;
+    color: gray;
+    font-size: 0.9rem;
+    background-color: transparent;
+    border-bottom: 1px solid black;
+}
+.bor{
+    border: none;
+}
+fieldset{
+    border: none;
+}
