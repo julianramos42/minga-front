@@ -57,21 +57,21 @@ export default function CreateManga() {
     console.log(categorias)
 
 return (
-  <div className="author">
-    <div className="author-content">
-      <section className="new-author">
+  <div className="manga">
+    <div className="manga-content">
+      <section className="new-manga">
         <H2 text="New Manga" />
         <Image src={pic} />
       </section>
-      <form className="author-form" onSubmit={handleSubmit}>
+      <form className="manga-form" onSubmit={handleSubmit}>
         <input
-          className="author-input"
+          className="manga-input"
           type="text"
           placeholder="Insert title"
           ref={title}
         />
         <select
-          className="author-input"
+          className="manga-input"
           id="selectMove"
           ref={category}
           onClick={renderCategory}
@@ -85,13 +85,13 @@ return (
           ))}
         </select>
         <input
-          className="author-input"
+          className="manga-input"
           type="text"
           placeholder="Insert description"
           ref={description}
         />
         <input
-          className="author-input"
+          className="manga-input"
           type="text"
           placeholder="Insert cover photo"
           ref={coverPhoto}
