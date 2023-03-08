@@ -1,0 +1,96 @@
+.mangas .mangas-displayed .mangas-cards{
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    align-items: center;
+}
+
+.mangas .mangas-displayed .mangas-cards .card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 65vw; /*325px*/
+    height: 144px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    gap: 8px;
+}
+
+.mangas .mangas-displayed .mangas-cards .card .card-text{
+    display: flex;
+    align-items: center;
+    width: 25vw;
+    height: 100%;
+    gap: 15px;
+}
+
+.mangas .mangas-displayed .mangas-cards .card-text .card-color{
+    height: 95px;
+    background: #FC9C57;
+    border: 3px solid #FC9C57;
+}
+
+.mangas .mangas-displayed .mangas-cards .card .card-text .text{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 25vw;
+}
+
+.mangas .mangas-displayed .mangas-cards .card .card-text .text h2{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 95.19%;
+    color: #222222;
+    inline-size: 23vw;
+    overflow-wrap: break-word;
+}
+
+.mangas .mangas-displayed .mangas-cards .card .card-text .text span{
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 95.19%;
+    width: 100%;
+    color: #FC9C57;
+}
+
+.mangas .mangas-displayed .mangas-cards .card .card-img{
+    width: 162px;
+    height: 100%;
+    padding-left: 15px;
+}
+
+.mangas .mangas-displayed .mangas-cards .card .card-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 40% 10px 10px 40%;
+    object-position: 50%;
+    object-fit: cover;
+}
+
+@media (max-width: 500px){
+    .mangas .mangas-displayed .mangas-cards .card{
+        width: 325px;
+    }
+
+    .mangas .mangas-displayed .mangas-cards .card .card-text{
+        width: 50%;
+    }    
+
+    .mangas .mangas-displayed .mangas-cards .card .card-text .text{
+        width: 100%;
+    }
+
+    .mangas .mangas-displayed .mangas-cards .card .card-text .text h2{
+        inline-size: 137px;
+    }
+}
+
+@media (max-width: 429px){
+    .mangas .mangas-displayed .mangas-cards .card{
+        width: 300px;
+    }
+}
