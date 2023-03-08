@@ -1,6 +1,5 @@
 import React from 'react'
 import './mangasType.css'
-import H2 from '../H2/H2'
 import Image from '../Image/Image'
 import sort from '../../images/sort.svg'
 import { useState, useEffect} from 'react'
@@ -17,12 +16,12 @@ export default function MangasType() {
     const dispatch = useDispatch()
 
     let checkedCategories = useSelector(store => store.categories.categories)
-    // checkedCategories
+
     let categoriesUrl = "http://localhost:8080/api/categories"
 
     useEffect(() => {
         axios.get(categoriesUrl).then(e => setCategories(e.data.categories))
-    }, [])
+    })
     
     function prueba(e){
         categories.forEach( category => {
@@ -30,7 +29,7 @@ export default function MangasType() {
                 if(!categoriesCheck.includes(category._id)){
                     categoriesCheck.push(category._id)
                 }else{
-                    categoriesCheck = categoriesCheck.filter( e => e != category._id )
+                    categoriesCheck = categoriesCheck.filter( e => e !== category._id )
                 }
                 dispatch(captureCheck({categories: categoriesCheck.join()}))
             }

@@ -5,18 +5,8 @@ import MangasTitle from '../../components/MangasTitle/MangasTitle'
 import MangasCategories from '../../components/MangasCategories/MangasCategories'
 import MangasType from '../../components/MangasType/MangasType'
 import MangasCards from '../../components/MangasCards/MangasCards'
-import { useState, useEffect } from 'react'
 
 export default function Comics() {
-  const [querys,setQuerys] = useState("")
-
-  useEffect( () => {
-    
-  },[querys])
-
-  function prueba(e){
-    setQuerys(e)
-  }
 
   return (
     <div className='mangas'>

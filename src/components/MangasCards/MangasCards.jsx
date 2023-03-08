@@ -11,23 +11,23 @@ export default function MangasCards() {
     let text = useSelector(store => store.text.text) // TEXTO DEL BUSCADOR
     let mangas = useSelector(store => store.events.events)
     let categories = useSelector(store => store.categories.categories)
- 
-    const {read_events} = eventsActions
+
+    const { read_events } = eventsActions
     const dispatch = useDispatch()
 
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
-    useEffect( () => {
-        if(!mangas.lenght){
-            dispatch(read_events({inputText: text, categories: categories, headers }))
+    useEffect(() => {
+        if (!mangas.lenght) {
+            dispatch(read_events({ inputText: text, categories: categories, headers }))
         }
-    },[text,categories])
+    }, [text, categories])
 
     return (
         <div className='mangas-cards'>
             {
-                mangas ? mangas.map((manga,i) => {
+                mangas.length ? mangas.map((manga, i) => {
                     let card = <section className='card' key={i}>
                         <div className='card-text'>
                             <div className='card-color'></div>
@@ -41,7 +41,7 @@ export default function MangasCards() {
                         </div>
                     </section>
                     return card
-                }) : ""
+                }) : <H2 text='No mangas founded' />
             }
         </div>
     )
