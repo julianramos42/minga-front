@@ -8,8 +8,15 @@ import SendBtn from '../../components/SendBtn/SendBtn'
 import { useRef } from 'react'
 import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast'
+import { useDispatch, useSelector } from 'react-redux'
+import alertActions from '../../store/Alert/actions'
+
+const { open, close } = alertActions
 
 export default function AuthorForm() {
+    const store = useSelector(store => store)
+    let dispatch = useDispatch()
+
     let dataForm = useRef()
 
     async function handleSubmit(e){
@@ -32,7 +39,19 @@ export default function AuthorForm() {
             [formInputs[4].name]: formInputs[4].value,
         }
 
-        let url = 'http://localhost:8080/authors'
+        let dataOpen = {
+            icon: 'success',
+            text: 'redux'
+        }
+
+        let dataClose = {
+            icon: 'error',
+            text: 'redux'
+        }
+
+        dispatch(open(dataOpen))
+
+        let url = 'http://localhost:8080/api/authors'
         let token = localStorage.getItem('token')
         let headers = {headers:{'Authorization':`Bearer ${token}`}}
 
