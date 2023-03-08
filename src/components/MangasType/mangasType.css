@@ -1,7 +1,7 @@
 .mangas .mangas-displayed .mangas-type{
     display: flex;
     justify-content: center;
-    gap: 5px;
+    gap: 8px;
 }
 
 .mangas .mangas-displayed .mangas-type .category-Shōnen,
@@ -16,47 +16,41 @@
     height: 35px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 50px;
-}
-
-.mangas .mangas-displayed .mangas-type .category-Shōnen h2,
-.mangas .mangas-displayed .mangas-type .category-Manhwa h2,
-.mangas .mangas-displayed .mangas-type .category-Shōjo h2,
-.mangas .mangas-displayed .mangas-type .category-Seinen h2{
     font-weight: 500;
     font-size: 12px;
     line-height: 95.19%;
 }
 
-.mangas .mangas-displayed .mangas-type .category-Shōnen{
-    background: #FFE0DF;
+.mangas .mangas-displayed .mangas-type .category-Shōnen:hover,
+.mangas .mangas-displayed .mangas-type .category-Manhwa:hover,
+.mangas .mangas-displayed .mangas-type .category-Shōjo:hover,
+.mangas .mangas-displayed .mangas-type .category-Seinen:hover{
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
-.mangas .mangas-displayed .mangas-type .category-Shōnen h2{
+.mangas .mangas-displayed .mangas-type .category-Shōnen{
+    background: #FFE0DF;
     color: #EF8481;
 }
 
 .mangas .mangas-displayed .mangas-type .category-Seinen{
     background: #FFDFC8;
-}
-
-.mangas .mangas-displayed .mangas-type .category-Seinen h2{
     color: #FC9C57;
 }
 
 .mangas .mangas-displayed .mangas-type .category-Shōjo{
     background: #D1FBF0;
-}
-
-.mangas .mangas-displayed .mangas-type .category-Shōjo h2{
     color: #00BA88;
 }
 
 .mangas .mangas-displayed .mangas-type .category-Manhwa{
     background: #E0DBFF;
+    color: #8883F0;
 }
 
-.mangas .mangas-displayed .mangas-type .category-Manhwa h2{
-    color: #8883F0;
+.checked{
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 1) !important;
 }
 
 @media (max-width: 500px){

@@ -2,25 +2,33 @@ import React from 'react'
 import './mangasCards.css'
 import H2 from '../H2/H2'
 import Image from '../../components/Image/Image'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useEffect } from 'react'
+import eventsActions from '../../store/Events/actions'
+import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 export default function MangasCards() {
-    const [mangas, setMangas] = useState(false)
+    let text = useSelector(store => store.text.text) // TEXTO DEL BUSCADOR
+    let mangas = useSelector(store => store.events.events)
+    let categories = useSelector(store => store.categories.categories)
+ 
+    const {read_events} = eventsActions
+    const dispatch = useDispatch()
 
-    let mangasUrl = "http://localhost:8080/api/mangas"
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
-    useEffect(() => {
-        axios.get(mangasUrl, headers).then(e => setMangas(e.data.mangas))
-    }, [])
+    useEffect( () => {
+        if(!mangas.lenght){
+            dispatch(read_events({inputText: text, categories: categories, headers }))
+        }
+    },[text,categories])
 
     return (
         <div className='mangas-cards'>
             {
-                mangas ? mangas.map(manga => {
-                    let card = <section className='card'>
+                mangas ? mangas.map((manga,i) => {
+                    let card = <section className='card' key={i}>
                         <div className='card-text'>
                             <div className='card-color'></div>
                             <div className='text'>

@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 65vw; /*325px*/
+    width: 450px;
     height: 144px;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
@@ -20,7 +20,7 @@
 .mangas .mangas-displayed .mangas-cards .card .card-text{
     display: flex;
     align-items: center;
-    width: 25vw;
+    width: 40%;
     height: 100%;
     gap: 15px;
 }
@@ -37,7 +37,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    width: 25vw;
+    width: 100%;
 }
 
 .mangas .mangas-displayed .mangas-cards .card .card-text .text h2{

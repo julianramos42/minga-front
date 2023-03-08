@@ -29,6 +29,10 @@
     width: 37px;
 }
 
+.mangas .title .search-bar form{
+    width: 100%;
+}
+
 .mangas .title .search-bar input{
     border: none;
     outline: none;
