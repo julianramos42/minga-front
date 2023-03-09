@@ -7,12 +7,13 @@ import eventsActions from '../../store/Events/actions'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import { Link as Anchor } from 'react-router-dom'
 
 export default function MangasCards() {
     let text = useSelector(store => store.text.text) // TEXTO DEL BUSCADOR
     let mangas = useSelector(store => store.events.events)
     let categories = useSelector(store => store.categories.categories)
-    let order = useSelector(store => store.order.order )
+    let order = useSelector(store => store.order.order)
     let page = useParams().page
 
     const { read_events } = eventsActions
@@ -31,18 +32,20 @@ export default function MangasCards() {
         <div className='mangas-cards'>
             {
                 mangas.length ? mangas.map((manga, i) => {
-                    let card = <section className='card' key={i}>
-                        <div className='card-text'>
-                            <div className='card-color'></div>
-                            <div className='text'>
-                                <H2 text={manga.title} />
-                                <span>{manga.category_id.name}</span>
+                    let card = <Anchor className='card-anchor' to={'/mangas/'+manga._id+"/1"} key={i}>
+                        <section className='card'>
+                            <div className='card-text'>
+                                <div className='card-color'></div>
+                                <div className='text'>
+                                    <H2 text={manga.title} />
+                                    <span>{manga.category_id.name}</span>
+                                </div>
                             </div>
-                        </div>
-                        <div className='card-img'>
-                            <Image src={manga.cover_photo} alt='manga-image' />
-                        </div>
-                    </section>
+                            <div className='card-img'>
+                                <Image src={manga.cover_photo} alt='manga-image' />
+                            </div>
+                        </section>
+                    </Anchor>
                     return card
                 }) : <H2 text='No mangas founded' />
             }
