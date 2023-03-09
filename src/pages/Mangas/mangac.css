@@ -1,0 +1,16 @@
+.mangaChapter{
+    min-height: 100vh;
+    padding-top: 9.763vh;
+    
+}
+.inicio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 9.763vh;
+
+}
+.img-part-one{
+    width: 40%;
+    height: 30%;
+}
