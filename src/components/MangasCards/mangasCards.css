@@ -5,6 +5,14 @@
     align-items: center;
 }
 
+.mangas .mangas-displayed .mangas-cards .card-anchor{
+    text-decoration: none;
+}
+
+.mangas .mangas-displayed .mangas-cards .card-anchor:hover{
+    transform: scale(1.1);
+}
+
 .mangas .mangas-displayed .mangas-cards .card{
     display: flex;
     align-items: center;
