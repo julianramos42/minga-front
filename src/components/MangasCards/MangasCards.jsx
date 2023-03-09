@@ -27,8 +27,6 @@ export default function MangasCards() {
         }
     }, [page, text, categories, order])
 
-    console.log(mangas)
-
     return (
         <div className='mangas-cards'>
             {
