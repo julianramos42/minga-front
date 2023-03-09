@@ -53,6 +53,11 @@
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 1) !important;
 }
 
+.mangas .mangas-displayed .mangas-type .mangas-sort:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 @media (max-width: 500px){
     .mangas .mangas-displayed .mangas-type .category-Shōnen, .mangas .mangas-displayed .mangas-type .category-Manhwa, .mangas .mangas-displayed .mangas-type .category-Shōjo, .mangas .mangas-displayed .mangas-type .category-Seinen{
         width: 60px;

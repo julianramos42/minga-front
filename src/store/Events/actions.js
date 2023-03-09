@@ -3,9 +3,9 @@ import axios from "axios";
 
 const read_events = createAsyncThunk(
     'read_events',
-    async ({ inputText, categories, headers }) => {
+    async ({ inputText, categories, order, headers }) => {
         try{
-            let response = await axios.get("http://localhost:8080/api/mangas?title="+inputText.trim()+"&category="+categories,headers)
+            let response = await axios.get("http://localhost:8080/api/mangas?title="+inputText.trim()+"&category="+categories+"&order="+order,headers)
             return { events: response.data.mangas }
         }catch(error){
             return { events: '' }

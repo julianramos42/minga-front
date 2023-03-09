@@ -11,6 +11,7 @@ export default function MangasCards() {
     let text = useSelector(store => store.text.text) // TEXTO DEL BUSCADOR
     let mangas = useSelector(store => store.events.events)
     let categories = useSelector(store => store.categories.categories)
+    let order = useSelector(store => store.order.order )
 
     const { read_events } = eventsActions
     const dispatch = useDispatch()
@@ -20,9 +21,9 @@ export default function MangasCards() {
 
     useEffect(() => {
         if (!mangas.lenght) {
-            dispatch(read_events({ inputText: text, categories: categories, headers }))
+            dispatch(read_events({ inputText: text, categories: categories, order: order, headers }))
         }
-    }, [text, categories])
+    }, [text, categories, order])
 
     return (
         <div className='mangas-cards'>
