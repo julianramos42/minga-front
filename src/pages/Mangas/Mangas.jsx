@@ -5,8 +5,25 @@ import MangasTitle from '../../components/MangasTitle/MangasTitle'
 import MangasCategories from '../../components/MangasCategories/MangasCategories'
 import MangasType from '../../components/MangasType/MangasType'
 import MangasCards from '../../components/MangasCards/MangasCards'
+import { Link as Anchor } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export default function Comics() {
+  let page = Number(useParams().page)
+  let mangas = useSelector(store => store.events.events)
+  
+  function handlePrev(){
+    if(page != 1){
+      page -= 1
+      window.location.pathname = "/mangas/"+page
+    }
+  }
+
+  function handleNext(){
+    page += 1
+      window.location.pathname = "/mangas/"+page
+  }
 
   return (
     <div className='mangas'>
@@ -18,6 +35,10 @@ export default function Comics() {
         <MangasCategories />
         <MangasType />
         <MangasCards />
+        <div className='page-btns'>
+          { page == 1 ? "" : <Anchor className='prev' onClick={handlePrev}>Prev</Anchor> }
+          { mangas.length ? <Anchor className='next' onClick={handleNext}>Next</Anchor> : "" }
+        </div>
       </section>
 
     </div>

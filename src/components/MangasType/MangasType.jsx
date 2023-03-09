@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 
 let categoriesCheck = []
+let order = 1
 
 export default function MangasType() {
     const [categories, setCategories] = useState(false)
@@ -39,11 +40,11 @@ export default function MangasType() {
     }
 
     const { captureSort } = sortActions
-    let order = 1
+    
     function handleSort(){
         if(order === 1){
             order = -1
-        }else if(order === -1){
+        }else if(order == -1){
             order = 1
         }
         dispatch(captureSort({order}))

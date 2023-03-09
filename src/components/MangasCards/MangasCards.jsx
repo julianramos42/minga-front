@@ -6,12 +6,14 @@ import { useEffect } from 'react'
 import eventsActions from '../../store/Events/actions'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
 
 export default function MangasCards() {
     let text = useSelector(store => store.text.text) // TEXTO DEL BUSCADOR
     let mangas = useSelector(store => store.events.events)
     let categories = useSelector(store => store.categories.categories)
     let order = useSelector(store => store.order.order )
+    let page = useParams().page
 
     const { read_events } = eventsActions
     const dispatch = useDispatch()
@@ -21,9 +23,9 @@ export default function MangasCards() {
 
     useEffect(() => {
         if (!mangas.lenght) {
-            dispatch(read_events({ inputText: text, categories: categories, order: order, headers }))
+            dispatch(read_events({ page: page, inputText: text, categories: categories, order: order, headers }))
         }
-    }, [text, categories, order])
+    }, [page, text, categories, order])
 
     return (
         <div className='mangas-cards'>

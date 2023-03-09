@@ -26,10 +26,10 @@ export const router = createBrowserRouter([
         children: [
             { path: '/register' , element: <AuthForm state='register'/> },
             { path: '/signin' , element: <AuthForm state='login'/> },
-            { path: '/chapther-form/:manga_id' , element: <ChaptherForm /> },
+            { path: '/chapter-form/:manga_id' , element: <ChaptherForm /> },
             { path: '/author-form' , element: <AuthorForm /> },
             { path: '/mangas/:page' , element: <Mangas /> },
-            {path: "/manga-form", element:<MangaForm/>}
+            { path: "/manga-form", element: <MangaForm/> }
         ]
     }
 ])

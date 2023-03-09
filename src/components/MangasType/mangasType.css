@@ -4,10 +4,10 @@
     gap: 8px;
 }
 
-.mangas .mangas-displayed .mangas-type .category-Shōnen,
-.mangas .mangas-displayed .mangas-type .category-Manhwa,
-.mangas .mangas-displayed .mangas-type .category-Shōjo,
-.mangas .mangas-displayed .mangas-type .category-Seinen{
+.mangas .mangas-displayed .mangas-type .category-shonen,
+.mangas .mangas-displayed .mangas-type .category-comic,
+.mangas .mangas-displayed .mangas-type .category-shojo,
+.mangas .mangas-displayed .mangas-type .category-seinen{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,30 +21,30 @@
     line-height: 95.19%;
 }
 
-.mangas .mangas-displayed .mangas-type .category-Shōnen:hover,
-.mangas .mangas-displayed .mangas-type .category-Manhwa:hover,
-.mangas .mangas-displayed .mangas-type .category-Shōjo:hover,
-.mangas .mangas-displayed .mangas-type .category-Seinen:hover{
+.mangas .mangas-displayed .mangas-type .category-shonen:hover,
+.mangas .mangas-displayed .mangas-type .category-comic:hover,
+.mangas .mangas-displayed .mangas-type .category-shojo:hover,
+.mangas .mangas-displayed .mangas-type .category-seinen:hover{
     cursor: pointer;
     transform: scale(1.1);
 }
 
-.mangas .mangas-displayed .mangas-type .category-Shōnen{
+.mangas .mangas-displayed .mangas-type .category-shonen{
     background: #FFE0DF;
     color: #EF8481;
 }
 
-.mangas .mangas-displayed .mangas-type .category-Seinen{
+.mangas .mangas-displayed .mangas-type .category-seinen{
     background: #FFDFC8;
     color: #FC9C57;
 }
 
-.mangas .mangas-displayed .mangas-type .category-Shōjo{
+.mangas .mangas-displayed .mangas-type .category-shojo{
     background: #D1FBF0;
     color: #00BA88;
 }
 
-.mangas .mangas-displayed .mangas-type .category-Manhwa{
+.mangas .mangas-displayed .mangas-type .category-comic{
     background: #E0DBFF;
     color: #8883F0;
 }
@@ -59,7 +59,7 @@
 }
 
 @media (max-width: 500px){
-    .mangas .mangas-displayed .mangas-type .category-Shōnen, .mangas .mangas-displayed .mangas-type .category-Manhwa, .mangas .mangas-displayed .mangas-type .category-Shōjo, .mangas .mangas-displayed .mangas-type .category-Seinen{
+    .mangas .mangas-displayed .mangas-type .category-shonen, .mangas .mangas-displayed .mangas-type .category-comic, .mangas .mangas-displayed .mangas-type .category-shojo, .mangas .mangas-displayed .mangas-type .category-seinen{
         width: 60px;
     }
 }
