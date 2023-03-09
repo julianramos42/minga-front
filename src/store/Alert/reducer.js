@@ -15,7 +15,7 @@ const alertReducer = createReducer(
         .addCase(
             open,
             (state, action) => {
-                const newState = { 
+                let newState = { 
                     ...state,
                     icon: action.payload.icon,
                     text: action.payload.text,

@@ -1,5 +1,5 @@
 import React from 'react'
-import './chaptherForm.css'
+import './chapterForm.css'
 import H2 from '../../components/H2/H2'
 import Image from '../../components/Image/Image'
 import pic from '../../images/navBarProfile.png'
@@ -10,7 +10,7 @@ import { useParams } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast'
 import axios from 'axios'
 
-export default function ChaptherForm() {
+export default function ChapterForm() {
     let dataForm = useRef()
     let { manga_id } = useParams()
     async function handleSubmit(e) {
@@ -30,14 +30,14 @@ export default function ChaptherForm() {
             pages: formInputs[2].split(','),
             manga_id,
         }
-        let url = 'http://localhost:8080/api/chapthers'
+        let url = 'http://localhost:8080/api/chapters'
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
         try {
             await axios.post(url, data, headers)
 
-            toast.success('Chapther created')
+            toast.success('Chapter created')
             dataForm.current.reset()
         } catch (error) {
             if (error.response.data === 'Unauthorized') {
@@ -54,16 +54,16 @@ export default function ChaptherForm() {
     }
 
     return (
-        <div className='chapther'>
-            <div className='chapther-content'>
-                <section className='new-chapther'>
-                    <H2 text='New Chapther' />
+        <div className='chapter'>
+            <div className='chapter-content'>
+                <section className='new-chapter'>
+                    <H2 text='New Chapter' />
                     <Image src={pic} />
                 </section>
-                <form className='chapther-form' ref={dataForm} onSubmit={handleSubmit}>
-                    <Input className='chapther-input' type='text' name='title' placeholder='Insert Title' />
-                    <Input className='chapther-input' type='text' name='order' placeholder='Insert order' />
-                    <Input className='chapther-input' type='text' name='pages' placeholder='Insert pages' />
+                <form className='chapter-form' ref={dataForm} onSubmit={handleSubmit}>
+                    <Input className='chapter-input' type='text' name='title' placeholder='Insert Title' />
+                    <Input className='chapter-input' type='text' name='order' placeholder='Insert order' />
+                    <Input className='chapter-input' type='text' name='pages' placeholder='Insert pages' />
                     <SendBtn />
                     <Toaster />
                 </form>

@@ -1,16 +1,213 @@
-.mangaChapter{
+.mangaChapter {
     min-height: 100vh;
     padding-top: 9.763vh;
-    
+
 }
-.inicio{
+
+.section1 {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-top: 9.763vh;
 
 }
-.img-part-one{
+
+.section1 h2 {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 95.19%;
+    color: #222222;
+    text-align: center;
+}
+
+.img-part-one {
     width: 40%;
     height: 30%;
+    margin-bottom: 5%;
+}
+
+.section2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.btn-section2 {
+    background-color: #FFE0DF;
+    color: #EF8481;
+    padding: 12px;
+    font-weight: 500;
+    font-size: 12px;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.274);
+    margin-left: 8%;
+}
+
+.companyName {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #9D9D9D;
+    margin-right: 8%;
+}
+
+.section3 {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.emojis {
+    width: 8%;
+    height: 8%;
+}
+
+.section4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rectangle-manga {
+    width: 50%;
+    height: 7rem;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1.5rem;
+
+}
+
+.rectangle-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.text1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #424242;
+    margin-bottom: 8px;
+}
+
+.text2 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    text-align: center;
+    color: #9D9D9D;
+}
+
+.text3 {
+    color: #9D9D9D;
+}
+
+.details-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border-radius: 50000px;
+    border: none;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
+    width: 280px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+
+}
+
+
+.manga-btn {
+    width: 80px;
+    height: 30px;
+    background: #EBEBEB;
+    border-radius: 50000px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #9D9D9D;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    margin: 0 12px;
+}
+
+.prueba {
+    background: linear-gradient(153.39deg, #F9A8D4 -13.9%, #F472B6 58.69%);
+    color: #FFFFFF;
+    margin: 0px;
+    width: 200px;
+}
+
+.description-manga p {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.sectionChapter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5%;
+    margin: 20px 0px 20px 0px;
+}
+.selecChapter {
+    width: 8%;
+    height: 6%;
+    border-radius: 8px;
+}
+
+.order-chapter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.coment-chapter {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.coment-chapter img {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-read {
+    width: 151px;
+    height: 74px;
+    background: linear-gradient(153.39deg, #F9A8D4 -13.9%, #F472B6 58.69%);
+    border-radius: 50000px;
+    border: none;
+    color: #FFFFFF;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+
 }
