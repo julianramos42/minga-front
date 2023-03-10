@@ -1,0 +1,67 @@
+.section1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 9.763vh;
+
+}
+
+.section1 h2 {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 95.19%;
+    color: #222222;
+    text-align: center;
+}
+
+.img-part-one {
+    width: 40%;
+    height: 30%;
+    margin-bottom: 5%;
+}
+
+.section2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.btn-section2 {
+    background-color: #FFE0DF;
+    color: #EF8481;
+    padding: 12px;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.274);
+    margin-left: 8%;
+}
+
+.companyName {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #9D9D9D;
+    margin-right: 8%;
+}
+
+@media (min-width:320px) and (max-width:768px) {
+    .img-part-one {
+        width: 80%;
+        height: 30%;
+        margin-bottom: 5%;
+    }
+    .btn-section2 {
+        font-weight: 500;
+        font-size: 12px;
+    }
+
+    .companyName {
+        font-weight: 500;
+        font-size: 17px;
+    }
+}
