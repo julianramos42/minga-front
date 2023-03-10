@@ -3,7 +3,7 @@ import './mangasCards.css'
 import H2 from '../H2/H2'
 import Image from '../../components/Image/Image'
 import { useEffect } from 'react'
-import eventsActions from '../../store/Events/actions'
+import mangasActions from '../../store/Mangas/actions'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
@@ -11,12 +11,12 @@ import { Link as Anchor } from 'react-router-dom'
 
 export default function MangasCards() {
     let text = useSelector(store => store.text.text) // TEXTO DEL BUSCADOR
-    let mangas = useSelector(store => store.events.events)
+    let mangas = useSelector(store => store.mangas.mangas)
     let categories = useSelector(store => store.categories.categories)
     let order = useSelector(store => store.order.order)
     let page = useParams().page
 
-    const { read_events } = eventsActions
+    const { read_mangas } = mangasActions
     const dispatch = useDispatch()
 
     let token = localStorage.getItem('token')
@@ -24,7 +24,7 @@ export default function MangasCards() {
 
     useEffect(() => {
         if (!mangas.lenght) {
-            dispatch(read_events({ page: page, inputText: text, categories: categories, order: order, headers }))
+            dispatch(read_mangas({ page: page, inputText: text, categories: categories, order: order, headers }))
         }
     }, [page, text, categories, order])
 

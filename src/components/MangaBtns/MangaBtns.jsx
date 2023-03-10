@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 
 export default function MangaBtns() {
     let page = Number(useParams().page)
-    let mangas = useSelector(store => store.events.events)
+    let mangas = useSelector(store => store.mangas.mangas)
 
     return (
         <div className='page-btns'>
