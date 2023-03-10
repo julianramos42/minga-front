@@ -6,7 +6,7 @@ import ChapterRead from '../../components/ChapterRead/ChapterRead'
 
 
 export default function MangaC(props) {
-        console.log(props)
+    
 
     return (
         <div className='mangaChapter'>
