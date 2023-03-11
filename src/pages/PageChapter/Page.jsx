@@ -1,51 +1,55 @@
-// import React, { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
+import React from 'react'
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
 
-// const Page = () => {
-//   const [currentPage, setCurrentPage] = useState(0);
-//   const { id, page } = useParams();
+export default function Page() {
+    const [chapter, setChapter] = useState(null);
+    const { id, page } = useParams();
+    const navigate = useNavigate()
+    const pageNumber = parseFloat(page)
+    
 
-//   useEffect(() => {
-//     setCurrentPage(parseInt(page));
-//   }, [page]);
+    useEffect(() => {
+        axios
+          .get(`http://localhost:8080/api/chapters/${id}`)
+          .then((response) => setChapter(response.data.Chapter))
+          .catch((error) => console.error(error));
+    },[id]);
 
-//   const handlePrevPage = () => {
-//     if (currentPage > 0) {
-//       setCurrentPage(currentPage - 1);
-//     }
-//   };
 
-//   const handleNextPage = () => {
-//     if (currentPage < pages.length - 1) {
-//       setCurrentPage(currentPage + 1);
-//     }
-//   };
+    const goNext = () => {
+        if(pageNumber === chapter.pages.length){
+            navigate(`/chapter/${id}/${1}`);
+        }else{
+          navigate(`/chapter/${id}/${pageNumber + 1}`);
+        }
 
-//   const handlePrevChapter = () => {
-//     // navigate to previous chapter
-//   };
+    }
+    const goBack = () => {
+      if (pageNumber === 1) {
+        navigate(`/chapter/${id}/${chapter.pages.length}`);
+      } else {
+        navigate(`/chapter/${id}/${pageNumber - 1}`);
+      }
+    };
 
-//   const handleNextChapter = () => {
-//     // navigate to next chapter
-//   };
+  return (
+    <div>
+      <div className="div-chapter2">
+        <div className="chapter2">
+          <p className="parrafo-chapter2"> n° de cap - nombre del capítulo </p>
+        </div>
+      </div>
+      <button onClick={goBack}>Back</button>
+      {chapter ? (
+        <img src={chapter.pages[page - 1]}></img>
+      ) : (
+        "no existe el capitulo"
+      )}
+      <button onClick={goNext}>Next</button>
+    </div>
+  );
+}
 
-//   return (
-//     <div>
-//       <img src={pages[currentPage].image} alt={`Page ${currentPage}`} />
 
-//       {currentPage === 0 ? (
-//         <div onClick={handlePrevChapter}>PREV</div>
-//       ) : (
-//         <div onClick={handlePrevPage}>PREV</div>
-//       )}
-
-//       {currentPage === pages.length - 1 ? (
-//         <div onClick={handleNextChapter}>NEXT</div>
-//       ) : (
-//         <div onClick={handleNextPage}>NEXT</div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Page;
