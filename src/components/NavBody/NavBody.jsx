@@ -7,7 +7,7 @@ import toast from 'react-hot-toast'
 export default function NavBody({handleRender}) {
     let token = localStorage.getItem('token')
     let headers = {headers:{'Authorization':`Bearer ${token}`}}
-    let url = 'http://localhost:8080/auth/signout'
+    let url = 'http://localhost:8080/api/auth/signout'
 
     async function handleLogout(){
         try{
@@ -28,7 +28,9 @@ export default function NavBody({handleRender}) {
     return (
         <div className='navBody'>
             <Anchor to='/'>Home</Anchor>
+            { token ? <Anchor to='/mangas/1'>Mangas</Anchor> : "" }
             { token ? <Anchor to='/author-form'>New Author</Anchor> : "" }
+            { token ? <Anchor to='/manga-form'>New Manga</Anchor> : "" }
             { token ? <Anchor onClick={handleLogout}>Logout</Anchor>: "" }
             { token ? "" : <Anchor to='/auth'>Auth</Anchor> }
             { token ? "" : <Anchor to='/register' onClick={handleRender}>Register</Anchor> }

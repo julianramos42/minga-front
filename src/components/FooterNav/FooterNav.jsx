@@ -12,8 +12,8 @@ export default function FooterNav() {
     return (
         <nav>
             <div className='pages'>
-                <Anchor to='/index'>Home</Anchor>
-                <Anchor>Mangas</Anchor>
+                <Anchor to='/'>Home</Anchor>
+                <Anchor to='/mangas/1'>Mangas</Anchor>
             </div>
             <div className='logo-container'>
                 <Image src={logo} alt='logo' />

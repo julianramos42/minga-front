@@ -35,10 +35,10 @@ export default function CreateManga() {
             category_id: filteredCategory._id     
         };
         console.log({filteredCategory});
-        const url = 'http://localhost:8080/mangas'
+        const url = 'http://localhost:8080/api/mangas'
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-        console.log(manga)
+        
     try {
         await axios.post(url, manga, headers)
         toast.success("Manga created successfully")
@@ -51,10 +51,9 @@ export default function CreateManga() {
     }
     
     async function renderCategory () {
-       await axios.get ('http://localhost:8080/mangas').then((response) => 
+       await axios.get ('http://localhost:8080/api/categories').then((response) => 
         { setCategorias(response.data.categories) } )
     }
-    console.log(categorias)
 
 return (
   <div className="manga">
