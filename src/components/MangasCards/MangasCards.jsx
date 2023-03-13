@@ -23,9 +23,7 @@ export default function MangasCards() {
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
     useEffect(() => {
-        if (!mangas.lenght) {
             dispatch(read_mangas({ page: page, inputText: text, categories: categories, order: order, headers }))
-        }
     }, [page, text, categories, order])
 
     return (
