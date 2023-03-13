@@ -7,14 +7,6 @@
     width: 68.75vw;
 }
 
-.mangas .mangas-displayed .mangas-cards .card-anchor{
-    text-decoration: none;
-}
-
-.mangas .mangas-displayed .mangas-cards .card-anchor:hover{
-    transform: scale(1.1);
-}
-
 .mangas .mangas-displayed .mangas-cards .card{
     display: flex;
     align-items: center;
@@ -45,9 +37,10 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 5px;
+    justify-content: end;
+    gap: 25px;
     width: 100%;
+    margin-bottom: 35%;
 }
 
 .mangas .mangas-displayed .mangas-cards .card .card-text .text h2{
@@ -66,6 +59,26 @@
     line-height: 95.19%;
     width: 100%;
     color: #FC9C57;
+}
+
+.mangas .mangas-displayed .mangas-cards .card .card-text .text .card-anchor{
+    text-decoration: none;
+    background: rgba(209, 251, 240, 1);
+    width: 92px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+    border-radius: 50px;
+    color: #00BA88;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 95.19%;
+}
+
+.mangas .mangas-displayed .mangas-cards .card .card-text .text .card-anchor:hover{
+    transform: scale(1.1);
 }
 
 .mangas .mangas-displayed .mangas-cards .card .card-img{
@@ -108,6 +121,10 @@
     .mangas .mangas-displayed .mangas-cards .card{
         width: 68.75vw;
         height: 144px;
+    }
+
+    .mangas .mangas-displayed .mangas-cards .card .card-text .text{
+        margin-bottom: 15%;
     }
 }
 

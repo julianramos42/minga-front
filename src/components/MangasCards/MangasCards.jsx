@@ -23,27 +23,29 @@ export default function MangasCards() {
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
     useEffect(() => {
-            dispatch(read_mangas({ page: page, inputText: text, categories: categories, order: order, headers }))
+        dispatch(read_mangas({ page: page, inputText: text, categories: categories, order: order, headers }))
     }, [page, text, categories, order])
 
     return (
         <div className='mangas-cards'>
             {
                 mangas.length ? mangas.map((manga, i) => {
-                    let card = <Anchor className='card-anchor' to={'/mangas/'+manga._id+"/1"} key={i}>
-                        <section className='card'>
+                    let card =
+                        <section className='card' key={i}>
                             <div className='card-text'>
                                 <div className='card-color'></div>
                                 <div className='text'>
-                                    <H2 text={manga.title} />
-                                    <span>{manga.category_id.name}</span>
+                                    <div>
+                                        <H2 text={manga.title} />
+                                        <span>{manga.category_id.name}</span>
+                                    </div>
+                                    <Anchor className='card-anchor' to={'/mangas/'+manga._id+"/1"}>Read</Anchor>
                                 </div>
                             </div>
                             <div className='card-img'>
                                 <Image src={manga.cover_photo} alt='manga-image' />
                             </div>
                         </section>
-                    </Anchor>
                     return card
                 }) : <H2 text='No mangas founded' />
             }
