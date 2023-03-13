@@ -8,8 +8,15 @@ import SendBtn from '../../components/SendBtn/SendBtn'
 import { useRef } from 'react'
 import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast'
+import { useDispatch, useSelector } from 'react-redux'
+import alertActions from '../../store/Alert/actions'
+
+const { open, close } = alertActions
 
 export default function AuthorForm() {
+    const store = useSelector(store => store)
+    let dispatch = useDispatch()
+
     let dataForm = useRef()
 
     async function handleSubmit(e){
@@ -32,7 +39,19 @@ export default function AuthorForm() {
             [formInputs[4].name]: formInputs[4].value,
         }
 
-        let url = 'http://localhost:8080/authors'
+        let dataOpen = {
+            icon: 'success',
+            text: 'redux'
+        }
+
+        let dataClose = {
+            icon: 'error',
+            text: 'redux'
+        }
+
+        dispatch(open(dataOpen))
+
+        let url = 'http://localhost:8080/api/authors'
         let token = localStorage.getItem('token')
         let headers = {headers:{'Authorization':`Bearer ${token}`}}
 
@@ -54,18 +73,18 @@ export default function AuthorForm() {
     }
 
   return (
-    <div className='author'>
-        <div className='author-content'>
-            <section className='new-author'>
+    <div className='authorForm'>
+        <div className='authorForm-content'>
+            <section className='new-authorForm'>
                 <H2 text='New Author' />
                 <Image src={pic} />
             </section>
-            <form className='author-form' ref={dataForm} onSubmit={handleSubmit}>
-                <Input className='author-input' type='text' name='name' placeholder='First Name'/>
-                <Input className='author-input' type='text' name='last_name' placeholder='Last Name'/>
-                <Input className='author-input' type='text' name='location' placeholder='City, Country'/>
-                <Input className='author-input' type='text' name='date' placeholder='Birthdate MM/DD/YY'/>
-                <Input className='author-input' type='text' name='photo' placeholder='URL Profile Image'/>
+            <form className='authorForm-form' ref={dataForm} onSubmit={handleSubmit}>
+                <Input className='authorForm-input' type='text' name='name' placeholder='First Name'/>
+                <Input className='authorForm-input' type='text' name='last_name' placeholder='Last Name'/>
+                <Input className='authorForm-input' type='text' name='location' placeholder='City, Country'/>
+                <Input className='authorForm-input' type='text' name='date' placeholder='Birthdate MM/DD/YY'/>
+                <Input className='authorForm-input' type='text' name='photo' placeholder='URL Profile Image'/>
                 <SendBtn />
                 <Toaster />
             </form>

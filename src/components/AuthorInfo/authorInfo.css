@@ -1,0 +1,47 @@
+.author-container .authorInfo .authorInfo-data{
+    padding-top: 13.62vh;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding-bottom: 21px;
+}
+
+.author-container .authorInfo .authorInfo-data .authorInfo-pic{
+    width: 71px;
+    height: 71px;
+    border-radius: 50px;
+}
+
+.author-container .authorInfo .authorInfo-data .authorInfo-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.author-container .authorInfo .authorInfo-data .authorInfo-text>h2{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.author-container .authorInfo .authorInfo-data .authorInfo-text .imgAndText{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.author-container .authorInfo .authorInfo-data .authorInfo-text .imgAndText>p{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #9D9D9D;
+}
+
+.author-container .authorInfo .authorInfo-data .authorInfo-text .imgAndText .editBtn{
+    margin-left: 32px;
+}
+
+.author-container .authorInfo>hr{
+    border: 1px solid #000000;
+    width: 89.53vw;
+    margin: 0 auto;
+}
