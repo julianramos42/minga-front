@@ -1,21 +1,19 @@
 import React from 'react'
 import './chaptertitle.css'
-import ImgNaruto from '../../images/img-naruto.png'
 import H2 from '../../components/H2/H2'
 
-export default function ChapterTitle() {
-    return (
+export default function ChapterTitle({ mangaInfo }) {
 
+    return (
         <>
             <section className='section1'>
-                <img src={ImgNaruto} className='img-part-one' alt="img-naruto" />
-                <H2 text='Naruto: And Thats Why Youre Disqualified!! #8' />
+                <img src={mangaInfo.cover_photo} className='img-part-one' alt={mangaInfo.title} />
+                <H2 text={mangaInfo.title} />
             </section>
             <section className='section2' >
-                <button className='btn-section2'>category</button>
+                <button className='btn-section2'>{mangaInfo.category_id.name}</button>
                 <h2 className='companyName'>   Company Name</h2>
             </section>
         </>
-
     )
 }

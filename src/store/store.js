@@ -4,6 +4,7 @@ import textReducer from './SearchBar/reducer'
 import eventReducer from './Events/reducer'
 import categoriesReducer from './Categories/reducer'
 import sortReducer from './Sort/reducer'
+import chaptersReducer from './Chapters/reducer'
 
 export const store = configureStore({
     reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
         text: textReducer,
         events: eventReducer,
         categories: categoriesReducer,
-        order: sortReducer
+        order: sortReducer,
+        chapters: chaptersReducer
     }
 })
