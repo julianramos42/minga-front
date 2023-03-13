@@ -12,7 +12,7 @@ export const store = configureStore({
         text: textReducer,
         events: eventReducer,
         categories: categoriesReducer,
-        order: sortReducer,
+        order: sortReducer,   
         chapters: chaptersReducer
     }
 })
