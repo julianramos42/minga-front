@@ -5,6 +5,7 @@ import eventReducer from './Events/reducer'
 import categoriesReducer from './Categories/reducer'
 import sortReducer from './Sort/reducer'
 import chaptersReducer from './Chapters/reducer'
+import captureState from './Captures/reducer'
 
 export const store = configureStore({
     reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
         events: eventReducer,
         categories: categoriesReducer,
         order: sortReducer,   
-        chapters: chaptersReducer
+        chapters: chaptersReducer,
+        checked: captureState
     }
 })
