@@ -25,11 +25,7 @@ export default function MangasType() {
         axios.get(categoriesUrl).then(e => setCategories(e.data.categories))
     },[])
     
-<<<<<<< HEAD
-    function prueba(e){
-=======
     function handleCheck(e){
->>>>>>> c8bd1fd832851beb961363eeaaf87090cd2f45f5
         categories.forEach( category => {
             if(category.name === e.target.firstChild.textContent){
                 if(!categoriesCheck.includes(category._id)){
