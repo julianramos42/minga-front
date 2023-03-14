@@ -51,7 +51,7 @@ export default function MangasType() {
     }
 
     return (
-        <section className='mangas-type'>
+        <div className='mangas-type'>
             {
                 categories ? categories.map((category,i) => {
                     let checkclass = checkedCategories.includes(category._id) ? "checked" : ""
@@ -59,6 +59,6 @@ export default function MangasType() {
                 }) : ""
             }
             <Image className='mangas-sort' src={sort} onClick={handleSort} />
-        </section>
+        </div>
     )
 }
