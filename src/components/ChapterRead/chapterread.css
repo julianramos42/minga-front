@@ -51,6 +51,7 @@
     align-items: center;
     gap: 5%;
     margin: 20px 0px 20px 0px;
+   
 }
 
 .selecChapter {
@@ -133,5 +134,14 @@
         align-items: center;
         gap: 15px;
         font-size: 18px;
+    }
+}
+@media (min-width:769px){
+    .selecChapter{
+        width: 12%;
+    }
+    .btn-read{
+        width: 120px;
+        height: 50px;
     }
 }
