@@ -52,7 +52,7 @@ export default function ChapterRead({ mangaInfo }) {
                                                     <p>169</p>
                                                 </div>
                                             </div>
-                                            <Anchor to={'/chapters/' + mangaInfo._id.order }><button className='btn-read'>Read</button></Anchor>
+                                            <Anchor to={'/chapters/' + mangaInfo._id }><button className='btn-read'>Read</button></Anchor>
                                         </div>
                                     )
                                 })
