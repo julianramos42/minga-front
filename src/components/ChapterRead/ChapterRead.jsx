@@ -76,7 +76,7 @@ export default function ChapterRead({ mangaInfo }) {
                         }
                         <div className='div-chapter'>
                             {pagination !== 1 && <Anchor to={'/mangas/' + mangaInfo._id + '/' + (pagination - 1)}><button className='btn-chapter' onClick={() => setPagination(pagination - 1)}>prev</button></Anchor>}
-                            {chapters.length === 4 && <Anchor to={'/mangas/' + mangaInfo._id + '/' + (pagination + 1)}><button className='btn-chapter' onClick={() => setPagination(pagination + 1)}>next</button></Anchor>}
+                            {chapters?.length === 4 && <Anchor to={'/mangas/' + mangaInfo._id + '/' + (pagination + 1)}><button className='btn-chapter' onClick={() => setPagination(pagination + 1)}>next</button></Anchor>}
                         </div>
 
                     </section>
