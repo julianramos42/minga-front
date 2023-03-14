@@ -35,7 +35,7 @@ export default function RegisterForm({ renderLogin }) {
             [formInputs[3].name]: formInputs[3].value,
         }
 
-        let url = 'http://localhost:8080/auth/signup'
+        let url = 'http://localhost:8080/api/auth/signup'
         try {
             await axios.post(url, data)
             toast.success("Register Successful")
