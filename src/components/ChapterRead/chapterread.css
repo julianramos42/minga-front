@@ -135,3 +135,12 @@
         font-size: 18px;
     }
 }
+@media (min-width:769px){
+    .selecChapter{
+        width: 12%;
+    }
+    .btn-read{
+        width: 120px;
+        height: 50px;
+    }
+}
