@@ -19,7 +19,7 @@ export default function ChapterRead({ mangaInfo }) {
     const headers = { headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } }
     let chapters = useSelector(store => store.chapters.chapters)
     let check = useSelector(store => store.checked.checked)
-   
+
 
     function check1() {
         setCapitulo(true)
@@ -37,13 +37,7 @@ export default function ChapterRead({ mangaInfo }) {
     useEffect(() => {
         setCapitulo(!check)
 
-    }, []
-
-    )
-
-
-
-
+    }, [])
     return (
         <>
             <div className='details-btns'>

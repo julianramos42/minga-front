@@ -12,8 +12,6 @@ let captureState = createAction(
         }
     }
 )
-
-
 const actions = { captureState }
 
 export default actions
