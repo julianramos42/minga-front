@@ -56,9 +56,9 @@ export default function ChapterRead({ mangaInfo }) {
                         {
                             chapters?.length > 0
                                 ?
-                                chapters.map(chapter => {
+                                chapters.map((chapter,i) => {
                                     return (
-                                        <div className='sectionChapter'>
+                                        <div className='sectionChapter'key={i}>
                                             <img className='selecChapter' src={chapter.manga_id.cover_photo} alt={chapter.title} />
                                             <div className='order-chapter'>
                                                 <p className='p-chapter'>Chapter #{chapter.order} </p>
