@@ -4,6 +4,8 @@ import textReducer from './SearchBar/reducer'
 import mangasReducer from './Mangas/reducer'
 import categoriesReducer from './Categories/reducer'
 import sortReducer from './Sort/reducer'
+import mangasFromAuthorReducer from './MangasFromAuthor/reducer'
+import checkReducer from './Switch/reducer'
 
 export const store = configureStore({
     reducer: {
@@ -11,6 +13,8 @@ export const store = configureStore({
         text: textReducer,
         mangas: mangasReducer,
         categories: categoriesReducer,
-        order: sortReducer
+        order: sortReducer,
+        mangas_from_author:  mangasFromAuthorReducer,
+        check: checkReducer
     }
 })
