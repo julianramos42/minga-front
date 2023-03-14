@@ -25,7 +25,11 @@ export default function MangasType() {
         axios.get(categoriesUrl).then(e => setCategories(e.data.categories))
     },[])
     
+<<<<<<< HEAD
     function prueba(e){
+=======
+    function handleCheck(e){
+>>>>>>> c8bd1fd832851beb961363eeaaf87090cd2f45f5
         categories.forEach( category => {
             if(category.name === e.target.firstChild.textContent){
                 if(!categoriesCheck.includes(category._id)){
@@ -51,14 +55,14 @@ export default function MangasType() {
     }
 
     return (
-        <section className='mangas-type'>
+        <div className='mangas-type'>
             {
                 categories ? categories.map((category,i) => {
                     let checkclass = checkedCategories.includes(category._id) ? "checked" : ""
-                    return <div className={'category-'+category.name+" "+checkclass } key={i} onClick={prueba} >{category.name}</div>
+                    return <div className={'category-'+category.name+" "+checkclass } key={i} onClick={handleCheck} >{category.name}</div>
                 }) : ""
             }
             <Image className='mangas-sort' src={sort} onClick={handleSort} />
-        </section>
+        </div>
     )
 }

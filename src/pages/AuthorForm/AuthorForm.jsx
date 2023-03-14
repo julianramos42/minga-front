@@ -73,18 +73,18 @@ export default function AuthorForm() {
     }
 
   return (
-    <div className='author'>
-        <div className='author-content'>
-            <section className='new-author'>
+    <div className='authorForm'>
+        <div className='authorForm-content'>
+            <section className='new-authorForm'>
                 <H2 text='New Author' />
                 <Image src={pic} />
             </section>
-            <form className='author-form' ref={dataForm} onSubmit={handleSubmit}>
-                <Input className='author-input' type='text' name='name' placeholder='First Name'/>
-                <Input className='author-input' type='text' name='last_name' placeholder='Last Name'/>
-                <Input className='author-input' type='text' name='location' placeholder='City, Country'/>
-                <Input className='author-input' type='text' name='date' placeholder='Birthdate MM/DD/YY'/>
-                <Input className='author-input' type='text' name='photo' placeholder='URL Profile Image'/>
+            <form className='authorForm-form' ref={dataForm} onSubmit={handleSubmit}>
+                <Input className='authorForm-input' type='text' name='name' placeholder='First Name'/>
+                <Input className='authorForm-input' type='text' name='last_name' placeholder='Last Name'/>
+                <Input className='authorForm-input' type='text' name='location' placeholder='City, Country'/>
+                <Input className='authorForm-input' type='text' name='date' placeholder='Birthdate MM/DD/YY'/>
+                <Input className='authorForm-input' type='text' name='photo' placeholder='URL Profile Image'/>
                 <SendBtn />
                 <Toaster />
             </form>
