@@ -34,6 +34,7 @@ export default function CreateManga() {
             cover_photo: coverPhoto.current.value,
             category_id: filteredCategory._id     
         };
+
         console.log({filteredCategory});
         const url = 'http://localhost:8080/api/mangas'
         let token = localStorage.getItem('token')
