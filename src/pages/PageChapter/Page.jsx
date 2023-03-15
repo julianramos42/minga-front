@@ -29,17 +29,17 @@ export default function Page() {
 
     let handlePrev = () => {
       setIndex(index - 1);
-      navigate(`/chapter/${id}/${index - 1}`);
+      navigate(`/chapters/${id}/${index - 1}`);
       if (index <= 0) {
-        navigate(`/mangas/${chapter.manga_id}/`);
+        navigate(`/mangas/${chapter.manga_id}/1`);
       }
     };
 
     let handleNext = () => {
       setIndex(index + 1);
-      navigate(`/chapter/${id}/${index + 1}`);
+      navigate(`/chapters/${id}/${index + 1}`);
       if (index >= chapter.pages.length - 1) {
-        navigate(`/chapter/${next}/${0}`);
+        navigate(`/chapters/${next}/${0}`);
       }
     };
 
