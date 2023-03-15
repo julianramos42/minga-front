@@ -1,7 +1,7 @@
 .mangas .mangas-displayed .mangas-categories{
-    display: flex;
+    display: none;
     gap: 12px;
-    justify-content: center;
+    justify-content: start;
 }
 
 .mangas .mangas-displayed .mangas-categories .category1{
@@ -53,4 +53,10 @@
     font-size: 14px;
     line-height: 95.19%;
     color: #FFFFFF;
+}
+
+@media (max-width: 768px){
+    .mangas .mangas-displayed .mangas-categories{
+        display: flex;
+    }
 }

@@ -1,6 +1,6 @@
 .mangas .mangas-displayed .mangas-type{
     display: flex;
-    justify-content: center;
+    justify-content: start;
     gap: 8px;
 }
 
@@ -58,8 +58,8 @@
     transform: scale(1.1);
 }
 
-@media (max-width: 500px){
+@media (max-width: 768px){
     .mangas .mangas-displayed .mangas-type .category-shonen, .mangas .mangas-displayed .mangas-type .category-comic, .mangas .mangas-displayed .mangas-type .category-shojo, .mangas .mangas-displayed .mangas-type .category-seinen{
-        width: 60px;
+        width: 52px;
     }
 }

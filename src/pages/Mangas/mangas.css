@@ -1,69 +1,48 @@
 .mangas{
     min-height: 100vh;
-    padding-top: 9.763vh;
-    background: url(../../images/mangas-background.png) rgba(0, 0, 0, 0.5);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position-x: 50%;
-    background-position-y: 0%;
-    background-blend-mode: darken;
 }
 
 .mangas .mangas-displayed{
     display: flex;
     flex-direction: column;
-    gap: 21px;
-    margin-top: 29px;
-    padding: 45px 12.09vw;
-    width: 100vw;
-    min-height: 100vh;
-    background: #EBEBEB;
+    gap: 36px;
+    padding: 45px 12.5vw;
+    width: 93.61vw;
+    margin: 0 auto;
+    margin-top: -69px;
+    background: #FFFFFF;
     box-shadow: 0px -2px 38px -30px rgba(0, 0, 0, 0.1);
-    border-radius: 80px 80px 0px 0px;
+    border-radius: 16px;
 }
 
 .mangas .mangas-displayed>h2{
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 95.19%;
-    color: #222222;
-    text-align: center;
+    display: none;
+}
+
+@media (max-width: 768px){
+    .mangas .mangas-displayed{
+        margin-top: -147px;
+        padding: 45px 15.625vw;
+        width: 100vw;
+    }
+
+    .mangas .mangas-displayed>h2{
+        display: block;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 95.19%;
+        color: #222222;
+    }
 }
 
 @media (max-width: 429px){
-    .mangas .mangas-displayed{
-        padding: 45px 10px;
-    }
     .mangas .mangas-displayed .mangas-cards .card{
         width: 300px;
     }
 }
 
-.mangas .mangas-displayed .page-btns{
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-.mangas .mangas-displayed .page-btns .prev,
-.mangas .mangas-displayed .page-btns .next{
-    width: 80px;
-    height: 30px;
-    background: linear-gradient(153.39deg, #F9A8D4 -13.9%, #F472B6 58.69%);
-    border-radius: 50000px;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 17px;
-    color: #EBEBEB;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-}
-
-.mangas .mangas-displayed .page-btns .prev:hover,
-.mangas .mangas-displayed .page-btns .next:hover{
-    transform: scale(1.1);
+@media (max-width: 350px) {
+    .mangas .mangas-displayed{
+        padding: 45px 10px;
+    }
 }

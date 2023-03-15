@@ -39,7 +39,7 @@ export default function CreateManga() {
         const url = 'http://localhost:8080/api/mangas'
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-      
+        
     try {
         await axios.post(url, manga, headers)
         toast.success("Manga created successfully")
