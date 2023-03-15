@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
             { path: '/chapter-form/:manga_id' , element: <ChapterForm /> },
             { path: '/author-form' , element: <AuthorForm /> },
             { path: '/mangas/:page' , element: <Mangas /> },
-            { path: "/chapter/:id/:page", element: <PageChapter /> },
+            { path: "/chapters/:id/:page", element: <PageChapter /> },
             { path: '/mangas/:id/:page' , element: <MangaC /> },
             { path: "/manga-form", element: <MangaForm/> },
             { path: "/author/:id", element: <Author /> }
