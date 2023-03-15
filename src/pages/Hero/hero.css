@@ -1,0 +1,74 @@
+.hero{
+    margin: 0 5.688rem;
+    min-height: 100vh;
+    padding-top: 10.058vh;
+}
+
+@media (max-width: 1023px){
+    .hero{
+        background-image: url(../../images/hero-background.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .hero-info-container{
+        display: none;
+    }
+    .background-hero{
+        background: none;
+        height: 204px;
+    }
+
+    .background-hero .explore-section{
+        height: 204px;
+        gap: 25px;
+        margin: 0;
+        align-items: center;
+    }
+
+    .background-hero .explore-section h2{
+        width: 388px;
+        height: 76px;
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .background-hero .explore-section h3{
+        width: 388px;
+        height: 76px;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .background-hero .explore-section span{
+        display: none;
+    }
+    
+    .background-hero .explore-section .explore-btn{
+        width: 363px;
+        height: 59px;
+        border-radius: 50000px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1), inset 0px 4px 4px rgba(255, 255, 255, 0.1);
+        padding: 20px 55px;
+    }
+}
+
+@media (max-width: 432px){
+    .background-hero .explore-section h2{
+        width: auto;
+        font-size: 32px;
+    }
+
+    .background-hero .explore-section h3{
+        width: auto;
+    }
+}
+
+@media (max-width: 390px){
+    .background-hero .explore-section .explore-btn{
+        width: 100%;
+    }
+}

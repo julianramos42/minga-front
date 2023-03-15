@@ -37,6 +37,8 @@
 
 .open-nav .navHeader .closeBtn{
     cursor: pointer;
+    position: absolute;
+    right: 35px;
 }
 
 @media (max-width: 1023px){

@@ -1,6 +1,7 @@
 import React from 'react'
 import H2 from '../H2/H2'
 import './heroManga.css'
+import { Link as Anchor } from 'react-router-dom'
 
 export default function HeroManga() {
   return (
@@ -9,7 +10,7 @@ export default function HeroManga() {
             <H2 text='Live the emotion of the manga' />
             <h3>Find the perfect manga for you</h3>
             <span>#MingaForever 🔥</span>
-            <a href='#' className='explore-btn'>Explore</a>
+            <Anchor to='#' className='explore-btn'>Explore</Anchor>
         </section>
     </div>
   )

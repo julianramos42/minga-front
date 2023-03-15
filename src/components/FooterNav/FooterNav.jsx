@@ -6,25 +6,26 @@ import facebook from '../../images/facebook-black.svg'
 import twitter from '../../images/twitter-black.svg'
 import vimeo from '../../images/vimeo-black.svg'
 import youtube from '../../images/youtube-black.svg'
+import { Link as Anchor } from 'react-router-dom'
 
 export default function FooterNav() {
     return (
         <nav>
             <div className='pages'>
-                <a>Home</a>
-                <a>Mangas</a>
+                <Anchor to='/'>Home</Anchor>
+                <Anchor to='/mangas/1'>Mangas</Anchor>
             </div>
             <div className='logo-container'>
                 <Image src={logo} alt='logo' />
             </div>
             <div className='social-container'>
                 <div className='social'>
-                    <a href='#'><Image src={facebook} alt='facebook logo' /></a>
-                    <a href='#'><Image src={twitter} alt='twitter logo' /></a>
-                    <a href='#'><Image src={vimeo} alt='vimeo logo' /></a>
-                    <a href='#'><Image src={youtube} alt='youtube logo' /></a>
+                    <Anchor to='#'><Image src={facebook} alt='facebook logo' /></Anchor>
+                    <Anchor to='#'><Image src={twitter} alt='twitter logo' /></Anchor>
+                    <Anchor to='#'><Image src={vimeo} alt='vimeo logo' /></Anchor>
+                    <Anchor to='#'><Image src={youtube} alt='youtube logo' /></Anchor>
                 </div>
-                <a href='#' className='donate'>Donate</a>
+                <Anchor to='#' className='donate'>Donate</Anchor>
             </div>
         </nav>
     )
