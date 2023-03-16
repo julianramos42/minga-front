@@ -1,0 +1,70 @@
+.mangas .mangas-displayed .mangas-cards .edit-modal{
+    position: fixed;
+    top: 10vh;
+    width: 500px;
+    height: 500px;
+    background-color: #E0DBFF;
+    display: flex;
+    justify-content: center;
+    border-radius: 25px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mangas .mangas-displayed .mangas-cards .edit-modal .edit-title{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.mangas .mangas-displayed .mangas-cards .edit-modal .edit-title>h2{
+    color: #8883F0;
+    text-align: center;
+}
+
+.mangas .mangas-displayed .mangas-cards .edit-modal .edit-title>img{
+    background-color: #424242;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.mangas .mangas-displayed .mangas-cards .edit-modal .manga-form{
+    display: flex;
+    flex-direction: column;
+    gap: 5.364vh;
+}
+
+.mangas .mangas-displayed .mangas-cards .edit-modal .manga-form .manga-input{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #424242;;
+    height: 2.467vh;
+}
+#selectMove {
+    border: 0;
+    width: 100%;
+    color: gray;
+    font-size: 0.9rem;
+    background-color: transparent;
+    border-bottom: 1px solid black;
+}
+.mangas .mangas-displayed .mangas-cards .edit-modal .manga-form .send-Btn{
+    width: 100%;
+    height: 7.403vh;
+    background: linear-gradient(153.39deg, #F9A8D4 -13.9%, #F472B6 58.69%);
+    border-radius: 50000px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #EBEBEB;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    margin: 0 auto;
+    cursor: pointer;
+}

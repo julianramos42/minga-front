@@ -109,7 +109,7 @@
     }
 
     .mangas .mangas-displayed .mangas-cards .card .card-text .text h2{
-        inline-size: 137px;
+        inline-size: 100%;
     }
 }
 

@@ -1,4 +1,4 @@
-.myMangas{
+.mangas{
     min-height: 100vh;
 }
 
@@ -21,6 +21,7 @@
     font-weight: 700;
     font-size: 64px;
     line-height: 95.19%;
+    text-align: center;
 }
 
 .myMangas .mangas-displayed{

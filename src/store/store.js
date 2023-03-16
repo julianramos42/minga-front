@@ -9,6 +9,7 @@ import sortReducer from './Sort/reducer'
 import mangasFromAuthorReducer from './MangasFromAuthor/reducer'
 import checkReducer from './Switch/reducer'
 import myMangasReducer from './MyMangas/reducer'
+import modalReducer from './RenderModal/reducer'
 
 export const store = configureStore({
     reducer: {
@@ -21,6 +22,7 @@ export const store = configureStore({
         order: sortReducer,
         mangas_from_author:  mangasFromAuthorReducer,
         check: checkReducer,
-        myMangas: myMangasReducer
+        myMangas: myMangasReducer,
+        modalState: modalReducer
     }
 })
