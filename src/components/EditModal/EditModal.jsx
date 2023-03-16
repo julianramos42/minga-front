@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import modalActions from '../../store/RenderEditModal/actions'
 import closeBtn from '../../images/closeBtn.svg'
+import AlertActions from '../../store/Alert/actions'
 
 export default function EditModal() {
   const [categorias, setCategorias] = useState([])
@@ -45,6 +46,8 @@ export default function EditModal() {
 
     const url = 'http://localhost:8080/api/mangas/'+editId
 
+    // const { open } = AlertActions
+
     try {
       await axios.put(url, manga, headers)
       toast.success("Manga edited successfully")
@@ -55,11 +58,21 @@ export default function EditModal() {
     } catch (error) {
       if(error.response){
         if (typeof error.response.data.message === 'string') {
+          // let dataAlert = {
+          //   icon: "error",
+          //   text: error.response.data.message
+          // }
+          // dispatch(open(dataAlert))
           toast.error(error.response.data.message)
         } else {
           error.response.data.message.forEach(err => toast.error(err))
         }
       }else{
+        // let dataAlert = {
+        //   icon: "error",
+        //   text: error.message
+        // }
+        // dispatch(open(dataAlert))
         toast.error(error.message)
       }
     }
