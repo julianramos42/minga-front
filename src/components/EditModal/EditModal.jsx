@@ -6,7 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import modalActions from '../../store/RenderModal/actions'
+import modalActions from '../../store/RenderEditModal/actions'
 import closeBtn from '../../images/closeBtn.svg'
 
 export default function EditModal() {
@@ -43,18 +43,24 @@ export default function EditModal() {
       cover_photo: coverPhoto.current.value
     };
 
-    const url = 'http://localhost:8080/api/mangas/' + editId
+    const url = 'http://localhost:8080/api/mangas/'+editId
 
     try {
       await axios.put(url, manga, headers)
       toast.success("Manga edited successfully")
       e.target.reset()
-      handleEdit()
+      setTimeout(() => {
+        handleClose()
+      },1500)
     } catch (error) {
-      if (typeof error.response.data.message === 'string') {
-        toast.error(error.response.data.message)
-      } else {
-        error.response.data.message.forEach(err => toast.error(err))
+      if(error.response){
+        if (typeof error.response.data.message === 'string') {
+          toast.error(error.response.data.message)
+        } else {
+          error.response.data.message.forEach(err => toast.error(err))
+        }
+      }else{
+        toast.error(error.message)
       }
     }
   }
@@ -63,7 +69,7 @@ export default function EditModal() {
     await axios.get('http://localhost:8080/api/categories').then((response) => { setCategorias(response.data.categories) })
   }
 
-  function handleEdit() {
+  function handleClose() {
     dispatch(renderModal({ state: false }))
   }
 
@@ -75,7 +81,7 @@ export default function EditModal() {
     <div className='edit-modal'>
       <div className='edit-title'>
         <h2>Edit</h2>
-        <img onClick={handleEdit} src={closeBtn} />
+        <img onClick={handleClose} src={closeBtn} />
       </div>
       {mangaToEdit ? <form className="manga-form" onSubmit={handleSubmit}>
         <input

@@ -10,6 +10,7 @@
     padding: 25px;
     display: flex;
     flex-direction: column;
+    z-index: 1;
 }
 
 .mangas .mangas-displayed .mangas-cards .edit-modal .edit-title{
@@ -47,6 +48,7 @@
     width: 100%;
     color: gray;
     font-size: 0.9rem;
+    height: 20px;
     background-color: transparent;
     border-bottom: 1px solid black;
 }
@@ -67,4 +69,10 @@
     text-decoration: none;
     margin: 0 auto;
     cursor: pointer;
+}
+
+@media (max-width: 768px){
+    .mangas .mangas-displayed .mangas-cards .edit-modal{
+        width: 80%;
+    }
 }

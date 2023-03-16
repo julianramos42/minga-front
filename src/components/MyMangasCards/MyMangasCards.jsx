@@ -11,17 +11,21 @@ import { Link as Anchor } from 'react-router-dom'
 import plusIcon from '../../images/plusIcon.svg'
 import editIcon from '../../images/editIcon.svg'
 import EditModal from '../EditModal/EditModal'
-import modalActions from '../../store/RenderModal/actions'
+import modalActions from '../../store/RenderEditModal/actions'
+import DeleteModal from '../DeleteModal/DeleteModal'
+import deleteModalActions from '../../store/RenderDeleteModal/actions'
 
 export default function MyMangasCards() {
     let mangas = useSelector(store => store.myMangas.myMangas)
     let categories = useSelector(store => store.categories.categories)
     let order = useSelector(store => store.order.order)
     let page = useParams().page
-    let modalState = useSelector(store => store.modalState.state)
+    let editModalState = useSelector(store => store.modalState.state)
+    let deleteModalState = useSelector(store => store.modalDeleteState.state)
 
     const { read_myMangas } = mangasActions
     const { renderModal } = modalActions
+    const { renderDeleteModal } = deleteModalActions
     const dispatch = useDispatch()
 
     let token = localStorage.getItem('token')
@@ -29,10 +33,14 @@ export default function MyMangasCards() {
 
     useEffect(() => {
         dispatch(read_myMangas({ page: page, categories: categories, order: order, headers }))
-    }, [page, categories, order, modalState])
+    }, [page, categories, order, editModalState, deleteModalState])
 
     function handleEdit(e){
         dispatch(renderModal({state: true, id: e.target.id}))
+    }
+
+    function handleDelete(e){
+        dispatch(renderDeleteModal({state: true, id: e.target.id}))
     }
 
     return (
@@ -55,7 +63,7 @@ export default function MyMangasCards() {
                                     <div className='actions-btns'>
                                         <Anchor className='myMangas-card-anchor' to={'/mangas/' + manga._id + "/1"}>Read</Anchor>
                                         <Anchor id={manga._id} className='myMangas-card-anchor editBtn' onClick={handleEdit}>Edit</Anchor>
-                                        <Anchor className='myMangas-card-anchor deleteBtn'>Delete</Anchor>
+                                        <Anchor id={manga._id} className='myMangas-card-anchor deleteBtn' onClick={handleDelete}>Delete</Anchor>
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +74,8 @@ export default function MyMangasCards() {
                     return card
                 }) : <H2 text='No mangas founded' />
             }
-            { modalState ? <EditModal /> : "" }
+            { editModalState ? <EditModal /> : "" }
+            { deleteModalState ? <DeleteModal /> : "" }
         </div>
     )
 }
