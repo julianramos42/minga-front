@@ -50,7 +50,7 @@ export default function MyMangasCards() {
                     let card =
                         <section className='card' key={i}>
                             <div className='card-text'>
-                                <div className='card-color'></div>
+                                <div className={'card-color-'+manga.category_id.name}></div>
                                 <div className='text'>
                                     <div className='createAndEdit-icons'>
                                         <Anchor to={'/chapter-form/' + manga._id}><Image src={plusIcon} /></Anchor>
@@ -58,7 +58,7 @@ export default function MyMangasCards() {
                                     </div>
                                     <div>
                                         <H2 text={manga.title} />
-                                        <span>{manga.category_id.name}</span>
+                                        <span className={'span-'+manga.category_id.name}>{manga.category_id.name}</span>
                                     </div>
                                     <div className='actions-btns'>
                                         <Anchor className='myMangas-card-anchor' to={'/mangas/' + manga._id + "/1"}>Read</Anchor>
