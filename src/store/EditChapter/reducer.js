@@ -1,29 +1,17 @@
 import { createReducer } from "@reduxjs/toolkit";
 import actions from './actions'
 
-
-const { read_chapters, read_manga, delete_chapter } = actions
+const { read_one_chapter, delete_one_chapter } = actions
 
 const initialState = {
-    manga: [],
-    chapters: [],
-    chapters:[]
+    chapters: []
 }
 
 const reducer = createReducer(
     initialState,
     (builder) => builder
-        .addCase(read_manga.fulfilled,
-            (state, action) => {
-                let newState = {
-                    ...state,
-                    manga: action.payload.manga
-                }
-                return newState
-            }
-        )
         .addCase(
-            read_chapters.fulfilled,
+            read_one_chapter.fulfilled,
             (state, action) => {
                 let newState = {
                     ...state,
@@ -33,12 +21,11 @@ const reducer = createReducer(
             }
         )
         .addCase(
-            delete_chapter.fulfilled,
+            delete_one_chapter.fulfilled,
             (state, action) => {
                 let newState = {
-                    chapter: [],
-                    manga: []
-
+                    ...state,
+                    chapters: state.chapters.filter(chapter => chapter._id !== action.payload._id)
                 }
                 return newState
             }

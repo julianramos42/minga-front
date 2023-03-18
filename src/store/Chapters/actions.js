@@ -32,5 +32,6 @@ const delete_chapter = createAsyncThunk(
    
 )
 
-const actions = { read_chapters, read_manga, delete_chapter }
+
+const actions = { read_chapters, read_manga, delete_chapter}
 export default actions
