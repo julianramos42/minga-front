@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './mangac.css'
 import ChapterTitle from '../../components/ChapterTitle/ChapterTitle'
-import ChapterEmoji from '../../components/ChapterEmoji/ChapterEmoji'
+import Reaction from '../../components/Reaction/Reaction'
 import ChapterRead from '../../components/ChapterRead/ChapterRead'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
@@ -28,7 +28,7 @@ export default function MangaC() {
     return (
         <div className='mangaChapter'>
             {manga.length !== 0 ? <ChapterTitle mangaInfo={manga} /> : null}
-            <ChapterEmoji />
+            <Reaction />
             {manga.length !== 0 ? <ChapterRead mangaInfo={manga} /> : null}
         </div >
     )

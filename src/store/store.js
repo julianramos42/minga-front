@@ -11,6 +11,7 @@ import checkReducer from './Switch/reducer'
 import myMangasReducer from './MyMangas/reducer'
 import modalReducer from './RenderEditModal/reducer'
 import modalDeleteReducer from './RenderDeleteModal/reducer'
+import reactionsReducer from './Reactions/reducer'
 
 export const store = configureStore({
     reducer: {
@@ -25,6 +26,7 @@ export const store = configureStore({
         check: checkReducer,
         myMangas: myMangasReducer,
         modalState: modalReducer,
-        modalDeleteState: modalDeleteReducer
+        modalDeleteState: modalDeleteReducer,
+        reactions: reactionsReducer
     }
 })
