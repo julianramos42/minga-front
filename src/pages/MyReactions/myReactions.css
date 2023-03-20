@@ -2,8 +2,7 @@
     min-height: 100vh;
 }
 
-.mangas .myMangas-title{
-    width: 100vw;
+.mangas .favouritesMangas-title{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,14 +10,14 @@
     min-height: 62.89vh;
     padding-top: 25.39vh;
     padding-bottom: 17.18vh;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../../images/author-background.png);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../../images/favourites-background.png);
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
     background-blend-mode: darken;
+    background-position: center;
 }
 
-.mangas .myMangas-title>h2{
+.mangas .favouritesMangas-title>h2{
     color: #FFFFFF;
     font-weight: 700;
     font-size: 64px;
@@ -58,7 +57,7 @@
         color: #222222;
     }
 
-    .mangas .myMangas-title>h2{
+    .mangas .favouritesMangas-title>h2{
         font-weight: 700;
         font-size: 38px;
         line-height: 95.19%;

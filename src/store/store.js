@@ -12,6 +12,7 @@ import myMangasReducer from './MyMangas/reducer'
 import modalReducer from './RenderEditModal/reducer'
 import modalDeleteReducer from './RenderDeleteModal/reducer'
 import reactionsReducer from './Reactions/reducer'
+import favouritesMangasReducer from './FavouritesMangas/reducer'
 
 export const store = configureStore({
     reducer: {
@@ -27,6 +28,7 @@ export const store = configureStore({
         myMangas: myMangasReducer,
         modalState: modalReducer,
         modalDeleteState: modalDeleteReducer,
-        reactions: reactionsReducer
+        reactions: reactionsReducer,
+        favouritesMangas: favouritesMangasReducer
     }
 })
