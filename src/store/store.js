@@ -10,15 +10,16 @@ import mangasFromAuthorReducer from './MangasFromAuthor/reducer'
 import checkReducer from './Switch/reducer'
 
 export const store = configureStore({
-    reducer: {
-        alert: alertReducer,
-        text: textReducer,
-        chapters: chaptersReducer,
-        checked: captureState,
-        mangas: mangasReducer,
-        categories: categoriesReducer,
-        order: sortReducer,
-        mangas_from_author:  mangasFromAuthorReducer,
-        check: checkReducer
-    }
-})
+  reducer: {
+    alert: alertReducer,
+    text: textReducer,
+    chapters: chaptersReducer,
+    checked: captureState,
+    mangas: mangasReducer,
+    categories: categoriesReducer,
+    order: sortReducer,
+    mangas_from_author: mangasFromAuthorReducer,
+    check: checkReducer,
+  },
+  devTools: true
+});

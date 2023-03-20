@@ -1,0 +1,76 @@
+#editProfile {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: space-evenly;
+}
+
+#formEdit {
+    width: 80%;
+    height: 90%;
+    padding: 1rem;
+}
+
+#imgProfile {
+    visibility: hidden;
+}
+
+#inputAuthorForm {
+    width: 100%;
+    height: 2.5rem;
+    border-bottom: 1px solid black;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+#btndelete {
+    width: 50%;
+    background: pink;
+    border-radius: 40px;
+    border: solid 1px red;
+    font-size: 1rem;
+    color: red;
+    padding: 0;
+    margin: 0.3rem;
+}
+
+#btnsave {
+    width: 50%;
+    padding: 0;
+    margin: 0.3rem;
+    background: rgb(140, 232, 140);
+    border-radius: 40px;
+    border: solid 1px green;
+    font-size: 80%;
+    color: rgb(3, 78, 3);
+    font-size: 1rem;
+}
+#section-btn{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    align-items: center;
+}
+@media (max-width: 748px) {
+    .editProfile {
+        width: 100vw;
+        height: 25vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    #imgProfile {
+        visibility: hidden;
+        width: 5rem;
+    }
+}
