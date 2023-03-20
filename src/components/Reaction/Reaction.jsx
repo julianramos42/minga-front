@@ -28,15 +28,15 @@ export default function Reaction() {
     let dispatch = useDispatch()
     useEffect( () => { // TRAE LAS REACCIONES DEL MANGA
         setTimeout( () => {
-            dispatch(captureReactions({mangaId}))
-        },100)
+            dispatch(captureReactions({mangaId,headers}))
+        },150)
     },[reload])
 
     let mangaReactions = useSelector(store => store.reactions.reactions)
 
     useEffect(() => { // TRAE LAS REACCIONES DEL USUARIO AL MANGA
-        let url = "http://localhost:8080/api/reactions?user_id=641472db1214a15666e3ecee&manga_id=" + mangaId
-        axios.get(url).then(res => setUserReactions(res.data.message))
+        let url = "http://localhost:8080/api/reactions?me=1&manga_id=" + mangaId
+        axios.get(url,headers).then(res => setUserReactions(res.data.message))
     }, [])
 
     useEffect(() => { //si tenes reacciones te las selecciona por defecto
@@ -59,6 +59,9 @@ export default function Reaction() {
     }, [userReactions])
 
     function handleLike() {
+        if(dislike.current.className.includes('reacted')){
+            dislike.current.classList.toggle('reacted')
+        }
         like.current.classList.toggle('reacted')
         let url = 'http://localhost:8080/api/reactions'
         let data = {
@@ -69,6 +72,9 @@ export default function Reaction() {
         setReload(!reload)
     }
     function handleDislike() {
+        if(like.current.className.includes('reacted')){
+            like.current.classList.toggle('reacted')
+        }
         dislike.current.classList.toggle('reacted')
         let url = 'http://localhost:8080/api/reactions'
         let data = {
@@ -79,6 +85,9 @@ export default function Reaction() {
         setReload(!reload)
     }
     function handleSurprise() {
+        if(love.current.className.includes('reacted')){
+            love.current.classList.toggle('reacted')
+        }
         surprise.current.classList.toggle('reacted')
         let url = 'http://localhost:8080/api/reactions'
         let data = {
@@ -89,6 +98,9 @@ export default function Reaction() {
         setReload(!reload)
     }
     function handleLove() {
+        if(surprise.current.className.includes('reacted')){
+            surprise.current.classList.toggle('reacted')
+        }
         love.current.classList.toggle('reacted')
         let url = 'http://localhost:8080/api/reactions'
         let data = {

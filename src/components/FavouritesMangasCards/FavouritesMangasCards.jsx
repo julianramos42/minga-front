@@ -10,6 +10,7 @@ import { useParams } from 'react-router-dom'
 import { Link as Anchor } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
+import toast,{ Toaster } from 'react-hot-toast'
 
 export default function FavouritesMangasCards() {
     let mangas = useSelector(store => store.favouritesMangas.favouritesMangas)
@@ -37,10 +38,11 @@ export default function FavouritesMangasCards() {
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
         let data = {
             "manga_id": e.target.id,
-            "name": "like"
+            "name": "love"
         }
         axios.post(url,data,headers)
         setReload(!reload)
+        toast.success("Manga removed from favourites")
     }
 
     return (
@@ -58,7 +60,7 @@ export default function FavouritesMangasCards() {
                                     </div>
                                     <div className='actions-btns'>
                                         <Anchor className='myMangas-card-anchor' to={'/mangas/' + manga._id + "/1"}>Read</Anchor>
-                                        <Anchor id={manga._id} className='myMangas-card-anchor deleteBtn' onClick={handleDelete}>Delete</Anchor>
+                                        <Anchor id={manga._id} className='myMangas-card-anchor deleteBtn' onClick={handleDelete}>Remove</Anchor>
                                     </div>
                                 </div>
                             </div>
@@ -69,6 +71,7 @@ export default function FavouritesMangasCards() {
                     return card
                 }) : <H2 text='No mangas founded' />
             }
+            <Toaster />
         </div>
     )
 }
