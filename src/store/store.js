@@ -8,6 +8,8 @@ import categoriesReducer from './Categories/reducer'
 import sortReducer from './Sort/reducer'
 import mangasFromAuthorReducer from './MangasFromAuthor/reducer'
 import checkReducer from './Switch/reducer'
+import renderCommentsModal from './RenderCommentsModal/reducer'
+import getComents from './Comments/reducer'
 
 export const store = configureStore({
     reducer: {
@@ -19,6 +21,8 @@ export const store = configureStore({
         categories: categoriesReducer,
         order: sortReducer,
         mangas_from_author:  mangasFromAuthorReducer,
-        check: checkReducer
+        check: checkReducer,
+        commentsModal: renderCommentsModal,
+        comments: getComents
     }
 })

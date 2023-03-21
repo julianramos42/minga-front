@@ -35,6 +35,7 @@ export default function LoginForm({ renderRegister }) {
         .then(res => {
           localStorage.setItem('token', res.data.token)
           localStorage.setItem('user', JSON.stringify({
+            id: res.data.user._id,
             name: res.data.user.name,
             mail: res.data.user.mail,
             photo: res.data.user.photo,
