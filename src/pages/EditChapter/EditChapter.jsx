@@ -5,19 +5,18 @@ import EditChapterSection2 from '../../components/EditChapterSection2/EditChapte
 import { useParams } from 'react-router-dom'
 import chapterActions from '../../store/EditChapter/actions'
 import { useDispatch, useSelector } from 'react-redux'
-// import axios from "axios";
 
 const { read_one_chapter } = chapterActions
 
 export default function EditChapter() {
-    const id = useParams()
+    const {manga_id} = useParams()
     const dispatch = useDispatch()
-    let chapter = useSelector(store => store.editchapter.chapters)
-    console.log('soy los capitulos', chapter)
-    const [selectedChapter, setSelectedChapter] = useState(null)
+    let {chapters, title, chapter} = useSelector(store => store.editchapter)
+    const [selectedChapter, setSelectedChapter] = useState(chapter)
+   
 
     useEffect(() => {
-        dispatch(read_one_chapter({ manga_id: id.manga_id }))
+        dispatch(read_one_chapter({ manga_id }))
     }, [])
     
 
@@ -25,7 +24,7 @@ export default function EditChapter() {
     return (
         <>
             <div className='EditChapter'>
-                <EditChapterSection1 chapterInfo={chapter} selectedChapter={selectedChapter} setSelectedChapter={(chapter) => setSelectedChapter(chapter)} />
+                <EditChapterSection1 chapterInfo={chapters} title={title} selectedChapter={selectedChapter} setSelectedChapter={(chapters) => setSelectedChapter(chapters)} />
                 <EditChapterSection2 selectedChapter={selectedChapter} />
             </div>
         </>

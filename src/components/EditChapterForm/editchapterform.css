@@ -3,6 +3,16 @@
     flex-direction: column;
     gap: 28px;
 }
+.titleChapter-toEdit{
+    border-bottom: rgba(66, 66, 66, 1) 1px solid;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    color: gray;
+
+}
 .form-edit input {
     width: 280px;
     border: none;
