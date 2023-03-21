@@ -5,7 +5,7 @@ import MangasTitle from '../../components/MangasTitle/MangasTitle'
 import MangasCategories from '../../components/MangasCategories/MangasCategories'
 import MangasType from '../../components/MangasType/MangasType'
 import MangasCards from '../../components/MangasCards/MangasCards'
-import MangaBtns from '../../components/MangaBtns/MangaBtns'
+import MangasBtns from '../../components/MangasBtns/MangasBtns'
 
 export default function Comics() {
   return (
@@ -18,7 +18,7 @@ export default function Comics() {
         <MangasCategories />
         <MangasType />
         <MangasCards />
-        <MangaBtns />
+        <MangasBtns />
       </section>
 
     </div>
