@@ -9,6 +9,7 @@ import flecha_izquierda from '../../images/flecha-izquierda.png'
 import Comment from "../../components/Comment/Comment";
 import { useDispatch, useSelector } from 'react-redux'
 import modalActions from '../../store/RenderCommentsModal/actions'
+import commentsActions from '../../store/Comments/actions'
 
 export default function Page() {
   const [chapter, setChapters] = useState({});
@@ -22,7 +23,7 @@ export default function Page() {
   const { renderModal } = modalActions
 
   let [index, setIndex] = useState(Number(page));
-  
+
   let comments = useSelector(store => store.comments.comments)
   useEffect(() => {
     axios
@@ -55,6 +56,16 @@ export default function Page() {
   function handleRender() {
     dispatch(renderModal({ state: true }))
   }
+
+  let token = localStorage.getItem('token')
+  let headers = { headers: { 'Authorization': `Bearer ${token}` } }
+  const { getComments } = commentsActions
+  useEffect(() => { // me actualiza toda la cantidad de comentarios
+    let url = 'http://localhost:8080/api/comments?chapter_id=' + id
+    setTimeout(() => {
+      axios.get(url, headers).then(res => dispatch(getComments({ comments: res.data.comments })))
+    }, 100)
+  }, [])
 
   return (
     <div className="mover">
