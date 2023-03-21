@@ -23,8 +23,6 @@ export default function MyMangas() {
         </div>
 
       <section className='mangas-displayed'>
-        <H2 text='Explore' />
-        <MangasCategories />
         <MangasType />
         <MyMangasCards />
         <MyMangasBtns />

@@ -8,14 +8,13 @@ import categoriesReducer from './Categories/reducer'
 import sortReducer from './Sort/reducer'
 import mangasFromAuthorReducer from './MangasFromAuthor/reducer'
 import checkReducer from './Switch/reducer'
-<<<<<<< HEAD
 import renderCommentsModal from './RenderCommentsModal/reducer'
 import getComents from './Comments/reducer'
-=======
 import myMangasReducer from './MyMangas/reducer'
 import modalReducer from './RenderEditModal/reducer'
 import modalDeleteReducer from './RenderDeleteModal/reducer'
->>>>>>> 26acbbef522bea31b1d1bde81527c9daa6ff6fbb
+import reactionsReducer from './Reactions/reducer'
+import favouritesMangasReducer from './FavouritesMangas/reducer'
 
 export const store = configureStore({
     reducer: {
@@ -28,13 +27,15 @@ export const store = configureStore({
         order: sortReducer,
         mangas_from_author:  mangasFromAuthorReducer,
         check: checkReducer,
-<<<<<<< HEAD
         commentsModal: renderCommentsModal,
-        comments: getComents
-=======
+        comments: getComents,
         myMangas: myMangasReducer,
         modalState: modalReducer,
-        modalDeleteState: modalDeleteReducer
->>>>>>> 26acbbef522bea31b1d1bde81527c9daa6ff6fbb
+        modalDeleteState: modalDeleteReducer,
+        myMangas: myMangasReducer,
+        modalState: modalReducer,
+        modalDeleteState: modalDeleteReducer,
+        reactions: reactionsReducer,
+        favouritesMangas: favouritesMangasReducer
     }
 })
