@@ -19,7 +19,9 @@ const reducer = createReducer(
                 let newState = {
                     ...state,
                     chapters: action.payload.chapters,
-                    title: action.payload.title
+                    title: action.payload.title,
+                    chapter: {},
+                    order: null
                 }
                 return newState
             }
@@ -29,7 +31,9 @@ const reducer = createReducer(
             (state, action) => {
                 let newState = {
                     ...state,
-                    chapters: state.chapters.filter(chapter => chapter._id !== action.payload._id)
+                    chapters: state.chapters.filter(chapter => chapter._id !== action.payload._id),
+                    order: null,
+                    chapter: {}
                 }
                 return newState
             }

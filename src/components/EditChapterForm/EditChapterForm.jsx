@@ -2,20 +2,30 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './editchapterform.css'
 import chapterActions from '../../store/EditChapter/actions'
-import  { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
+import DeleteChapterModal from '../DeleteChapterModal/DeleteChapterModal'
+import EditChapterModal from '../EditChapterModal/EditChapterModal';
+import deleteModalActions from '../../store/RenderDeleteModal/actions'
+import modalActions from '../../store/RenderEditModal/actions'
 
 
-const { delete_one_chapter, edit_one_chapter, getInfo } = chapterActions
+
+
+const { /*delete_one_chapter, edit_one_chapter*/ getInfo } = chapterActions
 
 export default function EditChapterForm({ chapterInfo, setSelectedChapter, selectedChapter, title }) {
     let { order } = useSelector(store => store.editchapter)
+    let editModalState = useSelector(store => store.modalState.state)
+    let deleteModalState = useSelector(store => store.modalDeleteState.state)
+
     const [orderToEdit, setOrderToEdit] = useState(order)
     const [data, setData] = useState(null)
     const [newData, setNewData] = useState(null)
     const [reload, setReload] = useState(false)
     const dispatch = useDispatch()
     const headers = { headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } }
-
+    const { renderDeleteModal } = deleteModalActions
+    const { renderModal } = modalActions
 
     let infoChapter = chapterInfo?.length > 0 ? Object.keys(chapterInfo[0]) : []
 
@@ -29,17 +39,18 @@ export default function EditChapterForm({ chapterInfo, setSelectedChapter, selec
 
     function handleSend(event) {
         event.preventDefault()
+        dispatch(renderModal({ state: true }))
+
         let editedChapter = {
             [data]: newData
         }
         let info = { _id: selectedChapter._id, data: editedChapter, headers: headers }
-        dispatch(edit_one_chapter(info))
         setReload(!reload)
     }
 
     async function handleDelete(event) {
         event.preventDefault()
-        dispatch(delete_one_chapter({ _id: selectedChapter._id, headers: headers }))
+        dispatch(renderDeleteModal({ state: true }))
 
     }
     return (
@@ -83,7 +94,9 @@ export default function EditChapterForm({ chapterInfo, setSelectedChapter, selec
                 <input type="text" placeholder='data to edit' disabled={data === null ? true : false} value={newData} onChange={(e) => setNewData(e.target.value)} />
 
                 <button className='btn-edit' disabled={newData === null ? true : false} onClick={(event) => handleSend(event)} >Edit</button>
-                <button className='btn-delete' onClick={(event) => handleDelete(event)}>Delete</button>
+                <button className='btn-delete' disabled={orderToEdit === null ? true : false} onClick={(event) => handleDelete(event)}>Delete</button>
+                {editModalState ? <EditChapterModal selectedChapter={selectedChapter} data={data} newData={newData} /> : ""}
+                {deleteModalState ? <DeleteChapterModal selectedChapter={selectedChapter} /> : ""}
                 <Toaster />
             </form>
         </>
