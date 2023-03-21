@@ -1,8 +1,8 @@
 .chapter3 .comment-modal{
-    width: 320px;
-    min-height: 500px;
+    width: 100vw;
+    min-height: 100vh;
     position: absolute;
-    top: 8vh;
+    top: 0;
     background-color: #EBEBEB;
     border-radius: 10px;
     display: flex;
@@ -15,11 +15,17 @@
     padding: 15px 0;
 } 
 
+.chapter3 .comment-modal .comment-container{
+    display: flex;
+    gap: 15px;
+}
+
 .chapter3 .comment-modal .comment-is-property {
     background-color: #fff;
     margin-top: 10px;
     padding: 15px;
     border-radius: 7px;
+    box-shadow: 0 0 2px black;
 }
 
 .chapter3 .comment-modal .comment-is-property .user-coment {
@@ -175,4 +181,12 @@
     font-size: 12px;
     line-height: 95.19%;
     cursor: pointer;
+}
+
+@media (max-width: 768px){
+    .chapter3 .comment-modal .comment-container{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
 }

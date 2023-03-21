@@ -16,7 +16,7 @@ import modalActions from '../../store/RenderCommentsModal/actions'
 import commentsActions from '../../store/Comments/actions'
 
 export default function Comment() {
-    let [comments,setComments] = useState("")
+    let [comments, setComments] = useState("")
     let [reload, setReload] = useState(false)
     let user = JSON.parse((localStorage.getItem('user')))
 
@@ -60,7 +60,7 @@ export default function Comment() {
             toast.success("Comment created")
             setReload(!reload)
         } catch (error) {
-            if(error.response){
+            if (error.response) {
                 if (typeof error.response.data.message === 'string') {
                     toast.error(error.response.data.message)
                 } else {
@@ -125,54 +125,56 @@ export default function Comment() {
     useEffect(() => { // me actualiza toda la cantidad de comentarios
         let url = 'http://localhost:8080/api/comments?chapter_id=' + id
         setTimeout(() => {
-            axios.get(url, headers).then(res => dispatch(getComments({comments: res.data.comments})))
+            axios.get(url, headers).then(res => dispatch(getComments({ comments: res.data.comments })))
         }, 100)
     }, [reload])
 
     return (
         <div className='comment-modal'>
-            {
-                comments.length ? comments.map((comment, i) => {
-                    let card = <div className="comment-is-property" key={i}>
-                        <div className="user-coment">
+            <div className='comment-container'>
+                {
+                    comments.length ? comments.map((comment, i) => {
+                        let card = <div className="comment-is-property" key={i}>
+                            <div className="user-coment">
 
-                            {comment.user_id._id === user.id ? <div className="edit-delete">
-                                <div id={comment._id} className="edit-comment" onClick={prueba}>
-                                    <p>Edit</p>
-                                    <img src={pencil} alt="" />
-                                </div>
-                                <div className="delete-comment" > {/* ACA LA FUNCION PARA BORRAR */}
-                                    <img id={comment._id} src={deleteBtn} alt="" onClick={handleDelete} />
-                                </div>
-                            </div> : ""}
+                                {comment.user_id._id === user.id ? <div className="edit-delete">
+                                    <div id={comment._id} className="edit-comment" onClick={prueba}>
+                                        <p>Edit</p>
+                                        <img src={pencil} alt="" />
+                                    </div>
+                                    <div className="delete-comment" > {/* ACA LA FUNCION PARA BORRAR */}
+                                        <img id={comment._id} src={deleteBtn} alt="" onClick={handleDelete} />
+                                    </div>
+                                </div> : ""}
 
-                            <img src={comment.user_id.photo} className="img-comment" alt="" />
-                        </div>
-                        <div className="user-coments">
-                            <p className="name-comment">{comment.user_id.name} </p>
-                            {
-                                comment.user_id._id === user.id ? !editText ? <p className="comentario">{comment.text} </p> : <div className='new-comment'>
-                                    <form id={comment._id} onSubmit={handleEdit}>
-                                        <input type='text' defaultValue={comment.text} />
-                                    </form>
-                                    <img id={comment._id} src={sendBtn} onClick={handleEdit} />
-                                </div> : <p className="comentario">{comment.text} </p>
-                            }
-                        </div>
-                        <div className="sub_comments">
-                            <div className="sub-reply">
-                                <img className="subcomment" src={subcomment} alt="" />
-                                <div className="reply-comment">
-                                    <p>Reply</p>
-                                    <img src={pencil} alt="" />
-                                </div>
+                                <img src={comment.user_id.photo} className="img-comment" alt="" />
                             </div>
-                            <p className="time">{new Date(comment.createdAt).toLocaleTimeString()}</p>
+                            <div className="user-coments">
+                                <p className="name-comment">{comment.user_id.name} </p>
+                                {
+                                    comment.user_id._id === user.id ? !editText ? <p className="comentario">{comment.text} </p> : <div className='new-comment'>
+                                        <form id={comment._id} onSubmit={handleEdit}>
+                                            <input type='text' defaultValue={comment.text} />
+                                        </form>
+                                        <img id={comment._id} src={sendBtn} onClick={handleEdit} />
+                                    </div> : <p className="comentario">{comment.text} </p>
+                                }
+                            </div>
+                            <div className="sub_comments">
+                                <div className="sub-reply">
+                                    <img className="subcomment" src={subcomment} alt="" />
+                                    <div className="reply-comment">
+                                        <p>Reply</p>
+                                        <img src={pencil} alt="" />
+                                    </div>
+                                </div>
+                                <p className="time">{new Date(comment.createdAt).toLocaleTimeString()}</p>
+                            </div>
                         </div>
-                    </div>
-                    return card
-                }) : ""
-            }
+                        return card
+                    }) : ""
+                }
+            </div>
             <div className='flechas'>
                 {page == 1 ? "" : <img src={flecha_izq} onClick={handlePage1} />}
                 {comments.length == 4 ? <img src={flecha_der} onClick={handlePage2} /> : ""}
