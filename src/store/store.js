@@ -8,6 +8,11 @@ import categoriesReducer from './Categories/reducer'
 import sortReducer from './Sort/reducer'
 import mangasFromAuthorReducer from './MangasFromAuthor/reducer'
 import checkReducer from './Switch/reducer'
+import renderCommentsModal from './RenderCommentsModal/reducer'
+import getComents from './Comments/reducer'
+import myMangasReducer from './MyMangas/reducer'
+import modalReducer from './RenderEditModal/reducer'
+import modalDeleteReducer from './RenderDeleteModal/reducer'
 import myMangasReducer from './MyMangas/reducer'
 import modalReducer from './RenderEditModal/reducer'
 import modalDeleteReducer from './RenderDeleteModal/reducer'
@@ -25,6 +30,11 @@ export const store = configureStore({
         order: sortReducer,
         mangas_from_author:  mangasFromAuthorReducer,
         check: checkReducer,
+        commentsModal: renderCommentsModal,
+        comments: getComents,
+        myMangas: myMangasReducer,
+        modalState: modalReducer,
+        modalDeleteState: modalDeleteReducer,
         myMangas: myMangasReducer,
         modalState: modalReducer,
         modalDeleteState: modalDeleteReducer,

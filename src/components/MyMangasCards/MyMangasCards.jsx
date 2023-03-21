@@ -14,6 +14,7 @@ import EditModal from '../EditModal/EditModal'
 import modalActions from '../../store/RenderEditModal/actions'
 import DeleteModal from '../DeleteModal/DeleteModal'
 import deleteModalActions from '../../store/RenderDeleteModal/actions'
+import newManga from '../../images/NewManga.png'
 
 export default function MyMangasCards() {
     let mangas = useSelector(store => store.myMangas.myMangas)
@@ -35,22 +36,36 @@ export default function MyMangasCards() {
         dispatch(read_myMangas({ page: page, categories: categories, order: order, headers }))
     }, [page, categories, order, editModalState, deleteModalState])
 
-    function handleEdit(e){
-        dispatch(renderModal({state: true, id: e.target.id}))
+    function handleEdit(e) {
+        dispatch(renderModal({ state: true, id: e.target.id }))
     }
 
-    function handleDelete(e){
-        dispatch(renderDeleteModal({state: true, id: e.target.id}))
+    function handleDelete(e) {
+        dispatch(renderDeleteModal({ state: true, id: e.target.id }))
     }
 
     return (
         <div className='mangas-cards'>
+            <section className='card'>
+                <div className='card-text'>
+                    <div className={'card-color-shonen'}></div>
+                    <div className='text-newManga'>
+                        <div>
+                            <H2 text='Create new manga' /> 
+                            <Anchor to='/manga-form' className='createManga'>Create</Anchor>
+                        </div>
+                    </div>
+                </div>
+                <div className='card-img'>
+                    <Image src={newManga} alt='manga-image' />
+                </div>
+            </section>
             {
                 mangas.length ? mangas.map((manga, i) => {
                     let card =
                         <section className='card' key={i}>
                             <div className='card-text'>
-                                <div className={'card-color-'+manga.category_id.name}></div>
+                                <div className={'card-color-' + manga.category_id.name}></div>
                                 <div className='text'>
                                     <div className='createAndEdit-icons'>
                                         <Anchor to={'/chapter-form/' + manga._id}><Image src={plusIcon} /></Anchor>
@@ -58,7 +73,7 @@ export default function MyMangasCards() {
                                     </div>
                                     <div>
                                         <H2 text={manga.title} />
-                                        <span className={'span-'+manga.category_id.name}>{manga.category_id.name}</span>
+                                        <span className={'span-' + manga.category_id.name}>{manga.category_id.name}</span>
                                     </div>
                                     <div className='actions-btns'>
                                         <Anchor className='myMangas-card-anchor' to={'/mangas/' + manga._id + "/1"}>Read</Anchor>
@@ -74,8 +89,8 @@ export default function MyMangasCards() {
                     return card
                 }) : <H2 text='No mangas founded' />
             }
-            { editModalState ? <EditModal /> : "" }
-            { deleteModalState ? <DeleteModal /> : "" }
+            {editModalState ? <EditModal /> : ""}
+            {deleteModalState ? <DeleteModal /> : ""}
         </div>
     )
 }

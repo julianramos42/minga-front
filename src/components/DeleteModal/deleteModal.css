@@ -1,12 +1,11 @@
 .mangas .mangas-displayed .mangas-cards .delete-modal{
     position: fixed;
-    top: 10vh;
-    width: 500px;
-    height: 500px;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
     background-color: #FBDDDC;
     display: flex;
     justify-content: center;
-    border-radius: 25px;
     padding: 25px;
     display: flex;
     flex-direction: column;

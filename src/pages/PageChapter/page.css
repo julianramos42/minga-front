@@ -68,6 +68,8 @@
 .chapter3 {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 
 .parrafo-chapter3 {
@@ -98,12 +100,23 @@
 }
 .mangaa{
     height: 70vh;
+    width: 100%;
 }
+
+@media (max-width: 768px){
+    .posi{
+        width: 50vw;
+    }
+}
+
 @media (max-width: 425px) {
+    .posi{
+        width: 65vw;
+    }
     .boton-back{
-        width: 40%;
+        width: 45%;
     }
     .boton-next{
-        width: 40%;
+        width: 45%;
     }
 }
