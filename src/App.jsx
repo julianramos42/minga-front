@@ -8,7 +8,7 @@ import { store } from './store/store.js'
 
 function App() {
   useEffect(() => {
-    let url = `https://minga-pjxq.onrender.com/api/auth/token`
+    let url = `http://localhost:8080/api/auth/token`
     let token = localStorage.getItem('token')
     if (token) {
       let headers = { headers: { 'Authorization': `Bearer ${token}` } }

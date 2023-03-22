@@ -18,7 +18,7 @@ export default function AuthorInfo() {
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
     useEffect(() => {
-        axios.get("https://minga-pjxq.onrender.com/api/authors/"+id, headers).then(res => setAuthor(res.data.author))
+        axios.get("http://localhost:8080/api/authors/"+id, headers).then(res => setAuthor(res.data.author))
     }, [])
 
     return (
