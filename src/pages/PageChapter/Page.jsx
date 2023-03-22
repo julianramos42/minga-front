@@ -15,7 +15,7 @@ export default function Page() {
   const [chapter, setChapters] = useState({});
   const [next, setNext] = useState('');
   const { id, page } = useParams();
-  const url = 'http://localhost:8080/api/chapters/';
+  const url = 'https://minga-pjxq.onrender.com/api/chapters/';
   const navigate = useNavigate();
 
   let dispatch = useDispatch()
@@ -61,7 +61,7 @@ export default function Page() {
   let headers = { headers: { 'Authorization': `Bearer ${token}` } }
   const { getComments } = commentsActions
   useEffect(() => { // me actualiza toda la cantidad de comentarios
-    let url = 'http://localhost:8080/api/comments?chapter_id=' + id
+    let url = 'https://minga-pjxq.onrender.com/api/comments?chapter_id=' + id
     setTimeout(() => {
       axios.get(url, headers).then(res => dispatch(getComments({ comments: res.data.comments })))
     }, 100)
