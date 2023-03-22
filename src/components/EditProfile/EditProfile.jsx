@@ -19,7 +19,8 @@ export default function EditProfile() {
      const [showAlert, setShowAlert] = useState(false);
 
 
-    const handleAccept = async (event) => {
+     const handleAccept = async (event) => {
+
      event.preventDefault();
      const cityCountry = editForm.current[2].value;
      const array = cityCountry.split(",");
@@ -54,6 +55,7 @@ export default function EditProfile() {
     };
 
     async function handleDelete (event) {
+      
        event.preventDefault();
        const data = {
          active: false,
