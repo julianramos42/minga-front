@@ -6,43 +6,66 @@ import "./page.css";
 import comment from '../../images/icon_comment 1.png'
 import flecha from '../../images/flecha-correcta.png'
 import flecha_izquierda from '../../images/flecha-izquierda.png'
+import Comment from "../../components/Comment/Comment";
+import { useDispatch, useSelector } from 'react-redux'
+import modalActions from '../../store/RenderCommentsModal/actions'
+import commentsActions from '../../store/Comments/actions'
 
 export default function Page() {
   const [chapter, setChapters] = useState({});
   const [next, setNext] = useState('');
   const { id, page } = useParams();
-  const url = 'http://localhost:8080/api/chapters/' ;
+  const url = 'https://minga-pjxq.onrender.com/api/chapters/';
   const navigate = useNavigate();
-   let [index, setIndex] = useState(Number(page));
 
-   useEffect(() => {
-     axios
-       .get(`${url}${id}`)
-       .then((response) => {
-         setChapters(response.data.chapter);
-         setNext(response.data.next)
-       })
+  let dispatch = useDispatch()
+  let modalState = useSelector(store => store.commentsModal.state)
+  const { renderModal } = modalActions
 
-       .catch((error) => console.error(error));
-   }, []);
+  let [index, setIndex] = useState(Number(page));
+
+  let comments = useSelector(store => store.comments.comments)
+  useEffect(() => {
+    axios
+      .get(`${url}${id}`)
+      .then((response) => {
+        setChapters(response.data.chapter);
+        setNext(response.data.next)
+      })
+
+      .catch((error) => console.error(error));
+  }, [comments]);
 
 
-    let handlePrev = () => {
-      setIndex(index - 1);
-      navigate(`/chapters/${id}/${index - 1}`);
-      if (index <= 0) {
-        navigate(`/mangas/${chapter.manga_id}/1`);
-      }
-    };
+  let handlePrev = () => {
+    setIndex(index - 1);
+    navigate(`/chapters/${id}/${index - 1}`);
+    if (index <= 0) {
+      navigate(`/mangas/${chapter.manga_id}/1`);
+    }
+  };
 
-    let handleNext = () => {
-      setIndex(index + 1);
-      navigate(`/chapters/${id}/${index + 1}`);
-      if (index >= chapter.pages.length - 1) {
-        navigate(`/chapters/${next}/${0}`);
-      }
-    };
+  let handleNext = () => {
+    setIndex(index + 1);
+    navigate(`/chapters/${id}/${index + 1}`);
+    if (index >= chapter.pages.length - 1) {
+      navigate(`/chapters/${next}/${0}`);
+    }
+  };
 
+  function handleRender() {
+    dispatch(renderModal({ state: true }))
+  }
+
+  let token = localStorage.getItem('token')
+  let headers = { headers: { 'Authorization': `Bearer ${token}` } }
+  const { getComments } = commentsActions
+  useEffect(() => { // me actualiza toda la cantidad de comentarios
+    let url = 'https://minga-pjxq.onrender.com/api/comments?chapter_id=' + id
+    setTimeout(() => {
+      axios.get(url, headers).then(res => dispatch(getComments({ comments: res.data.comments })))
+    }, 100)
+  }, [])
 
   return (
     <div className="mover">
@@ -67,8 +90,10 @@ export default function Page() {
       <div className="div-chapter3">
         <div className="chapter3">
           <p className="parrafo-chapter3">
-            <img className="comment" src={comment} alt="" /> 
+            <img className="comment" src={comment} alt="" onClick={handleRender} /> {/* ESTA ABRE EL MODAL*/}
           </p>
+          <p>{comments.length}</p>
+          {modalState ? <Comment /> : ""}
         </div>
       </div>
     </div>

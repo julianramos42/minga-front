@@ -57,6 +57,7 @@
     width: 15%;
     height: 6%;
     border-radius: 8px;
+    object-fit: cover;
 }
 
 .order-chapter {
@@ -91,7 +92,7 @@
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
-
+    cursor: pointer;
 }
 .div-chapter{
     display: flex;

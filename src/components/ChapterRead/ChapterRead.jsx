@@ -38,6 +38,7 @@ export default function ChapterRead({ mangaInfo }) {
         setCapitulo(!check)
 
     }, [])
+   
     return (
         <>
             <div className='details-btns'>
@@ -59,7 +60,7 @@ export default function ChapterRead({ mangaInfo }) {
                                 chapters.map((chapter,i) => {
                                     return (
                                         <div className='sectionChapter'key={i}>
-                                            <img className='selecChapter' src={chapter.manga_id.cover_photo} alt={chapter.title} />
+                                            <img className='selecChapter' src={chapter.cover_photo} alt={chapter.title} />
                                             <div className='order-chapter'>
                                                 <p className='p-chapter'>Chapter #{chapter.order} </p>
                                                 <div className='coment-chapter'>
@@ -67,7 +68,7 @@ export default function ChapterRead({ mangaInfo }) {
                                                     <p>169</p>
                                                 </div>
                                             </div>
-                                            <Anchor to={'/chapters/' + chapter._id + '/0'}><button className='btn-read'>Read</button></Anchor>
+                                            <Anchor to={'/chapters/' + chapter._id+'/0'}><button className='btn-read'>Read</button></Anchor>
                                         </div>
                                     )
                                 })

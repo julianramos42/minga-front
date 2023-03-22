@@ -7,7 +7,7 @@
     padding-top: 25.39vh;
     padding-bottom: 17.18vh;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../../images/mangas-background.png);
-    background-size: 100vw 62.89vh;
+    background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: darken;
 }
