@@ -3,7 +3,10 @@
 }
 
 .mangas .myMangas-title{
+<<<<<<< HEAD
+=======
     width: 100vw;
+>>>>>>> deb43ca0b5381554048815c8c57daadc77dba705
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,9 +14,14 @@
     min-height: 62.89vh;
     padding-top: 25.39vh;
     padding-bottom: 17.18vh;
+<<<<<<< HEAD
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../../images/mangas-background.png);
+    background-size: 100vw 62.89vh;
+=======
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../../images/author-background.png);
     background-size: cover;
     background-position: center;
+>>>>>>> deb43ca0b5381554048815c8c57daadc77dba705
     background-repeat: no-repeat;
     background-blend-mode: darken;
 }
