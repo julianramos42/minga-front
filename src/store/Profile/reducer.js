@@ -1,30 +1,26 @@
-import { LOAD_AUTHOR_DATA, SAVE_AUTHOR_DATA } from "../profile/action.js";
+import { createReducer } from "@reduxjs/toolkit";
+import AuthorActions from "./actions.js";
 
-const initialState = {
-  authorData: null,
-  loading: false,
-  error: null,
-};
+const { read_author, update_author } = AuthorActions;
 
-const authorReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case LOAD_AUTHOR_DATA:
-      return {
+const initialState = { author: [] };
+
+const reducer = createReducer(initialState, (builder) =>
+  builder
+    .addCase(read_author.fulfilled, (state, actions) => {
+      let newState = {
         ...state,
-        authorData: action.payload,
-        loading: false,
-        error: null,
+        author: actions.payload.author,
       };
-    case SAVE_AUTHOR_DATA:
-      return {
+      return newState;
+    })
+    .addCase(update_author.fulfilled, (state, actions) => {
+      let newState = {
         ...state,
-        authorData: action.payload,
-        loading: false,
-        error: null,
+        author: actions.payload.author,
       };
-    default:
-      return state;
-  }
-};
+      return newState;
+    })
+);
 
-export default authorReducer;
+export default reducer;

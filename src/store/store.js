@@ -8,6 +8,7 @@ import categoriesReducer from './Categories/reducer'
 import sortReducer from './Sort/reducer'
 import mangasFromAuthorReducer from './MangasFromAuthor/reducer'
 import checkReducer from './Switch/reducer'
+import authorReducer from './Profile/reducer'
 
 export const store = configureStore({
   reducer: {
@@ -20,6 +21,7 @@ export const store = configureStore({
     order: sortReducer,
     mangas_from_author: mangasFromAuthorReducer,
     check: checkReducer,
+    author: authorReducer
   },
   devTools: true
 });

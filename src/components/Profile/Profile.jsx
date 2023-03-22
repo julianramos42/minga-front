@@ -1,24 +1,21 @@
-import React from "react";
-import "./profile.css";
-import perfil from "../../images/default-profile.png";
-import location from '../../images/location-author.png'
-import date from '../../images/date-author.png'
+import React from 'react'
+import {useSelector} from 'react-redux'
+import './profile.css'
 
 export default function Profile() {
-  return (
-    <div id="profile">
-      <img id="profile-img" src={perfil} alt="profile" />
-      <h2>romy</h2>
-      <div id="data-author">
-        <p>
-          <img id="icon1" src={location} alt="location" />
-          ballester, bs as
-        </p>
-        <p>
-          <img id="icon1" src={date} alt="date" />
-          12/03/25
-        </p>
-      </div>
-    </div>
-  );
+    let author = useSelector(store => store.author.author)
+    const authorDate = author?.date?.split('T')[0]
+    return (
+
+        <div id='profile'>
+            <div className="data-author">
+                <p className='profileP'> Name:{author?.name} </p>
+                <p className='profileP'> LastName: {author?.last_name} </p>
+                <p className='profileP'> City:{author?.city} </p>
+                <p className='profileP'> Country:{author?.country} </p>
+                <p className='profileP'>Date:{authorDate} </p>
+                <p className='profileV'> Photo: {author?.photo} </p>
+            </div>
+        </div>
+    )
 }

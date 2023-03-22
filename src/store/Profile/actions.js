@@ -1,26 +1,38 @@
-import axios from 'axios'
-import { Dispatch } from 'redux'
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
-export const loadAuthorData = () => {
-    return async (dispatch) => {
-        try {
-            const response = await axios.get('http://localhost:8000/authors/')
-            const authorData = response.data
-            dispatch({ type: 'LOAD_AUTHOR_DATA', payload: authorData })
-        } catch (error) {
-            console.error(error)
-        }
-    }
-}
+const read_author = createAsyncThunk("read_author", async () => {
+  let token = localStorage.getItem("token");
+  let headers = { headers: { "Authorization": `Bearer ${token}` } };
+  let url = "http://localhost:8080/api/authors/authors_me/me";
+  try {
+    let response = await axios.get(url, headers);
+    return {
+      author: response.data.author,
+    };
+  } catch (error) {
+    return {
+      author: [],
+    };
+  }
+});
 
-export const saveAuthorData = (data) => {
-    return async (dispatch) => {
-        try {
-            const response = await axios.put('http://localhost:8000/authors/me', data)
-            const updatedAuthorData = response.data
-            dispatch({ type: 'SAVE_AUTHOR_DATA', payload: updatedAuthorData })
-        } catch (error) {
-            console.error(error)
-        }
-    }
-}
+const update_author = createAsyncThunk("update_author", async ({ data }) => {
+  let token = localStorage.getItem("token");
+  let headers = { headers: { "Authorization": `Bearer ${token}` } };
+  let url = "http://localhost:8080/api/authors/authors_me/me";
+  try {
+    let response = await axios.put(url, data, headers);
+    return {
+      author: response.data.author,
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      author: [],
+    };
+  }
+});
+const actions = { read_author, update_author };
+
+export default actions;
