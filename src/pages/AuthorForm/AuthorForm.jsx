@@ -39,19 +39,17 @@ export default function AuthorForm() {
             [formInputs[4].name]: formInputs[4].value,
         }
 
-        let dataOpen = {
-            icon: 'success',
-            text: 'redux'
-        }
+        // let dataOpen = {
+        //     icon: 'success',
+        //     text: 'redux'
+        // }
+        // let dataClose = {
+        //     icon: 'error',
+        //     text: 'redux'
+        // }
+        // dispatch(open(dataOpen))
 
-        let dataClose = {
-            icon: 'error',
-            text: 'redux'
-        }
-
-        dispatch(open(dataOpen))
-
-        let url = 'https://minga-pjxq.onrender.com/api/authors'
+        let url = 'http://localhost:8080/api/authors'
         let token = localStorage.getItem('token')
         let headers = {headers:{'Authorization':`Bearer ${token}`}}
 

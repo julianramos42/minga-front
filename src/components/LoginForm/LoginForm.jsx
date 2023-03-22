@@ -29,7 +29,7 @@ export default function LoginForm({ renderRegister }) {
       [formInputs[1].name]: formInputs[1].value,
     }
 
-    let url = 'https://minga-pjxq.onrender.com/api/auth/signin'
+    let url = 'http://localhost:8080/api/auth/signin'
     try {
       await axios.post(url, data)
         .then(res => {
@@ -45,10 +45,12 @@ export default function LoginForm({ renderRegister }) {
       toast.success("Login Successful")
       dataForm.current.reset()
     } catch (error) {
-      if (typeof error.response.data.message === 'string') {
-        toast.error(error.response.data.message)
-      } else {
-        error.response.data.message.forEach(err => toast.error(err))
+      if(error.response){
+        if (typeof error.response.data.message === 'string') {
+          toast.error(error.response.data.message)
+        } else {
+          error.response.data.message.forEach(err => toast.error(err))
+        }
       }
     }
   }
