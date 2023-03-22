@@ -12,7 +12,7 @@ export default function ChapterTitle({ mangaInfo }) {
             </section>
             <section className='section2' >
                 <button className='btn-section2'>{mangaInfo.category_id.name}</button>
-                <h2 className='companyName'> {mangaInfo.author_id.name}</h2>
+                { mangaInfo.company_id ? <h2 className='companyName'> {mangaInfo.company_id.name}</h2> : <h2 className='companyName'> {mangaInfo.author_id.name}</h2>}
             </section>
         </>
     )

@@ -1,5 +1,5 @@
 import React from 'react'
-import './mangaBtns.css'
+import './mangasBtns.css'
 import { Link as Anchor } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'

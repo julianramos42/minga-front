@@ -6,7 +6,8 @@ const { read_chapters, read_manga, delete_chapter } = actions
 
 const initialState = {
     manga: [],
-    chapters: []
+    chapters: [],
+    chapters:[]
 }
 
 const reducer = createReducer(

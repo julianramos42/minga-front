@@ -54,10 +54,8 @@
     color: gray;
     font-size: 0.9rem;
     background-color: transparent;
+    height: 20px;
     border-bottom: 1px solid black;
-}
-.bor{
-    border: none;
 }
 fieldset{
     border: none;
