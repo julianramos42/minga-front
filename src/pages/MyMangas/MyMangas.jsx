@@ -1,7 +1,5 @@
 import React from 'react'
 import './myMangas.css'
-import H2 from '../../components/H2/H2'
-import MangasCategories from '../../components/MangasCategories/MangasCategories'
 import MangasType from '../../components/MangasType/MangasType'
 import MyMangasCards from '../../components/MyMangasCards/MyMangasCards'
 import MyMangasBtns from '../../components/MyMangasBtns/MyMangasBtns'
