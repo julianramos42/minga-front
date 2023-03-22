@@ -10,13 +10,9 @@ import Mangas from './Mangas/Mangas'
 import PageChapter from '../pages/PageChapter/Page'
 import MangaC from "./Mangas/MangaC";
 import Author from "./Author/Author";
-<<<<<<< HEAD
 import EditChapter from "./EditChapter/EditChapter";
 import MyMangas from "./MyMangas/MyMangas";
-=======
-import MyMangas from "./MyMangas/MyMangas";
 import MyReactions from "./MyReactions/MyReactions";
->>>>>>> deb43ca0b5381554048815c8c57daadc77dba705
 
 import { createBrowserRouter } from "react-router-dom";
 
@@ -43,13 +39,9 @@ export const router = createBrowserRouter([
             { path: '/mangas/:id/:page' , element: <MangaC /> },
             { path: "/manga-form", element: <MangaForm/> },
             { path: "/author/:id", element: <Author /> },
-<<<<<<< HEAD
             { path: '/edit/:manga_id' , element: <EditChapter /> },
-            { path: '/mymangas/:page', element: <MyMangas /> }
-=======
             { path: '/mymangas/:page', element: <MyMangas /> },
             { path: '/myreactions/:page', element: <MyReactions /> }
->>>>>>> deb43ca0b5381554048815c8c57daadc77dba705
         ]
     }
 ])
