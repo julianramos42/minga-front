@@ -19,6 +19,7 @@
     width: 40%;
     height: 30%;
     margin-bottom: 5%;
+    object-fit: cover;
 }
 
 .section2 {
