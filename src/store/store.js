@@ -12,6 +12,10 @@ import editReducer from './EditChapter/reducer'
 import myMangasReducer from './MyMangas/reducer'
 import modalReducer from './RenderEditModal/reducer'
 import modalDeleteReducer from './RenderDeleteModal/reducer'
+import renderCommentsModal from './RenderCommentsModal/reducer'
+import getComents from './Comments/reducer'
+import reactionsReducer from './Reactions/reducer'
+import favouritesMangasReducer from './FavouritesMangas/reducer'
 
 export const store = configureStore({
     reducer: {
@@ -27,6 +31,12 @@ export const store = configureStore({
         editchapter: editReducer,
         myMangas: myMangasReducer,
         modalState: modalReducer,
-        modalDeleteState: modalDeleteReducer
+        modalDeleteState: modalDeleteReducer,
+        commentsModal: renderCommentsModal,
+        comments: getComents,
+        modalState: modalReducer,
+        modalDeleteState: modalDeleteReducer,
+        reactions: reactionsReducer,
+        favouritesMangas: favouritesMangasReducer
     }
 })
