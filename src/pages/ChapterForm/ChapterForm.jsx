@@ -30,7 +30,7 @@ export default function ChapterForm() {
             pages: formInputs[2].split(','),
             manga_id,
         }
-        let url = 'http://localhost:8080/api/chapters'
+        let url = 'https://minga-pjxq.onrender.com/api/chapters'
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 

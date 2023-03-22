@@ -29,7 +29,7 @@ export default function LoginForm({ renderRegister }) {
       [formInputs[1].name]: formInputs[1].value,
     }
 
-    let url = 'http://localhost:8080/api/auth/signin'
+    let url = 'https://minga-pjxq.onrender.com/api/auth/signin'
     try {
       await axios.post(url, data)
         .then(res => {
