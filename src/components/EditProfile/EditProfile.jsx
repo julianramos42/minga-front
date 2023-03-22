@@ -70,7 +70,7 @@ export default function EditProfile() {
         });
     
         if (result.isConfirmed) {
-            await dispatch(update_author({ data: data }));
+            dispatch(update_author({ data: data }));
             setReload(!reload);
     
             setTimeout(() => {
