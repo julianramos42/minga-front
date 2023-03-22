@@ -16,6 +16,7 @@ import renderCommentsModal from './RenderCommentsModal/reducer'
 import getComents from './Comments/reducer'
 import reactionsReducer from './Reactions/reducer'
 import favouritesMangasReducer from './FavouritesMangas/reducer'
+import authorReducer from './Profile/reducer'
 
 export const store = configureStore({
     reducer: {
@@ -30,13 +31,12 @@ export const store = configureStore({
         check: checkReducer,
         editchapter: editReducer,
         myMangas: myMangasReducer,
-        modalState: modalReducer,
-        modalDeleteState: modalDeleteReducer,
         commentsModal: renderCommentsModal,
         comments: getComents,
         modalState: modalReducer,
         modalDeleteState: modalDeleteReducer,
         reactions: reactionsReducer,
+        author: authorReducer,
         favouritesMangas: favouritesMangasReducer
     }
 })
