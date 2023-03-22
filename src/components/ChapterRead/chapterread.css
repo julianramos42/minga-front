@@ -57,6 +57,7 @@
     width: 15%;
     height: 6%;
     border-radius: 8px;
+    object-fit: cover;
 }
 
 .order-chapter {

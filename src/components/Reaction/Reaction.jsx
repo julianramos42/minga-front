@@ -29,7 +29,7 @@ export default function Reaction() {
     useEffect( () => { // TRAE LAS REACCIONES DEL MANGA
         setTimeout( () => {
             dispatch(captureReactions({mangaId,headers}))
-        },150)
+        },500)
     },[reload])
 
     let mangaReactions = useSelector(store => store.reactions.reactions)
@@ -111,6 +111,11 @@ export default function Reaction() {
         setReload(!reload)
     }
 
+    let [cantChapters,setCantChapters] = useState('')
+    useEffect( () => {
+        axios.get("https://minga-pjxq.onrender.com/api/chapters/all/" + mangaId).then(res => setCantChapters(res.data.chapters.length))
+    },[])
+
     return (
         <>
             {
@@ -141,7 +146,7 @@ export default function Reaction() {
                     </div>
                     <p className='text3'> | </p>
                     <div className='rectangle-text'>
-                        <p className='text1'>265</p>
+                        { cantChapters ? <p className='text1'>{cantChapters}</p> : "" }
                         <p className='text2'>Chapters</p>
                     </div>
                     <p className='text3'> | </p>
