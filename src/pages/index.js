@@ -10,6 +10,7 @@ import Mangas from './Mangas/Mangas'
 import PageChapter from '../pages/PageChapter/Page'
 import MangaC from "./Mangas/MangaC";
 import Author from "./Author/Author";
+import AuthorProfile from "./AuthorProfile/AuthorProfile";
 import EditChapter from "./EditChapter/EditChapter";
 import MyMangas from "./MyMangas/MyMangas";
 import MyReactions from "./MyReactions/MyReactions";
@@ -41,7 +42,8 @@ export const router = createBrowserRouter([
             { path: "/author/:id", element: <Author /> },
             { path: '/edit/:manga_id' , element: <EditChapter /> },
             { path: '/mymangas/:page', element: <MyMangas /> },
-            { path: '/myreactions/:page', element: <MyReactions /> }
+            { path: '/myreactions/:page', element: <MyReactions /> },
+            {path: "/profile",element: <AuthorProfile />}
         ]
     }
 ])
