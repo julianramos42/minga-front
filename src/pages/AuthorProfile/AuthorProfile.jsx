@@ -1,9 +1,7 @@
 import React from "react";
-import { useEffect, useState } from "react";
 import './authorProfile.css';
 import EditProfile from '../../components/EditProfile/EditProfile';
 import Profile from '../../components/Profile/Profile';
-import { useSelector } from "react-redux";
 
 export default function Authorprofile() {
 
