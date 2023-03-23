@@ -1,20 +1,20 @@
-footer nav{
+footer nav {
     display: flex;
     width: 74.583vw;
-    margin: 23vh auto 0 auto;
+    margin: 23vh 0 0 0;
     justify-content: space-between;
     align-items: center;
     background: #FFFFFF;
     padding: 1rem;
-    box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0;
 }
 
-footer nav .pages{
+footer nav .pages {
     display: flex;
     gap: 4.305vw;
 }
 
-footer nav .pages>a{
+footer nav .pages>a {
     text-decoration: none;
     font-weight: 400;
     font-size: 16px;
@@ -22,33 +22,33 @@ footer nav .pages>a{
     color: #222222;
 }
 
-footer nav .logo-container{
+footer nav .logo-container {
     width: 80px;
     height: 80px;
 }
 
-footer nav .logo-container img{
+footer nav .logo-container img {
     width: 100%;
     height: 100%;
 }
 
-footer nav .social-container{
+footer nav .social-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2.148vh;
 }
 
-footer nav .social-container img{
+footer nav .social-container img {
     object-fit: cover;
 }
 
-footer nav .social{
+footer nav .social {
     display: flex;
     gap: 2.77vw;
 }
 
-footer nav .donate{
+footer nav .donate {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -65,10 +65,94 @@ footer nav .donate{
     line-height: 95.19%;
 }
 
-@media (max-width: 767px){
-    footer nav{
-     flex-direction: column;
-     gap: 25px;
-     margin: 15vh auto 0 auto;
-    } 
- }
+footer .donate-modal {
+    position: fixed;
+    margin-left: 0;
+    top: 0vh;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    color: #000000;
+}
+
+footer .donate-modal .donate-card{
+    width: 400px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    padding: 25px;
+    border-radius: 25px;
+}
+
+footer .donate-modal .donate-card h2 {
+    text-align: center;
+}
+
+footer .donate-modal .donate-card .donateModal-btns {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+footer .donate-modal .donate-card .donateModal-btns .donateBtn {
+    text-decoration: none;
+    background: rgb(41, 202, 108);
+    width: 90px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: 100;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+footer .donate-modal .donate-card .donateCancel {
+    text-decoration: none;
+    background: rgb(209, 210, 243);
+    width: 92px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+    border-radius: 5px;
+    color: #2341e7;
+    font-weight: 100;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    footer nav {
+        flex-direction: column;
+        gap: 25px;
+        margin: 15vh auto 0 auto;
+    }
+}
+
+@media (max-width: 500px) {
+    footer .donate-modal .donate-card{
+        height: 45vh;
+    }
+
+    footer .donate-modal .donateModal-btns{
+        flex-direction: column;
+    }
+}
