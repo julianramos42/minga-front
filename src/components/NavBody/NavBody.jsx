@@ -49,6 +49,7 @@ export default function NavBody({handleRender}) {
             {token ? <Anchor to='/author-form'>New Author</Anchor> : ""}
             {token ? <Anchor to='/manga-form'>New Manga</Anchor> : ""}
             {token && author?.active ? <Anchor to='/profile'>Author-Profile</Anchor> : ''}
+            {token && author?.active ? <Anchor to='/new-role'>New Role</Anchor> : ''}
             {token ? <Anchor onClick={handleLogout}>Logout</Anchor> : ""}
             {token ? "" : <Anchor to='/auth'>Auth</Anchor>}
             {token ? "" : <Anchor to='/register' onClick={handleRender}>Register</Anchor>}

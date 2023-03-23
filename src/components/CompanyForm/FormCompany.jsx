@@ -1,14 +1,18 @@
 import React, { useRef } from 'react'
 import './formcompany.css'
-import { useParams } from 'react-router-dom'
 import image from "../../images/default-profile.png"
 import Input from '../Input/Input'
 import axios from 'axios'
 import toast, { Toaster } from 'react-hot-toast'
+import { useDispatch } from 'react-redux'
+
 
 export default function FormCompany() {
     let dataForm = useRef()
-    let { user_id } = useParams()
+
+    let dispatch = useDispatch()
+    
+    
     async function handleSubmit(e) {
         e.preventDefault()
 
@@ -18,14 +22,14 @@ export default function FormCompany() {
                 formInputs.push(e.value)
             }
         })
-
-
+        
+        
         let data = {
             name: formInputs[0],
             logo: formInputs[1],
             website: formInputs[2],
             description: formInputs[3],
-            user_id
+       
         }
 
         let url = 'http://localhost:8080/api/companies'
@@ -38,8 +42,6 @@ export default function FormCompany() {
             dataForm.current.reset()
 
         } catch (error) {
-            console.log(error)
-
             if (error.response.data === 'Unauthorized') {
                 toast.error('You need to Login')
             } else {
@@ -69,6 +71,7 @@ export default function FormCompany() {
                     <Input className='companyinput' type='url' name='website' placeholder='Web Site' />
                     <Input className='companyinput' type='text' name='description' placeholder='Description' />
                     <Input id='send' type='submit' value='Send' />
+                <Toaster/>
                 </form>
             </div>
         </div>

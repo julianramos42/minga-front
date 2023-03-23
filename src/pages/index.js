@@ -46,7 +46,7 @@ export const router = createBrowserRouter([
             { path: '/mymangas/:page', element: <MyMangas /> },
             { path: '/myreactions/:page', element: <MyReactions /> },
             {path: "/profile",element: <AuthorProfile />},
-            {path: "/newrole",element: <NewRole />},
+            {path: "/new-role",element: <NewRole />},
             {path: "/company-form",element: <CompanyForm />},
         ]
     }
