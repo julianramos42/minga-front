@@ -14,6 +14,8 @@ import AuthorProfile from "./AuthorProfile/AuthorProfile";
 import EditChapter from "./EditChapter/EditChapter";
 import MyMangas from "./MyMangas/MyMangas";
 import MyReactions from "./MyReactions/MyReactions";
+import NewRole from "./NewRole/NewRole";
+import CompanyForm from "./CompanyForm/CompanyForm";
 
 import { createBrowserRouter } from "react-router-dom";
 
@@ -43,7 +45,9 @@ export const router = createBrowserRouter([
             { path: '/edit/:manga_id' , element: <EditChapter /> },
             { path: '/mymangas/:page', element: <MyMangas /> },
             { path: '/myreactions/:page', element: <MyReactions /> },
-            {path: "/profile",element: <AuthorProfile />}
+            {path: "/profile",element: <AuthorProfile />},
+            {path: "/newrole",element: <NewRole />},
+            {path: "/company-form",element: <CompanyForm />},
         ]
     }
 ])
