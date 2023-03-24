@@ -16,6 +16,7 @@ import MyMangas from "./MyMangas/MyMangas";
 import MyReactions from "./MyReactions/MyReactions";
 import NewRole from "./NewRole/NewRole";
 import CompanyForm from "./CompanyForm/CompanyForm";
+import AdminPanel from "./AdminPanel/AdminPanel";
 
 import { createBrowserRouter } from "react-router-dom";
 
@@ -48,6 +49,7 @@ export const router = createBrowserRouter([
             {path: "/profile",element: <AuthorProfile />},
             {path: "/new-role",element: <NewRole />},
             {path: "/company-form",element: <CompanyForm />},
+            {path: "/admin",element: <AdminPanel />},
         ]
     }
 ])
