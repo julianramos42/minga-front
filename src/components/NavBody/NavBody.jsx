@@ -16,7 +16,7 @@ export default function NavBody({handleRender}) {
 
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-    let url = 'https://minga-pjxq.onrender.com/api/auth/signout'
+    let url = 'http://localhost:8080/api/auth/signout'
 
     async function handleLogout() {
         try {
