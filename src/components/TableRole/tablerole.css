@@ -21,15 +21,19 @@ table {
     text-align: center;
 }
 
-.colum1 ,.colum2, .colum3 ,.colum4 {
+.colum1,
+.colum2,
+.colum3,
+.colum4 {
     width: 30%;
 
 }
-.photo-perfil-author{
+
+.photo-perfil-author {
     width: 2rem;
     height: 2rem;
     border-radius: 100%;
- }
+}
 
 
 /* /boton para activa o desactivar un author o comapnie/ */
@@ -44,6 +48,7 @@ table {
     box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
     width: 3rem;
     height: 1.5rem;
+
 
 }
 
@@ -66,7 +71,7 @@ table {
     background: transparent;
     border: 1px solid rgba(0, 0, 0, 0.276);
     margin: 0px;
-    outline: none;
+  
 }
 
 
@@ -107,18 +112,41 @@ table {
     border-radius: 10px 10px 0 0;
 }
 
-@media (max-width: 748px) {}
+
 
 @media (min-width:320px) and (max-width:500px) {
-    .boton-isCompanie{
-        width: 70vw;
+    .boton-isCompanie {
+        width: 50vw;
     }
-    .boton-companie-active{
+
+    .boton-companie-active {
         width: 80%;
     }
-    table{
-        width: 80%;
+    thead{
+        margin-left: 15%;
+        width: 100%;
     }
-  
-    
+    tbody{
+        font-size: 12px;
+    }
+    table {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 15%;
+    }
+    .panel-active{
+        width: 25px;
+        height: 10px;
+    }
+    .boton-entities{
+        width: 20px;
+   
+    }
+    .boton-option{
+        width: 10px;
+
+    }
+   
 }

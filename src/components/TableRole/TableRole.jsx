@@ -1,31 +1,24 @@
 import { useEffect, useState } from 'react'
-import iconPanel from '../../images/Union.png'
 import './tablerole.css'
 import { useDispatch, useSelector } from 'react-redux';
 import action from '../../store/PanelAdmin/actions'
 import H2 from '../H2/H2'
+import CompanyTable from './Company';
+import AuthorActive from './AuthorActive';
 
 
-const { captureState, read_all_authors } = action;
+const { captureState, read_all_authors, read_all_company } = action;
 
 
 export default function TableRole() {
 
-    const [active, setActive] = useState(true);
+    const [author, setAuthor] = useState(false)
     const [companie, setCompanie] = useState(true);
     const dispatch = useDispatch();
-    let author = useSelector(store => store.panelAdmin.authors)
+    let activeAuthors = useSelector(store => store.panelAdmin.activeAuthors)
+    let inactiveAuthors = useSelector(store => store.panelAdmin.inactiveAuthors)
+    let company = useSelector(store => store.panelAdmin.companies)
 
-    console.log(author)
-    //boton activo o desativo
-    function IsActive() {
-        setActive(true)
-        dispatch(captureState({ buttonState: false }))
-    }
-    function NotActive() {
-        setActive(false)
-        dispatch(captureState({ buttonState: true }))
-    }
     //boton companies o author
     function IsCompanie() {
         setCompanie(true)
@@ -34,19 +27,24 @@ export default function TableRole() {
     function IsAuthor() {
         setCompanie(false)
         dispatch(captureState({ buttonState: true }))
-        dispatch(read_all_authors())
     }
 
     useEffect(() => {
-        setCompanie(!author)
+        dispatch(read_all_authors())
+        dispatch(read_all_company())
     }, [])
+
+    useEffect(() => {
+        if (activeAuthors?.length === 0 && inactiveAuthors?.length === 0) {
+            setAuthor(true)
+        }else{
+            setAuthor(false)
+        }
+    }, [activeAuthors, inactiveAuthors])
+
 
     return (
         <>
-
-
-
-
             <table>
                 <thead>
                     <div className="boton-companie-active">
@@ -58,55 +56,46 @@ export default function TableRole() {
                     companie === true
                         ?
                         <table>
-                            <tbody className='body-table'>
-
-
-
-                                <tr >
-                                    <td className="iconPanel"><img src={iconPanel} /></td>
-                                    <td className="colum1">nombre companie</td>
-                                    <td className="colum2">web companie</td>
-                                    <td className="colum3"><img src="#" alt="fotoperfil" /></td>
-                                    <div className='panel-active'>
-                                        <input className={active ? 'boton-option boton-entities' : 'boton-option'} onClick={IsActive} ></input>
-                                        <input className={!active ? 'boton-option boton-entities' : 'boton-option'} onClick={NotActive}></input>
-                                    </div>
-                                </tr>
-
-
-                            </tbody>
+                            {
+                                company?.length > 0
+                                    ?
+                                    company.map((company) => {
+                                        return (
+                                            <CompanyTable company={company} />
+                                        )
+                                    })
+                                    :
+                                    <H2 text='No Company founded' />
+                            }
                         </table>
                         :
                         <table>
                             {
-                                author?.length > 0
-                                    ?
-                                    author.map((author) => {
+                                inactiveAuthors?.length > 0
+                                    &&
+
+                                    inactiveAuthors.map((author) => {
                                         return (
 
-                                            <tbody className='body-table'>
-                                                <tr >
-                                                    <td className="iconPanel"><img src={iconPanel} /></td>
-                                                    <td className="colum1">{author.name}</td>
-                                                    <td className="colum2">{author.city}</td>
-                                                    <td className="colum3"><img className='photo-perfil-author' src={author.photo} alt="fotoperfil" /></td>
-                                                    <div className='panel-active'>
-                                                        <input className={active ? 'boton-option boton-entities' : 'boton-option'} onClick={IsActive} ></input>
-                                                        <input className={!active ? 'boton-option boton-entities' : 'boton-option'} onClick={NotActive}></input>
-                                                    </div>
-                                                </tr>
-                                            </tbody>
+                                            <AuthorActive author={author} />
                                         )
                                     })
-                                    :
-                                    <H2 text='No Authors founded' />
                             }
+                            {
+                                activeAuthors?.length > 0
+                                    &&
+                                    activeAuthors.map((author) => {
+                                        return (
+
+                                            <AuthorActive author={author} />
+                                        )
+                                    })
+                            }
+                            {author === true &&   <H2 text='No Author founded' /> }
 
                         </table>
                 }
             </table>
-
-
         </>
     )
 }
