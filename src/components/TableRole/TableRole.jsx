@@ -14,10 +14,12 @@ export default function TableRole() {
 
     const [author, setAuthor] = useState(false)
     const [companie, setCompanie] = useState(true);
+    const [controler, setControler] = useState(false);
     const dispatch = useDispatch();
     let activeAuthors = useSelector(store => store.panelAdmin.activeAuthors)
     let inactiveAuthors = useSelector(store => store.panelAdmin.inactiveAuthors)
-    let company = useSelector(store => store.panelAdmin.companies)
+    let activeCompanies = useSelector(store => store.panelAdmin.activeCompanies)
+    let inactiveCompanies = useSelector(store => store.panelAdmin.inactiveCompanies)
 
     //boton companies o author
     function IsCompanie() {
@@ -37,10 +39,18 @@ export default function TableRole() {
     useEffect(() => {
         if (activeAuthors?.length === 0 && inactiveAuthors?.length === 0) {
             setAuthor(true)
-        }else{
+        } else {
             setAuthor(false)
         }
     }, [activeAuthors, inactiveAuthors])
+
+    useEffect(() => {
+        if (activeCompanies?.length === 0 && inactiveCompanies?.length === 0) {
+            setControler(true)
+        } else {
+            setControler(false)
+        }
+    }, [activeCompanies, inactiveCompanies])
 
 
     return (
@@ -57,41 +67,52 @@ export default function TableRole() {
                         ?
                         <table>
                             {
-                                company?.length > 0
-                                    ?
-                                    company.map((company) => {
-                                        return (
-                                            <CompanyTable company={company} />
-                                        )
-                                    })
-                                    :
-                                    <H2 text='No Company founded' />
+                                inactiveCompanies?.length > 0
+                                &&
+
+                                inactiveCompanies.map((company) => {
+                                    return (
+                                        <CompanyTable company={company} />
+                                    )
+                                })
                             }
+                            {
+                                activeCompanies?.length > 0
+                                &&
+                                activeCompanies.map((company) => {
+                                    return (
+
+                                        <CompanyTable company={company} />
+                                    )
+                                })
+                            }
+                            {/* {companie === true && <H2 text='No Company founded' />} */}
+
                         </table>
                         :
                         <table>
                             {
                                 inactiveAuthors?.length > 0
-                                    &&
+                                &&
 
-                                    inactiveAuthors.map((author) => {
-                                        return (
+                                inactiveAuthors.map((author) => {
+                                    return (
 
-                                            <AuthorActive author={author} />
-                                        )
-                                    })
+                                        <AuthorActive author={author} />
+                                    )
+                                })
                             }
                             {
                                 activeAuthors?.length > 0
-                                    &&
-                                    activeAuthors.map((author) => {
-                                        return (
+                                &&
+                                activeAuthors.map((author) => {
+                                    return (
 
-                                            <AuthorActive author={author} />
-                                        )
-                                    })
+                                        <AuthorActive author={author} />
+                                    )
+                                })
                             }
-                            {author === true &&   <H2 text='No Author founded' /> }
+                            {author === true && <H2 text='No Author founded' />}
 
                         </table>
                 }

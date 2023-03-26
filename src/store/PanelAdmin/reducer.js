@@ -1,10 +1,9 @@
 import { createReducer } from "@reduxjs/toolkit";
 import actions from './actions'
-const { captureState, read_all_authors, read_all_company, update_author_active } = actions
+const { captureState, read_all_authors, read_all_company, update_author_active , update_company_active} = actions
 
 const initiateState = {
     checked: false,
-    companies: [],
     activeAuthors: [],
     inactiveAuthors: [],
     activeCompanies: [],
@@ -28,22 +27,24 @@ const reducer = createReducer(
             (state, action) => {
                 let newState = {
                     ...state,
-                    companies: action.payload.companies
+                    activeCompanies: action.payload.activeCompanies,
+                    inactiveCompanies: action.payload.inactiveCompanies,
+                    
                 }
                 return newState
             }
-        )
-        .addCase(
-            read_all_authors.fulfilled,
-            (state, action) => {
-                let newState = {
-                    ...state,
-                    activeAuthors: action.payload.activeAuthors,
-                    inactiveAuthors: action.payload.inactiveAuthors
-
+            )
+            .addCase(
+                read_all_authors.fulfilled,
+                (state, action) => {
+                    let newState = {
+                        ...state,
+                        activeAuthors: action.payload.activeAuthors,
+                        inactiveAuthors: action.payload.inactiveAuthors
+                        
+                    }
+                    return newState
                 }
-                return newState
-            }
         )
         .addCase(
             update_author_active.fulfilled,
@@ -63,6 +64,30 @@ const reducer = createReducer(
                             ...state,
                             activeAuthors: state.activeAuthors.filter(item => item._id !== _id),
                             inactiveAuthors: [...state.inactiveAuthors, action.payload.author]
+                        }
+                    }
+                }
+                return newState
+            }
+            )
+            .addCase(
+                update_company_active.fulfilled,
+                (state, action) => {
+                let newState = {}
+                if (action.payload.success) {
+                    let _id = action.payload.company._id
+                    let active = action.payload.company.active
+                    if (active) {
+                        newState = {
+                            ...state,
+                            inactiveCompanies: state.inactiveCompanies.filter(item => item._id !== _id),
+                            activeCompanies: [...state.activeCompanies, action.payload.company]
+                        }
+                    }else{
+                        newState = {
+                            ...state,
+                            activeCompanies: state.activeCompanies.filter(item => item._id !== _id),
+                            inactiveCompanies: [...state.inactiveCompanies, action.payload.company]
                         }
                     }
                 }

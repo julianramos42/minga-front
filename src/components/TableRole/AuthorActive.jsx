@@ -5,22 +5,24 @@ import './tablerole.css'
 import action from '../../store/PanelAdmin/actions'
 
 
-const { captureState ,update_author_active} = action;
+const { captureState, update_author_active } = action;
 
-export default function AuthorActive({author}) {
+export default function AuthorActive({ author }) {
 
     const [active, setActive] = useState(author.active);
     const dispatch = useDispatch();
 
     function IsActive() {
         dispatch(captureState({ buttonState: false }))
-        dispatch(update_author_active({ _id: author._id , active: true }))
+        dispatch(update_author_active({ _id: author._id, active: true }))
+
+
     }
     function NotActive() {
-      
         dispatch(captureState({ buttonState: true }))
-        dispatch(update_author_active({ _id: author._id , active: false }))
-
+        dispatch(update_author_active({ _id: author._id, active: false }))
+       
+        
     }
 
 
@@ -33,8 +35,8 @@ export default function AuthorActive({author}) {
                     <td className="colum2">{author.city}</td>
                     <td className="colum3"><img className='photo-perfil-author' src={author.photo} alt="fotoperfil" /></td>
                     <div className='panel-active'>
-                        <input className={active ? 'boton-option boton-entities' : 'boton-option'} onClick={IsActive} ></input>
-                        <input className={!active ? 'boton-option boton-entities' : 'boton-option'} onClick={NotActive}></input>
+                        <button className={active ? 'boton-option boton-entities' : 'boton-option'} onClick={ IsActive} ></button>
+                        <button className={!active ? 'boton-option boton-entities' : 'boton-option'} onClick={ NotActive}></button>
                     </div>
                 </tr>
             </tbody>
