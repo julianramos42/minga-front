@@ -43,7 +43,7 @@ let read_all_company = createAsyncThunk(
 
 let update_author_active = createAsyncThunk(
     'update_author_active ',
-    async ({ _id, active }) => {
+    async ({ _id, active}) => {
         try {
             let response = await axios.put(`http://localhost:8080/api/authors/admin/prueba/${_id}`, { active: active })
             return {
@@ -57,7 +57,7 @@ let update_author_active = createAsyncThunk(
 )
 let update_company_active = createAsyncThunk(
     'update_company_active ',
-    async ({ _id, active }) => {
+    async ({ _id, active , headers}) => {
         try {
             let response = await axios.put(`http://localhost:8080/api/companies/admin/${_id}`, { active: active })
             return {

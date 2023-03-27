@@ -20,7 +20,6 @@ export default function TableRole() {
     let inactiveAuthors = useSelector(store => store.panelAdmin.inactiveAuthors)
     let activeCompanies = useSelector(store => store.panelAdmin.activeCompanies)
     let inactiveCompanies = useSelector(store => store.panelAdmin.inactiveCompanies)
-
     //boton companies o author
     function IsCompanie() {
         setCompanie(true)
