@@ -41,5 +41,13 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+     <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script>
+    window.gapi.load('auth2', function() {
+      window.gapi.auth2.init({
+        client_id: '759791277322-8bfut70p5l8d1ark5gd1744ufi4am6i8.apps.googleusercontent.com',
+      });
+    });
+  </script>
   </body>
 </html>
