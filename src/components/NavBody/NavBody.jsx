@@ -38,7 +38,7 @@ export default function NavBody({ handleRender }) {
 
     let author = useSelector((store) => store.author.author);
     useEffect(() => {
-        if(token){
+        if(token && user.author){
             dispatch(read_author());
         }
     }, []);
