@@ -29,16 +29,19 @@ export default function LoginForm({ renderRegister }) {
       [formInputs[1].name]: formInputs[1].value,
     }
 
-    let url = 'https://minga-pjxq.onrender.com/api/auth/signin'
+    let url = 'http://localhost:8080/api/auth/signin'
+    let admin
     try {
       await axios.post(url, data)
         .then(res => {
+          res.data.user.is_admin ? (admin = true) : (admin = false)
           localStorage.setItem('token', res.data.token)
           localStorage.setItem('user', JSON.stringify({
             id: res.data.user._id,
             name: res.data.user.name,
             mail: res.data.user.mail,
             photo: res.data.user.photo,
+            admin
           }))
           setInterval(() => window.location.href = '/', 1000)
         })
