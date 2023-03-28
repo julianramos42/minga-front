@@ -3,6 +3,7 @@ import iconPanel from '../../images/Union.png'
 import { useDispatch } from 'react-redux';
 import './tablerole.css'
 import action from '../../store/PanelAdmin/actions'
+import  { Toaster } from 'react-hot-toast'
 
 
 const { captureState, update_author_active } = action;
@@ -37,6 +38,7 @@ export default function AuthorActive({ author }) {
                         <button className={!active ? 'boton-option boton-entities' : 'boton-option'} onClick={NotActive}></button>
                     </div>
                 </tr>
+                <Toaster/>
             </tbody>
         </>
     )

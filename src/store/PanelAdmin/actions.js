@@ -1,5 +1,6 @@
 import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import toast from 'react-hot-toast'
 
 let captureState = createAction(
     'captureState',
@@ -43,29 +44,49 @@ let read_all_company = createAsyncThunk(
 
 let update_author_active = createAsyncThunk(
     'update_author_active ',
-    async ({ _id, active}) => {
+    async ({ _id, active }) => {
         try {
             let response = await axios.put(`http://localhost:8080/api/authors/admin/prueba/${_id}`, { active: active })
+            toast.success('Author status changed')
             return {
                 author: response.data.author,
                 success: true,
             }
         } catch (error) {
-            return { success: false }
+            if (error.response.data === 'Unauthorized') {
+                toast.error('You need to Login')
+            } else {
+
+                if (typeof error.response.data.message === 'string') {
+                    toast.error(error.response.data.message)
+                } else {
+                    error.response.data.message.forEach(err => toast.error(err))
+                }
+            }
         }
     }
 )
 let update_company_active = createAsyncThunk(
     'update_company_active ',
-    async ({ _id, active , headers}) => {
+    async ({ _id, active}) => {
         try {
             let response = await axios.put(`http://localhost:8080/api/companies/admin/${_id}`, { active: active })
+            toast.success('Company status changed')
             return {
                 company: response.data.company,
                 success: true,
             }
         } catch (error) {
-            return { success: false }
+            if (error.response.data === 'Unauthorized') {
+                toast.error('You need to Login')
+            } else {
+
+                if (typeof error.response.data.message === 'string') {
+                    toast.error(error.response.data.message)
+                } else {
+                    error.response.data.message.forEach(err => toast.error(err))
+                }
+            }
         }
     }
 )
