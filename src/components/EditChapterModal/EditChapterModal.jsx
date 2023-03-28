@@ -1,17 +1,17 @@
 import React from 'react'
 import './editchaptermodal.css';
-import  { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import { useDispatch } from 'react-redux';
 import modalActions from '../../store/RenderEditModal/actions'
 import editchaptermodal from '../../store/EditChapter/actions'
 
 export default function EditChapterModal({ selectedChapter, data, newData }) {
-  
-   
+
+
     const dispatch = useDispatch()
     const { renderModal } = modalActions
-    const {edit_one_chapter} = editchaptermodal
-   
+    const { edit_one_chapter } = editchaptermodal
+
     function handleClose() {
         dispatch(renderModal({ state: false }))
     }
@@ -25,7 +25,7 @@ export default function EditChapterModal({ selectedChapter, data, newData }) {
         }
         let info = { _id: selectedChapter._id, data: editedChapter, headers: headers }
         dispatch(edit_one_chapter(info))
-        
+
         setTimeout(() => {
             handleClose()
         }, 1500)
@@ -34,12 +34,14 @@ export default function EditChapterModal({ selectedChapter, data, newData }) {
 
     return (
         <div className='edit-modal'>
-        <h2>Are you sure you want to edit this chapter?</h2>
-        <div className='modal-btns'>
-            <p className='btn-handlesend' onClick={handleSend}>Edit</p>
-            <p className='btn-handlecancel' onClick={handleClose}>Cancel</p>
+            <div className='edit-card'>
+                <h2>Are you sure you want to edit this chapter?</h2>
+                <div className='modal-btns'>
+                    <p className='btn-handlesend' onClick={handleSend}>Edit</p>
+                    <p className='btn-handlecancel' onClick={handleClose}>Cancel</p>
+                </div>
+                <Toaster />
+            </div>
         </div>
-        <Toaster />
-    </div>
     )
 }

@@ -54,12 +54,12 @@ export default function TableRole() {
 
     return (
         <>
-            <table>
+            <div className='table-all'>
                 <thead>
-                    <div className="boton-companie-active">
-                        <button className={companie ? 'boton-isCompanie prueba-companie' : 'boton-isCompanie'} onClick={IsCompanie} >Companies</button>
-                        <button className={!companie ? 'boton-isCompanie prueba-companie' : 'boton-isCompanie'} onClick={IsAuthor} >Authors</button>
-                    </div>
+                    <tr className="boton-companie-active">
+                        <th className={companie ? 'boton-isCompanie prueba-companie' : 'boton-isCompanie'} onClick={IsCompanie} >Companies</th>
+                        <th className={!companie ? 'boton-isCompanie prueba-companie' : 'boton-isCompanie'} onClick={IsAuthor} >Authors</th>
+                    </tr>
                 </thead>
                 {
                     companie === true
@@ -69,19 +69,19 @@ export default function TableRole() {
                                 inactiveCompanies?.length > 0
                                 &&
 
-                                inactiveCompanies.map((company) => {
+                                inactiveCompanies.map((company, i) => {
                                     return (
-                                        <CompanyTable company={company} />
+                                        <CompanyTable company={company} key={i} />
                                     )
                                 })
                             }
                             {
                                 activeCompanies?.length > 0
                                 &&
-                                activeCompanies.map((company) => {
+                                activeCompanies.map((company, i) => {
                                     return (
 
-                                        <CompanyTable company={company} />
+                                        <CompanyTable company={company} key={i} />
                                     )
                                 })
                             }
@@ -94,20 +94,20 @@ export default function TableRole() {
                                 inactiveAuthors?.length > 0
                                 &&
 
-                                inactiveAuthors.map((author) => {
+                                inactiveAuthors.map((author, i) => {
                                     return (
 
-                                        <AuthorActive author={author} />
+                                        <AuthorActive author={author} key={i} />
                                     )
                                 })
                             }
                             {
                                 activeAuthors?.length > 0
                                 &&
-                                activeAuthors.map((author) => {
+                                activeAuthors.map((author, i) => {
                                     return (
 
-                                        <AuthorActive author={author} />
+                                        <AuthorActive author={author} key={i} />
                                     )
                                 })
                             }
@@ -115,7 +115,7 @@ export default function TableRole() {
 
                         </table>
                 }
-            </table>
+            </div>
         </>
     )
 }

@@ -34,8 +34,8 @@ export default function AuthorActive({ author }) {
                     <td className="colum2">{author.city}</td>
                     <td className="colum3"><img className='photo-perfil-author' src={author.photo} alt="fotoperfil" /></td>
                     <div className={active ? 'panel-active' : 'panel-inactive'}>
-                        <button className={active ? 'boton-option boton-entities' : 'boton-option'} onClick={IsActive} ></button>
-                        <button className={!active ? 'boton-option boton-entities' : 'boton-option'} onClick={NotActive}></button>
+                        { active ? <button disabled className={active ? 'boton-option boton-entities' : 'boton-option'} onClick={IsActive} ></button> : <button className={active ? 'boton-option boton-entities' : 'boton-option'} onClick={IsActive} ></button> }
+                        { active ? <button className={!active ? 'boton-option boton-entities' : 'boton-option'} onClick={NotActive}></button> : <button disabled className={!active ? 'boton-option boton-entities' : 'boton-option'} onClick={NotActive}></button> }
                     </div>
                 </tr>
                 <Toaster/>

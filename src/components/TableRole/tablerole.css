@@ -1,4 +1,4 @@
-table {
+.table-all {
     width: 100%;
     text-decoration: dashed;
 
@@ -142,7 +142,7 @@ table {
     tbody{
         font-size: 12px;
     }
-    table {
+    .table-all {
         width: 100%;
         display: flex;
         flex-direction: column;

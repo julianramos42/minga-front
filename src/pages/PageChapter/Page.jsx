@@ -10,6 +10,7 @@ import Comment from "../../components/Comment/Comment";
 import { useDispatch, useSelector } from 'react-redux'
 import modalActions from '../../store/RenderCommentsModal/actions'
 import commentsActions from '../../store/Comments/actions'
+import { Link as Anchor } from "react-router-dom";
 
 export default function Page() {
   const [chapter, setChapters] = useState({});
@@ -68,34 +69,38 @@ export default function Page() {
   }, [])
 
   return (
-    <div className="mover">
-      <div className="div-chapter2">
-        <div className="chapter2">
-          <p className="parrafo-chapter2"> Cap N° {chapter.order} - {chapter.title}  </p>
-        </div>
-      </div>
-      <div className="contenedor-capitulos">
-        <button className="boton-back" onClick={handlePrev}>
-          <img className="flecha" src={flecha_izquierda} alt="" />
-        </button>
+    <>
+      {
+        token ? <div className="mover">
+          <div className="div-chapter2">
+            <div className="chapter2">
+              <p className="parrafo-chapter2"> Cap N° {chapter.order} - {chapter.title}  </p>
+            </div>
+          </div>
+          <div className="contenedor-capitulos">
+            <button className="boton-back" onClick={handlePrev}>
+              <img className="flecha" src={flecha_izquierda} alt="" />
+            </button>
 
-        <div className="posi">
-          <img className="mangaa" src={chapter?.pages?.[index]} alt="" />
-        </div>
+            <div className="posi">
+              <img className="mangaa" src={chapter?.pages?.[index]} alt="" />
+            </div>
 
-        <button className="boton-next" onClick={handleNext}>
-          <img className="flecha" src={flecha} alt="" />
-        </button>
-      </div>
-      <div className="div-chapter3">
-        <div className="chapter3">
-          <p className="parrafo-chapter3">
-            <img className="comment" src={comment} alt="" onClick={handleRender} /> {/* ESTA ABRE EL MODAL*/}
-          </p>
-          <p>{comments.length}</p>
-          {modalState ? <Comment /> : ""}
-        </div>
-      </div>
-    </div>
+            <button className="boton-next" onClick={handleNext}>
+              <img className="flecha" src={flecha} alt="" />
+            </button>
+          </div>
+          <div className="div-chapter3">
+            <div className="chapter3">
+              <p className="parrafo-chapter3">
+                <img className="comment" src={comment} alt="" onClick={handleRender} /> {/* ESTA ABRE EL MODAL*/}
+              </p>
+              <p>{comments.length}</p>
+              {modalState ? <Comment /> : ""}
+            </div>
+          </div>
+        </div> : <div className='noLogged'><Anchor to='/auth'>Please Register or Login</Anchor></div>
+      }
+    </>
   );
 }

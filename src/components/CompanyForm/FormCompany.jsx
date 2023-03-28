@@ -37,10 +37,8 @@ export default function FormCompany() {
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
         try {
-            await axios.post(url, data, headers)
-            toast.success('Company created')
+            await axios.post(url, data, headers).then(res => toast.success(res.data.message))
             dataForm.current.reset()
-
         } catch (error) {
             if (error.response.data === 'Unauthorized') {
                 toast.error('You need to Login')

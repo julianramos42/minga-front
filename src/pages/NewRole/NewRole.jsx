@@ -4,11 +4,14 @@ import NewRoleAuthor from '../../components/NewRoleAuthor/NewRoleAuthor'
 import NewRoleCompany from '../../components/NewRoleCompany/NewRoleCompany'
 import NewRoleImage from '../../components/NewRoleImage/NewRoleImage'
 import NewRoleIndex from '../../components/NewRoleIndex/NewRoleIndex'
+import { Link as Anchor } from 'react-router-dom'
 
 export default function NewRole() {
+    let token = localStorage.getItem('token')
     return (
         <>
-            <div className='newrole'>
+            {
+                token ? <div className='newrole'>
                 <div className='author-company'>
 
                     <NewRoleIndex />
@@ -16,7 +19,8 @@ export default function NewRole() {
                     <NewRoleCompany />
                 </div>
                 <NewRoleImage />
-            </div>
+            </div> : <div className='noLogged'><Anchor to='/auth'>Please Register or Login</Anchor></div>
+            }
         </>
     )
 }

@@ -8,24 +8,20 @@ import { Toaster } from 'react-hot-toast'
 const { captureState, update_company_active } = action;
 
 export default function CompanyTable({ company }) {
+ 
+
     const [active, setActive] = useState(company.active);
     const dispatch = useDispatch();
-    // let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
-    function IsActive() {
+    function IsActive(e) {
         dispatch(captureState({ buttonState: false }))
         dispatch(update_company_active({ _id: company._id, active: true }))
-
     }
 
-    function NotActive() {
-
+    function NotActive(e) {
         dispatch(captureState({ buttonState: true }))
         dispatch(update_company_active({ _id: company._id, active: false }))
-
     }
-
-
 
     return (
         <>
@@ -37,10 +33,9 @@ export default function CompanyTable({ company }) {
                     <td className="colum2">{company.website}</td>
                     <td className="colum3"><img className='photo-perfil-author' src={company.logo} alt={company.name} /></td>
                     <div className={active ? 'panel-active' : 'panel-inactive'}>
-                        <button type='button' className={active ? 'boton-option boton-entities' : 'boton-option'} onClick={IsActive} ></button>
-                        <button type='button' className={!active ? 'boton-option boton-entities' : 'boton-option'} onClick={NotActive}></button>
+                        { active ? <button  disabled type='button' className={active ? 'boton-option boton-entities' : 'boton-option'} onClick={IsActive} ></button> : <button  type='button' className={active ? 'boton-option boton-entities' : 'boton-option'} onClick={IsActive} ></button> }
+                        { active ? <button  type='button' className={!active ? 'boton-option boton-entities' : 'boton-option'} onClick={NotActive}></button> : <button  disabled type='button' className={!active ? 'boton-option boton-entities' : 'boton-option'} onClick={NotActive}></button> }
                     </div>
-
                 </tr>
                 <Toaster />
             </tbody>
