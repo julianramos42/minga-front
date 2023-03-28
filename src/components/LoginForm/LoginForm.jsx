@@ -48,10 +48,12 @@ export default function LoginForm({ renderRegister }) {
       toast.success("Login Successful")
       dataForm.current.reset()
     } catch (error) {
-      if (typeof error.response.data.message === 'string') {
-        toast.error(error.response.data.message)
-      } else {
-        error.response.data.message.forEach(err => toast.error(err))
+      if(error.response){
+        if (typeof error.response.data.message === 'string') {
+          toast.error(error.response.data.message)
+        } else {
+          error.response.data.message.forEach(err => toast.error(err))
+        }
       }
     }
   }

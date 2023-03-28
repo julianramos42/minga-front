@@ -1,6 +1,7 @@
 import React from 'react'
 import './chaptertitle.css'
 import H2 from '../../components/H2/H2'
+import { Link as Anchor } from 'react-router-dom'
 
 export default function ChapterTitle({ mangaInfo }) {
 
@@ -10,10 +11,10 @@ export default function ChapterTitle({ mangaInfo }) {
                 <img src={mangaInfo.cover_photo} className='img-part-one' alt={mangaInfo.title} />
                 <H2 text={mangaInfo.title} />
             </section>
-            <section className='section2' >
+            <div className='section2' >
                 <button className='btn-section2'>{mangaInfo.category_id.name}</button>
-                { mangaInfo.company_id ? <h2 className='companyName'> {mangaInfo.company_id.name}</h2> : <h2 className='companyName'> {mangaInfo.author_id.name}</h2>}
-            </section>
+                <Anchor className='companyName' to={'/author/'+mangaInfo.author_id._id}> {mangaInfo.author_id.name}</Anchor>
+            </div>
         </>
     )
 }
