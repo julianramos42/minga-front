@@ -19,7 +19,7 @@ let read_all_authors = createAsyncThunk(
         try {
             let token = localStorage.getItem('token')
             let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-            let response = await axios.get('http://localhost:8080/api/authors/admin/prueba',headers)
+            let response = await axios.get('http://localhost:8080/api/authors/admin/prueba', headers)
             return {
                 activeAuthors: response.data.authorActive,
                 inactiveAuthors: response.data.authorInactive,
@@ -35,7 +35,7 @@ let read_all_company = createAsyncThunk(
         try {
             let token = localStorage.getItem('token')
             let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-            let response = await axios.get('http://localhost:8080/api/companies/admin',headers)
+            let response = await axios.get('http://localhost:8080/api/companies/admin', headers)
             return {
                 activeCompanies: response.data.companyActive,
                 inactiveCompanies: response.data.companyInactive
@@ -52,7 +52,7 @@ let update_author_active = createAsyncThunk(
         try {
             let token = localStorage.getItem('token')
             let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-            let response = await axios.put(`http://localhost:8080/api/authors/admin/prueba/${_id}`, { active: active },headers)
+            let response = await axios.put(`http://localhost:8080/api/authors/admin/prueba/${_id}`, { active: active }, headers)
             toast.success('Author status changed')
             return {
                 author: response.data.author,
@@ -78,7 +78,7 @@ let update_company_active = createAsyncThunk(
         try {
             let token = localStorage.getItem('token')
             let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-            let response = await axios.put(`http://localhost:8080/api/companies/admin/${_id}`, { active: active },headers)
+            let response = await axios.put(`http://localhost:8080/api/companies/admin/${_id}`, { active: active }, headers)
             toast.success('Company status changed')
             return {
                 company: response.data.company,

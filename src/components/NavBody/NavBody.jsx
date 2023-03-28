@@ -39,9 +39,7 @@ export default function NavBody({ handleRender }) {
     let author = useSelector((store) => store.author.author);
     useEffect(() => {
         if(token){
-            if (author.active) {
-                dispatch(read_author());
-            }
+            dispatch(read_author());
         }
     }, []);
 
@@ -50,10 +48,10 @@ export default function NavBody({ handleRender }) {
             <Anchor to='/'>Home</Anchor>
             {token ? <Anchor to='/mangas/1'>Mangas</Anchor> : ""}
             {token ? <Anchor to='/myreactions/1' >My Reactions</Anchor> : ""}
-            {token ? <Anchor to='/new-role'>New Role</Anchor> : ""}
             {token && author?.active ? <Anchor to='/profile'>Author Profile</Anchor> : ''}
             {token && author?.active ? <Anchor to='/mymangas/1' >My Mangas</Anchor> : ""}
             {token && author?.active ? <Anchor to='/manga-form'>New Manga</Anchor> : ""}
+            {token ? <Anchor to='/new-role'>New Role</Anchor> : ""}
             {token && user.admin ? <Anchor to='/admin'>Admin Panel</Anchor> : ''}
             {token ? "" : <Anchor to='/register' onClick={handleRender}>Register</Anchor>}
             {token ? "" : <Anchor to='/signin' onClick={handleRender}>Login</Anchor>}
