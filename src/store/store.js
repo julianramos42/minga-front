@@ -17,26 +17,28 @@ import getComents from './Comments/reducer'
 import reactionsReducer from './Reactions/reducer'
 import favouritesMangasReducer from './FavouritesMangas/reducer'
 import authorReducer from './Profile/reducer'
+import verifyReducer from "./User/reducer";
 
 export const store = configureStore({
-    reducer: {
-        alert: alertReducer,
-        text: textReducer,
-        chapters: chaptersReducer,
-        checked: captureState,
-        mangas: mangasReducer,
-        categories: categoriesReducer,
-        order: sortReducer,
-        mangas_from_author:  mangasFromAuthorReducer,
-        check: checkReducer,
-        editchapter: editReducer,
-        myMangas: myMangasReducer,
-        commentsModal: renderCommentsModal,
-        comments: getComents,
-        modalState: modalReducer,
-        modalDeleteState: modalDeleteReducer,
-        reactions: reactionsReducer,
-        author: authorReducer,
-        favouritesMangas: favouritesMangasReducer
-    }
-})
+  reducer: {
+    alert: alertReducer,
+    text: textReducer,
+    chapters: chaptersReducer,
+    checked: captureState,
+    mangas: mangasReducer,
+    categories: categoriesReducer,
+    order: sortReducer,
+    mangas_from_author: mangasFromAuthorReducer,
+    check: checkReducer,
+    editchapter: editReducer,
+    myMangas: myMangasReducer,
+    commentsModal: renderCommentsModal,
+    comments: getComents,
+    modalState: modalReducer,
+    modalDeleteState: modalDeleteReducer,
+    reactions: reactionsReducer,
+    author: authorReducer,
+    favouritesMangas: favouritesMangasReducer,
+    user: verifyReducer,
+  },
+});

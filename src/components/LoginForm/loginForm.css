@@ -1,0 +1,10 @@
+.google{
+    display: flex;
+    justify-content: center;
+    width: 26vw;
+}
+.form{
+    display: flex;
+    align-items: center;
+    
+}

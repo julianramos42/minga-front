@@ -14,6 +14,7 @@ import AuthorProfile from "./AuthorProfile/AuthorProfile";
 import EditChapter from "./EditChapter/EditChapter";
 import MyMangas from "./MyMangas/MyMangas";
 import MyReactions from "./MyReactions/MyReactions";
+import Verifi from "./AccountVerify/Verify";
 
 import { createBrowserRouter } from "react-router-dom";
 
@@ -43,7 +44,8 @@ export const router = createBrowserRouter([
             { path: '/edit/:manga_id' , element: <EditChapter /> },
             { path: '/mymangas/:page', element: <MyMangas /> },
             { path: '/myreactions/:page', element: <MyReactions /> },
-            {path: "/profile",element: <AuthorProfile />}
+            {path: "/profile",element: <AuthorProfile />},
+            {path: '/verify-account/:verify_code', element: <Verifi/>},
         ]
     }
 ])
