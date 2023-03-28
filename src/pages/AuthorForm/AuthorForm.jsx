@@ -22,7 +22,7 @@ export default function AuthorForm() {
     let dispatch = useDispatch()
 
     let dataForm = useRef()
-    let url = 'http://localhost:8080/api/authors'
+    let url = 'https://minga-pjxq.onrender.com/api/authors'
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 

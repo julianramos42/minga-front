@@ -32,7 +32,7 @@ export default function FormCompany() {
        
         }
 
-        let url = 'http://localhost:8080/api/companies'
+        let url = 'https://minga-pjxq.onrender.com/api/companies'
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
