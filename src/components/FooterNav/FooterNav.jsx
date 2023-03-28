@@ -43,7 +43,7 @@ export default function FooterNav() {
 
     function handleDonate(donate) {
         let donateData = donations.filter( donation => donation.id == donate.target.id)
-        axios.post("http://localhost:8080/api/donate", donateData, headers)
+        axios.post("https://minga-pjxq.onrender.com/api/donate", donateData, headers)
             .then( res => window.location.href = res.data.response.body.init_point ); // te redirige al link de pago
     }
 

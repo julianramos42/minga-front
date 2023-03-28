@@ -45,7 +45,7 @@ export default function CreateManga() {
     };
 
     console.log({ filteredCategory });
-    const url = 'http://localhost:8080/api/mangas'
+    const url = 'https://minga-pjxq.onrender.com/api/mangas'
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
@@ -64,7 +64,7 @@ export default function CreateManga() {
   }
 
   async function renderCategory() {
-    await axios.get('http://localhost:8080/api/categories').then((response) => { setCategorias(response.data.categories) })
+    await axios.get('https://minga-pjxq.onrender.com/api/categories').then((response) => { setCategorias(response.data.categories) })
   }
 
   let author = useSelector((store) => store.author.author);
