@@ -54,7 +54,7 @@ export default function TableRole() {
 
     return (
         <>
-            <table>
+            <div className='table-all'>
                 <thead>
                     <tr className="boton-companie-active">
                         <th className={companie ? 'boton-isCompanie prueba-companie' : 'boton-isCompanie'} onClick={IsCompanie} >Companies</th>
@@ -69,7 +69,7 @@ export default function TableRole() {
                                 inactiveCompanies?.length > 0
                                 &&
 
-                                inactiveCompanies.map((company,i) => {
+                                inactiveCompanies.map((company, i) => {
                                     return (
                                         <CompanyTable company={company} key={i} />
                                     )
@@ -78,7 +78,7 @@ export default function TableRole() {
                             {
                                 activeCompanies?.length > 0
                                 &&
-                                activeCompanies.map((company,i) => {
+                                activeCompanies.map((company, i) => {
                                     return (
 
                                         <CompanyTable company={company} key={i} />
@@ -94,7 +94,7 @@ export default function TableRole() {
                                 inactiveAuthors?.length > 0
                                 &&
 
-                                inactiveAuthors.map((author,i) => {
+                                inactiveAuthors.map((author, i) => {
                                     return (
 
                                         <AuthorActive author={author} key={i} />
@@ -104,7 +104,7 @@ export default function TableRole() {
                             {
                                 activeAuthors?.length > 0
                                 &&
-                                activeAuthors.map((author,i) => {
+                                activeAuthors.map((author, i) => {
                                     return (
 
                                         <AuthorActive author={author} key={i} />
@@ -115,7 +115,7 @@ export default function TableRole() {
 
                         </table>
                 }
-            </table>
+            </div>
         </>
     )
 }
