@@ -1,0 +1,15 @@
+.google{
+    display: flex;
+    justify-content: center;
+    width: 26vw;
+}
+.form{
+    display: flex;
+    align-items: center;
+    
+}
+@media (min-width:320px) and (max-width:768px) {
+    .google {
+        width: 15rem;
+    }
+}

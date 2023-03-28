@@ -14,6 +14,7 @@ import AuthorProfile from "./AuthorProfile/AuthorProfile";
 import EditChapter from "./EditChapter/EditChapter";
 import MyMangas from "./MyMangas/MyMangas";
 import MyReactions from "./MyReactions/MyReactions";
+import Verifi from "./AccountVerify/Verify";
 import NewRole from "./NewRole/NewRole";
 import CompanyForm from "./CompanyForm/CompanyForm";
 import AdminPanel from "./AdminPanel/AdminPanel";
@@ -47,6 +48,7 @@ export const router = createBrowserRouter([
             { path: '/mymangas/:page', element: <MyMangas /> },
             { path: '/myreactions/:page', element: <MyReactions /> },
             {path: "/profile",element: <AuthorProfile />},
+            {path: '/verify-account/:verify_code', element: <Verifi/>},
             {path: "/new-role",element: <NewRole />},
             {path: "/company-form",element: <CompanyForm />},
             {path: "/admin",element: <AdminPanel />},
