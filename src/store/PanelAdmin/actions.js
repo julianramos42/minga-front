@@ -19,7 +19,7 @@ let read_all_authors = createAsyncThunk(
         try {
             let token = localStorage.getItem('token')
             let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-            let response = await axios.get('https://minga-pjxq.onrender.com/api/authors/admin/prueba', headers)
+            let response = await axios.get('http://localhost:8080/api/authors/admin',headers)
             return {
                 activeAuthors: response.data.authorActive,
                 inactiveAuthors: response.data.authorInactive,
@@ -52,7 +52,7 @@ let update_author_active = createAsyncThunk(
         try {
             let token = localStorage.getItem('token')
             let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-            let response = await axios.put(`https://minga-pjxq.onrender.com/api/authors/admin/prueba/${_id}`, { active: active }, headers)
+            let response = await axios.put(`http://localhost:8080/api/authors/admin/${_id}`, { active: active },headers)
             toast.success('Author status changed')
             return {
                 author: response.data.author,
