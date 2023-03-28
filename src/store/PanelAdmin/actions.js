@@ -35,7 +35,7 @@ let read_all_company = createAsyncThunk(
         try {
             let token = localStorage.getItem('token')
             let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-            let response = await axios.get('http://localhost:8080/api/companies/admin',headers)
+            let response = await axios.get('https://minga-pjxq.onrender.com/api/companies/admin', headers)
             return {
                 activeCompanies: response.data.companyActive,
                 inactiveCompanies: response.data.companyInactive
@@ -78,7 +78,7 @@ let update_company_active = createAsyncThunk(
         try {
             let token = localStorage.getItem('token')
             let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-            let response = await axios.put(`http://localhost:8080/api/companies/admin/${_id}`, { active: active },headers)
+            let response = await axios.put(`https://minga-pjxq.onrender.com/api/companies/admin/${_id}`, { active: active }, headers)
             toast.success('Company status changed')
             return {
                 company: response.data.company,

@@ -29,11 +29,11 @@ export default function FavouritesMangasCards() {
     useEffect(() => {
         setTimeout( () => {
             dispatch(read_favouritesMangas({ page: page, categories: categories, order: order, headers }))
-        },100)
+        },500)
     }, [page, categories, order, reload])
 
     function handleDelete(e){
-        let url = 'http://localhost:8080/api/reactions'
+        let url = 'https://minga-pjxq.onrender.com/api/reactions'
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
         let data = {

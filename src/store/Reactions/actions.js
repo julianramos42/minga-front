@@ -5,7 +5,7 @@ const captureReactions = createAsyncThunk(
     'captureReactions',
     async ({ mangaId,headers }) => {
         try{
-            let response = await axios.get("http://localhost:8080/api/reactions/?manga_id="+mangaId,headers)
+            let response = await axios.get("https://minga-pjxq.onrender.com/api/reactions/?manga_id="+mangaId,headers)
             return { reactions: response.data.message }
         }catch(error){
             return { reactions: {} }
