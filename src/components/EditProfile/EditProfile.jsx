@@ -5,11 +5,9 @@ import authorAction from '../../store/Profile/actions.js'
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import './editProfile.css'
-
+import { Toaster } from 'react-hot-toast';
 
 const { read_author, update_author } = authorAction
-
-
 
 export default function EditProfile() {
      const navigate = useNavigate();
@@ -45,7 +43,7 @@ export default function EditProfile() {
          confirmButtonText: "Yes, update",
          cancelButtonText: "Cancel",
        });
-       console.log(result);
+
        if (result.isConfirmed) {
          dispatch(update_author({ data: data }));
          setReload(!reload);
@@ -123,6 +121,7 @@ export default function EditProfile() {
                      <button id='btnsave' type="submit" value="Save" onClick={handleAccept}> Save </button>
                     <button id='btndelete' type="submit" value="Delete Acount" onClick={handleDelete}> Delete Account </button>
                 </form>
+                <Toaster />
             </div>
         </>
     )

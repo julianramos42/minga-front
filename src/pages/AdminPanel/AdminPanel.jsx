@@ -21,7 +21,7 @@ export default function AdminPanel() {
                             <TableRole />
                         </div>
                     </div>
-                </div> : <div className='noLogged'><Anchor to='/auth'>You are not an admin</Anchor></div>
+                </div> : <div className='noLogged'><Anchor to='/'>You are not an admin</Anchor></div>
             }
         </>
 
