@@ -1,6 +1,5 @@
 import React from 'react'
 import './registerForm.css'
-// import SignInWithGoogle from '../SignInWithGoogle/SignInWithGoogle'
 import RegisterFieldset from '../RegisterFieldset/RegisterFieldset'
 import profile from '../../images/profile.svg'
 import email from '../../images/@.svg'
@@ -45,6 +44,7 @@ export default function RegisterForm({ renderLogin }) {
         try {
             await axios.post(url, data)
             toast.success("Register Successful")
+            toast.success("Check your email to verify your account");
             dataForm.current.reset()
         } catch (error) {
             if (typeof error.response.data.message === 'string') {
@@ -80,25 +80,17 @@ export default function RegisterForm({ renderLogin }) {
       console.log(data)
       const url = "http://localhost:8080/api/auth/signup";
       await axios.post(url, data);
-
-      // let dataAlert = {
-      //   icon: "success",
-      //   title: "Session successfully",
-      // };
-      // dispatch(open(dataAlert));
+      toast.success("Register Successful");
+      toast.success("Check your email to verify your account");
       dataForm.current.reset();
       navigate("/signin");
 
     } catch (error) {
-      console.log(error);
-      let dataAlert = {
-        icon: "error",
-        title: "",
-      };
-      error.response.data.message.forEach((err) => {
-        dataAlert.title += err + "\n";
-      });
-      // dispatch(open(dataAlert));
+     if (typeof error.response.data.message === "string") {
+       toast.error(error.response.data.message);
+     } else {
+       error.response.data.message.forEach((err) => toast.error(err));
+     }
     }
   }
     
@@ -120,7 +112,7 @@ export default function RegisterForm({ renderLogin }) {
                 <label htmlFor='email-notification'>Send notification to my email</label>
             </fieldset>
             <SignBtn text="Sign up" />
-            {/* <SignInWithGoogle /> */}
+  
             <GoogleLogin
                 className="google"
                 image="./google.png"

@@ -70,7 +70,6 @@ export default function LoginForm({ renderRegister }) {
    }, []);
 
    const onSuccess = async (response) => {
-     console.log(response);
     let url = "http://localhost:8080/api/auth/signin";
     let token = localStorage.getItem("token");
     let headers = { headers: { Authorization: `Bearer ${token} }` }}
@@ -79,15 +78,12 @@ export default function LoginForm({ renderRegister }) {
       const { email, imageUrl, googleId } = response.profileObj;
 
       const data = {
-
         mail: email,
         password: googleId,
       }
       if (email) await axios.post(url, data, headers)
       let res = await axios.post(url, data, headers)
-
-      navigate("/");
-
+      navigate("/mangas/1");
       dataForm.current.reset();
       localStorage.setItem(`token`, res.data.token)
       localStorage.setItem(
@@ -99,9 +95,11 @@ export default function LoginForm({ renderRegister }) {
         })
       )
     } catch (error) {
-      console.log(error);
-    
-     
+      if (typeof error.response.data.message === "string") {
+        toast.error(error.response.data.message);
+      } else {
+        error.response.data.message.forEach((err) => toast.error(err));
+      }
     }
   }
    const onFailure = () => {
@@ -112,8 +110,7 @@ export default function LoginForm({ renderRegister }) {
       <RegisterFieldset legendText='Email' inputType='email' inputName='mail' inputId='mail' imgSrc={email} imgAlt='@' />
       <RegisterFieldset id='field-password' legendText='Password' inputType='password' inputName='password' inputId='password' imgSrc={lock} imgAlt='lock' />
       <SignBtn text='Sign In' />
-      <p>You don´t have an account yet? <Anchor onClick={renderRegister} className='link'>Sign Up</Anchor></p>
-       <GoogleLogin
+      <GoogleLogin
                 className="google"
                 image="./google.png"
                 text="Sign in with Google"
@@ -122,6 +119,7 @@ export default function LoginForm({ renderRegister }) {
                 onFailure={onFailure}
                 cookiePolicy={"sigle_host_policy"}
               />
+      <p>You don´t have an account yet? <Anchor onClick={renderRegister} className='link'>Sign Up</Anchor></p>
       <GoBackToHome />
       <Toaster position="top-right" />
     </form>
