@@ -44,7 +44,6 @@ export default function CreateManga() {
       category_id: filteredCategory._id
     };
 
-    console.log({ filteredCategory });
     const url = 'https://minga-pjxq.onrender.com/api/mangas'
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }

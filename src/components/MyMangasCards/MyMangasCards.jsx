@@ -33,7 +33,9 @@ export default function MyMangasCards() {
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
     useEffect(() => {
-        dispatch(read_myMangas({ page: page, categories: categories, order: order, headers }))
+        setTimeout( () => {
+            dispatch(read_myMangas({ page: page, categories: categories, order: order, headers }))
+        },500)
     }, [page, categories, order, editModalState, deleteModalState])
 
     function handleEdit(e) {

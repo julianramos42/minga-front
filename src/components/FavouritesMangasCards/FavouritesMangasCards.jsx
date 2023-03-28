@@ -29,7 +29,7 @@ export default function FavouritesMangasCards() {
     useEffect(() => {
         setTimeout( () => {
             dispatch(read_favouritesMangas({ page: page, categories: categories, order: order, headers }))
-        },100)
+        },500)
     }, [page, categories, order, reload])
 
     function handleDelete(e){
