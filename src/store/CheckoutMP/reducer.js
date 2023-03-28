@@ -1,19 +1,19 @@
 import { createReducer } from "@reduxjs/toolkit";
 import actions from './actions'
-const { captureState} = actions
+const { checkoutMP } = actions
 
 const initiateState= {
-    checked: false
+    checkout: ""
 }
 const reducer = createReducer(
     initiateState,
     (builder) => builder
     .addCase(
-        captureState,
+        checkoutMP,
         (state,action) => {
             let newState = {
                 ...state,
-                checked : action.payload.checked 
+                checkout : action.payload.checkout 
             }
             return newState
         }

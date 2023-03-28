@@ -44,6 +44,7 @@ export default function AuthorForm() {
             country: formInputs[2].value.split(',')[1],
             [formInputs[3].name]: formInputs[3].value,
             [formInputs[4].name]: formInputs[4].value,
+           
         }
 
         // let dataOpen = {

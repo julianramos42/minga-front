@@ -34,7 +34,7 @@ export default function LoginForm({ renderRegister }) {
     try {
       await axios.post(url, data)
         .then(res => {
-          res.data.user.is_admin ? (admin=true) : (admin=false)
+          res.data.user.is_admin ? (admin = true) : (admin = false)
           localStorage.setItem('token', res.data.token)
           localStorage.setItem('user', JSON.stringify({
             id: res.data.user._id,

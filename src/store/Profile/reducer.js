@@ -3,7 +3,7 @@ import AuthorActions from "./actions.js";
 
 const { read_author, update_author } = AuthorActions;
 
-const initialState = { author: "" };
+const initialState = { author: {} };
 
 const reducer = createReducer(initialState, (builder) =>
   builder
