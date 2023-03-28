@@ -1,37 +1,46 @@
-.sectionEdit1 .form-edit .edit-modal {
+.sectionEdit1 .edit-modal {
     position: fixed;
-    top: 10vh;
-    width: 400px;
-    height:150px;
-    background-color: #ffffff;
+    left: 0;
+    top: 0vh;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
-    border-radius: 25px;
-    padding: 25px;
-    display: flex;
     flex-direction: column;
+    align-items: center;
     z-index: 1;
     color: #000000;
+}
+
+.sectionEdit1 .edit-modal .edit-card{
+    width: 400px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 30px;
     font-style: normal;
     font-weight: 400;
     font-size: 10px;
     text-align: center;
-
-
+    background-color: rgb(255, 255, 255);
+    padding: 25px;
+    border-radius: 25px;
 }
 
-.sectionEdit1 .form-edit .edit-modal>h2 {
+.sectionEdit1 .edit-modal .edit-card>h2 {
     text-align: center;
 }
 
-.sectionEdit1 .form-edit .edit-modal .modal-btns {
+.sectionEdit1 .edit-modal .edit-card .modal-btns {
     display: flex;
     gap: 55px;
     justify-content: center;
 }
 
-.sectionEdit1 .form-edit .edit-modal .modal-btns .btn-handlesend{
+.sectionEdit1 .edit-modal .edit-card .modal-btns .btn-handlesend{
     text-decoration: none;
     background: rgb(41, 202, 108);
     width: 92px;
@@ -47,7 +56,7 @@
     line-height: 95.19%;
     cursor: pointer;
 }
-.sectionEdit1 .form-edit .edit-modal .modal-btns .btn-handlecancel{
+.sectionEdit1 .edit-modal .edit-card .modal-btns .btn-handlecancel{
     text-decoration: none;
     background: rgb(209, 210, 243);
     width: 92px;
@@ -64,8 +73,12 @@
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
-    .sectionEdit1 .form-edit .edit-modal {
-        width: 80%;
+@media (max-width: 500px) {
+    .sectionEdit1 .edit-modal .edit-card{
+        width: 80vw;
+    }
+
+    .sectionEdit1 .edit-modal .edit-card .modal-btns{
+        gap: 25px;
     }
 }

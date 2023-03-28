@@ -11,10 +11,12 @@
     padding-left: 10px;
     padding-bottom: 5px;
     color: gray;
-
 }
+.form-edit .edit-null{
+    text-align: center;
+}
+
 .form-edit input {
-    width: 280px;
     border: none;
     border-bottom: rgba(66, 66, 66, 1) 1px solid;
     background-color: transparent;
@@ -28,7 +30,6 @@
 }
 
 .form-edit select {
-    width: 280px;
     border: none;
     border-bottom: rgba(66, 66, 66, 1) 1px solid;
     background-color: transparent;
@@ -53,13 +54,14 @@
     font-weight: 700;
     font-size: 24px;
     text-align: center;
+    margin: 0 auto;
 }
 
 .btn-delete {
     width: 280px;
     height: 59px;
     background-color: #fad3d2;
-    ;
+    margin: 0 auto;
     color: rgba(238, 131, 128, 1);
     border-radius: 40px;
     border: none;

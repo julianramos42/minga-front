@@ -8,8 +8,6 @@ import { useSelector, useDispatch } from "react-redux";
 import authorAction from "../../store/Profile/actions";
 const { read_author } = authorAction;
 
-
-
 export default function NavBody({handleRender}) {
     const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(true);
@@ -34,6 +32,7 @@ export default function NavBody({handleRender}) {
             }
         }
     }
+    
      let author = useSelector((store) => store.author.author);
      useEffect(() => {
        if (author) {

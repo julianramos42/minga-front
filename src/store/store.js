@@ -17,6 +17,7 @@ import getComents from './Comments/reducer'
 import reactionsReducer from './Reactions/reducer'
 import favouritesMangasReducer from './FavouritesMangas/reducer'
 import authorReducer from './Profile/reducer'
+import checkoutMPReducer from './CheckoutMP/reducer'
 import panelAdminReducer from './PanelAdmin/reducer'
 
 export const store = configureStore({
@@ -39,6 +40,7 @@ export const store = configureStore({
         reactions: reactionsReducer,
         author: authorReducer,
         favouritesMangas: favouritesMangasReducer,
+        checkout: checkoutMPReducer,
         panelAdmin : panelAdminReducer,
     }
 })

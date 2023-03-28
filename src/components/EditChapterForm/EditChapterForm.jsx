@@ -8,9 +8,6 @@ import EditChapterModal from '../EditChapterModal/EditChapterModal';
 import deleteModalActions from '../../store/RenderDeleteModal/actions'
 import modalActions from '../../store/RenderEditModal/actions'
 
-
-
-
 const { /*delete_one_chapter, edit_one_chapter*/ getInfo } = chapterActions
 
 export default function EditChapterForm({ chapterInfo, setSelectedChapter, selectedChapter, title }) {
@@ -53,6 +50,7 @@ export default function EditChapterForm({ chapterInfo, setSelectedChapter, selec
         dispatch(renderDeleteModal({ state: true }))
 
     }
+
     return (
         <>
             <form action="" className='form-edit'>
@@ -91,14 +89,13 @@ export default function EditChapterForm({ chapterInfo, setSelectedChapter, selec
                         })
                     }
                 </select>
-                <input type="text" placeholder='data to edit' disabled={data === null ? true : false} value={newData} onChange={(e) => setNewData(e.target.value)} />
-
-                <button className='btn-edit' disabled={newData === null ? true : false} onClick={(event) => handleSend(event)} >Edit</button>
+                <input type="text" placeholder='data to edit' disabled={data === null ? true : false} defaultValue={newData} onChange={(e) => setNewData(e.target.value)} />
+                { newData === null ? <p className='edit-null'>Para editar, porfavor completa los campos</p> : <button className='btn-edit'  disabled={newData === null ? true : false} onClick={(event) => handleSend(event)} >Edit</button> }
                 <button className='btn-delete' disabled={orderToEdit === null ? true : false} onClick={(event) => handleDelete(event)}>Delete</button>
-                {editModalState ? <EditChapterModal selectedChapter={selectedChapter} data={data} newData={newData} /> : ""}
-                {deleteModalState ? <DeleteChapterModal selectedChapter={selectedChapter} /> : ""}
-                <Toaster />
             </form>
+            {editModalState ? <EditChapterModal selectedChapter={selectedChapter} data={data} newData={newData} /> : ""}
+            {deleteModalState ? <DeleteChapterModal selectedChapter={selectedChapter} /> : ""}
+            <Toaster />
         </>
     )
 }
