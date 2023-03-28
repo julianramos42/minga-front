@@ -1,5 +1,3 @@
-
-
 import { createReducer } from "@reduxjs/toolkit";
 import actions from './actions'
 const { captureState} = actions

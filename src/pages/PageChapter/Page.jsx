@@ -10,12 +10,13 @@ import Comment from "../../components/Comment/Comment";
 import { useDispatch, useSelector } from 'react-redux'
 import modalActions from '../../store/RenderCommentsModal/actions'
 import commentsActions from '../../store/Comments/actions'
+import { Link as Anchor } from "react-router-dom";
 
 export default function Page() {
   const [chapter, setChapters] = useState({});
   const [next, setNext] = useState('');
   const { id, page } = useParams();
-  const url = 'https://minga-pjxq.onrender.com/api/chapters/';
+  const url = 'http://localhost:8080/api/chapters/';
   const navigate = useNavigate();
 
   let dispatch = useDispatch()
@@ -61,41 +62,45 @@ export default function Page() {
   let headers = { headers: { 'Authorization': `Bearer ${token}` } }
   const { getComments } = commentsActions
   useEffect(() => { // me actualiza toda la cantidad de comentarios
-    let url = 'https://minga-pjxq.onrender.com/api/comments?chapter_id=' + id
+    let url = 'http://localhost:8080/api/comments?chapter_id=' + id
     setTimeout(() => {
       axios.get(url, headers).then(res => dispatch(getComments({ comments: res.data.comments })))
     }, 100)
   }, [])
 
   return (
-    <div className="mover">
-      <div className="div-chapter2">
-        <div className="chapter2">
-          <p className="parrafo-chapter2"> Cap N° {chapter.order} - {chapter.title}  </p>
-        </div>
-      </div>
-      <div className="contenedor-capitulos">
-        <button className="boton-back" onClick={handlePrev}>
-          <img className="flecha" src={flecha_izquierda} alt="" />
-        </button>
+    <>
+      {
+        token ? <div className="mover">
+          <div className="div-chapter2">
+            <div className="chapter2">
+              <p className="parrafo-chapter2"> Cap N° {chapter.order} - {chapter.title}  </p>
+            </div>
+          </div>
+          <div className="contenedor-capitulos">
+            <button className="boton-back" onClick={handlePrev}>
+              <img className="flecha" src={flecha_izquierda} alt="" />
+            </button>
 
-        <div className="posi">
-          <img className="mangaa" src={chapter?.pages?.[index]} alt="" />
-        </div>
+            <div className="posi">
+              <img className="mangaa" src={chapter?.pages?.[index]} alt="" />
+            </div>
 
-        <button className="boton-next" onClick={handleNext}>
-          <img className="flecha" src={flecha} alt="" />
-        </button>
-      </div>
-      <div className="div-chapter3">
-        <div className="chapter3">
-          <p className="parrafo-chapter3">
-            <img className="comment" src={comment} alt="" onClick={handleRender} /> {/* ESTA ABRE EL MODAL*/}
-          </p>
-          <p>{comments.length}</p>
-          {modalState ? <Comment /> : ""}
-        </div>
-      </div>
-    </div>
+            <button className="boton-next" onClick={handleNext}>
+              <img className="flecha" src={flecha} alt="" />
+            </button>
+          </div>
+          <div className="div-chapter3">
+            <div className="chapter3">
+              <p className="parrafo-chapter3">
+                <img className="comment" src={comment} alt="" onClick={handleRender} /> {/* ESTA ABRE EL MODAL*/}
+              </p>
+              <p>{comments.length}</p>
+              {modalState ? <Comment /> : ""}
+            </div>
+          </div>
+        </div> : <div className='noLogged'><Anchor to='/auth'>Please Register or Login</Anchor></div>
+      }
+    </>
   );
 }

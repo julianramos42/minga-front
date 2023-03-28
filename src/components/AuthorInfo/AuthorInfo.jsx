@@ -18,8 +18,16 @@ export default function AuthorInfo() {
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
     useEffect(() => {
-        axios.get("https://minga-pjxq.onrender.com/api/authors/"+id, headers).then(res => setAuthor(res.data.author))
+        axios.get("http://localhost:8080/api/authors/"+id, headers).then(res => setAuthor(res.data.author))
     }, [])
+
+    let fullName = ''
+    if(author.name){
+        fullName += author.name
+    }
+    if(author.last_name){
+        fullName += ' '+author.last_name 
+    }
 
     return (
         <div className='authorInfo'>
@@ -27,7 +35,7 @@ export default function AuthorInfo() {
                 author ? <div className='authorInfo-data'>
                     <Image src={author.photo} className='authorInfo-pic' />
                     <div className='authorInfo-text'>
-                        <H2 text={author.name + " " + author.last_name} />
+                        <H2 text={fullName} />
                         <div className='imgAndText'>
                             <Image src={location} />
                             <p>{author.city + ", " + author.country}</p>

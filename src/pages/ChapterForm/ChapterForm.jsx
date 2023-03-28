@@ -9,8 +9,15 @@ import { useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast'
 import axios from 'axios'
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import authorAction from "../../store/Profile/actions";
+import { Link as Anchor } from 'react-router-dom'
+
+const { read_author } = authorAction;
 
 export default function ChapterForm() {
+    const dispatch = useDispatch();
     let dataForm = useRef()
     let { manga_id } = useParams()
     async function handleSubmit(e) {
@@ -30,7 +37,7 @@ export default function ChapterForm() {
             pages: formInputs[2].split(','),
             manga_id,
         }
-        let url = 'https://minga-pjxq.onrender.com/api/chapters'
+        let url = 'http://localhost:8080/api/chapters'
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
@@ -53,21 +60,37 @@ export default function ChapterForm() {
         }
     }
 
+    let author = useSelector((store) => store.author.author);
+    let token = localStorage.getItem('token')
+    useEffect(() => {
+        if (token) {
+            dispatch(read_author());
+        }
+    }, []);
+
     return (
-        <div className='chapter'>
-            <div className='chapter-content'>
-                <section className='new-chapter'>
-                    <H2 text='New Chapter' />
-                    <Image src={pic} />
-                </section>
-                <form className='chapter-form' ref={dataForm} onSubmit={handleSubmit}>
-                    <Input className='chapter-input' type='text' name='title' placeholder='Insert Title' />
-                    <Input className='chapter-input' type='text' name='order' placeholder='Insert order' />
-                    <Input className='chapter-input' type='text' name='pages' placeholder='Insert pages' />
-                    <SendBtn />
-                    <Toaster />
-                </form>
-            </div>
-        </div>
+        <>
+            {
+                author?.active ? <div className='chapter'>
+                    <div className='chapter-content'>
+                        <section className='new-chapter'>
+                            <H2 text='New Chapter' />
+                            <Image src={pic} />
+                        </section>
+                        <form className='chapter-form' ref={dataForm} onSubmit={handleSubmit}>
+                            <Input className='chapter-input' type='text' name='title' placeholder='Insert Title' />
+                            <Input className='chapter-input' type='text' name='order' placeholder='Insert order' />
+                            <Input className='chapter-input' type='text' name='pages' placeholder='Insert pages' />
+                            <SendBtn />
+                            <Toaster />
+                        </form>
+                    </div>
+                </div> : <div className='noLogged'>
+                    <Anchor to='/auth'>Please Register/Login</Anchor>
+                    <p>Or</p>
+                    <Anchor to='/author-form'>Become an Author</Anchor>
+                </div>
+            }
+        </>
     )
 }
