@@ -3,7 +3,7 @@
     top: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #FBDDDC;
+    background: #FFFFFF;
     display: flex;
     justify-content: center;
     padding: 25px;
@@ -26,15 +26,14 @@
 
 .mangas .mangas-displayed .mangas-cards .delete-modal .modal-btns>p{
     text-decoration: none;
-    background: rgba(209, 251, 240, 1);
+    background: linear-gradient(153.39deg, #F9A8D4 -13.9%, #F472B6 58.69%);
     width: 92px;
     height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
     border-radius: 50px;
-    color: #00BA88;
+    color: #EBEBEB;
     font-weight: 700;
     font-size: 12px;
     line-height: 95.19%;

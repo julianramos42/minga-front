@@ -34,26 +34,34 @@ export default function LoginForm({ renderRegister }) {
       [formInputs[1].name]: formInputs[1].value,
     }
 
-    let url = 'http://localhost:8080/api/auth/signin'
+    let url = 'https://minga-pjxq.onrender.com/api/auth/signin'
+    let admin
+    let author
     try {
       await axios.post(url, data)
         .then(res => {
+          res.data.user.is_admin ? (admin = true) : (admin = false)
+          res.data.user.is_author ? (author = true) : (author = false)
           localStorage.setItem('token', res.data.token)
           localStorage.setItem('user', JSON.stringify({
             id: res.data.user._id,
             name: res.data.user.name,
             mail: res.data.user.mail,
             photo: res.data.user.photo,
+            admin,
+            author
           }))
           setInterval(() => window.location.href = '/', 1000)
         })
       toast.success("Login Successful")
       dataForm.current.reset()
     } catch (error) {
-      if (typeof error.response.data.message === 'string') {
-        toast.error(error.response.data.message)
-      } else {
-        error.response.data.message.forEach(err => toast.error(err))
+      if(error.response){
+        if (typeof error.response.data.message === 'string') {
+          toast.error(error.response.data.message)
+        } else {
+          error.response.data.message.forEach(err => toast.error(err))
+        }
       }
     }
   }

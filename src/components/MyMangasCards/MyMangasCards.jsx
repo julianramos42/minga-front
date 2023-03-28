@@ -33,7 +33,9 @@ export default function MyMangasCards() {
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
     useEffect(() => {
-        dispatch(read_myMangas({ page: page, categories: categories, order: order, headers }))
+        setTimeout( () => {
+            dispatch(read_myMangas({ page: page, categories: categories, order: order, headers }))
+        },500)
     }, [page, categories, order, editModalState, deleteModalState])
 
     function handleEdit(e) {
@@ -65,7 +67,7 @@ export default function MyMangasCards() {
                     let card =
                         <section className='card' key={i}>
                             <div className='card-text'>
-                                <div className={'card-color-' + manga.category_id.name}></div>
+                                <div className={'card-color-' + manga?.category_id?.name}></div>
                                 <div className='text'>
                                     <div className='createAndEdit-icons'>
                                         <Anchor to={'/chapter-form/' + manga._id}><Image src={plusIcon} /></Anchor>

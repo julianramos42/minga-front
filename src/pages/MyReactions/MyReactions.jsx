@@ -3,11 +3,15 @@ import './myReactions.css'
 import MangasType from '../../components/MangasType/MangasType'
 import FavouritesMangasCards from '../../components/FavouritesMangasCards/FavouritesMangasCards'
 import FavouritesMangasBtns from '../../components/FavouritesMangasBtns/FavouritesMangasBtns'
+import { Link as Anchor } from 'react-router-dom'
 
 export default function MyReactions() {
+  let token = localStorage.getItem('token')
 
   return (
-    <div className='mangas'>
+    <>
+      {
+        token ? <div className='mangas'>
         <div className='favouritesMangas-title'>
             <h2>Favourites</h2>
         </div>
@@ -18,6 +22,8 @@ export default function MyReactions() {
         <FavouritesMangasBtns />
       </section>
 
-    </div>
+    </div> : <div className='noLogged'><Anchor to='/auth'>Please Register or Login</Anchor></div>
+      }
+    </>
   )
 }

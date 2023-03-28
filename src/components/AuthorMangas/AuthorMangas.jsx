@@ -7,6 +7,7 @@ import Image from '../../components/Image/Image'
 import H2 from '../../components/H2/H2'
 import { useDispatch } from 'react-redux'
 import mangasActions from '../../store/MangasFromAuthor/actions.js'
+import { Link as Anchor } from 'react-router-dom'
 
 export default function AuthorMangas() {
     let mangasFromAuthor = useSelector(store => store.mangas_from_author.mangas)
@@ -29,10 +30,12 @@ export default function AuthorMangas() {
             {
                 mangasFromAuthor.length ?
                     mangasFromAuthor.map((manga, i) => {
-                        let card = <div className='mangaCard' key={i}>
-                            <Image className='manga-img' src={manga.cover_photo} />
-                            <H2 text={manga.title} />
-                        </div>
+                        let card = <Anchor to={'/mangas/'+manga._id+'/1'} key={i}>
+                            <div className='mangaCard'>
+                                <Image className='manga-img' src={manga.cover_photo} />
+                                <H2 text={manga.title} />
+                            </div>
+                        </Anchor>
                         return card
                     })
                     : <H2 text='No mangas founded' />

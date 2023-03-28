@@ -4,31 +4,37 @@ import { useState } from 'react'
 import Register from '../Register/Register'
 import Login from '../Login/Login'
 import { useEffect } from 'react'
+import { Link as Anchor } from 'react-router-dom'
 
-export default function Auth1({state}) {
+export default function Auth1({ state }) {
   const [render, setRender] = useState(false)
+  let token = localStorage.getItem('token')
 
   useEffect(() => {
     setRender(state)
-  },[state])
+  }, [state])
 
-  function renderRegister(){
+  function renderRegister() {
     handleRender('register')
   }
 
-  function renderLogin(){
+  function renderLogin() {
     handleRender('login')
   }
 
-  function handleRender(btn){
+  function handleRender(btn) {
     setRender(btn)
   }
 
   return (
-    <div className='auth'>
-      { !render ? <Register renderLogin={renderLogin} /> : "" }
-      { render === 'register' ? <Register renderLogin={renderLogin}/> : "" }
-      { render === 'login' ? <Login renderRegister={renderRegister} /> : "" }
-    </div>
+    <>
+      {
+        token ? <div className='noLogged'><Anchor to='/'>Already Logged in</Anchor></div> : <div className='auth'>
+          {!render ? <Register renderLogin={renderLogin} /> : ""}
+          {render === 'register' ? <Register renderLogin={renderLogin} /> : ""}
+          {render === 'login' ? <Login renderRegister={renderRegister} /> : ""}
+        </div>
+      }
+    </>
   )
 }
