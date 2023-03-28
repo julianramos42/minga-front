@@ -83,7 +83,7 @@ export default function LoginForm({ renderRegister }) {
       }
       if (email) await axios.post(url, data, headers)
       let res = await axios.post(url, data, headers)
-      navigate("/mangas/1");
+      navigate("/");
       dataForm.current.reset();
       localStorage.setItem(`token`, res.data.token)
       localStorage.setItem(
