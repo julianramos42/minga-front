@@ -35,7 +35,7 @@ export default function Reaction() {
     let mangaReactions = useSelector(store => store.reactions.reactions)
 
     useEffect(() => { // TRAE LAS REACCIONES DEL USUARIO AL MANGA
-        let url = "https://minga-pjxq.onrender.com/api/reactions?me=1&manga_id=" + mangaId
+        let url = "http://localhost:8080/api/reactions?me=1&manga_id=" + mangaId
         axios.get(url,headers).then(res => setUserReactions(res.data.message))
     }, [])
 
@@ -63,7 +63,7 @@ export default function Reaction() {
             dislike.current.classList.toggle('reacted')
         }
         like.current.classList.toggle('reacted')
-        let url = 'https://minga-pjxq.onrender.com/api/reactions'
+        let url = 'http://localhost:8080/api/reactions'
         let data = {
             manga_id: mangaId,
             name: "like"
@@ -76,7 +76,7 @@ export default function Reaction() {
             like.current.classList.toggle('reacted')
         }
         dislike.current.classList.toggle('reacted')
-        let url = 'https://minga-pjxq.onrender.com/api/reactions'
+        let url = 'http://localhost:8080/api/reactions'
         let data = {
             manga_id: mangaId,
             name: "dislike"
@@ -89,7 +89,7 @@ export default function Reaction() {
             love.current.classList.toggle('reacted')
         }
         surprise.current.classList.toggle('reacted')
-        let url = 'https://minga-pjxq.onrender.com/api/reactions'
+        let url = 'http://localhost:8080/api/reactions'
         let data = {
             manga_id: mangaId,
             name: "surprise"
@@ -102,7 +102,7 @@ export default function Reaction() {
             surprise.current.classList.toggle('reacted')
         }
         love.current.classList.toggle('reacted')
-        let url = 'https://minga-pjxq.onrender.com/api/reactions'
+        let url = 'http://localhost:8080/api/reactions'
         let data = {
             manga_id: mangaId,
             name: "love"
@@ -113,7 +113,7 @@ export default function Reaction() {
 
     let [cantChapters,setCantChapters] = useState('')
     useEffect( () => {
-        axios.get("https://minga-pjxq.onrender.com/api/chapters/all/" + mangaId).then(res => setCantChapters(res.data.chapters.length))
+        axios.get("http://localhost:8080/api/chapters/all/" + mangaId).then(res => setCantChapters(res.data.chapters.length))
     },[])
 
     return (

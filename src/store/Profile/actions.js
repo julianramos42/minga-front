@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 const read_author = createAsyncThunk("read_author", async () => {
   let token = localStorage.getItem("token");
   let headers = { headers: { "Authorization": `Bearer ${token}` } };
-  let url = "https://minga-pjxq.onrender.com/api/authors/authors_me/me";
+  let url = "http://localhost:8080/api/authors/authors_me/me";
   try {
     let response = await axios.get(url, headers);
     return {
@@ -21,7 +21,7 @@ const read_author = createAsyncThunk("read_author", async () => {
 const update_author = createAsyncThunk("update_author", async ({ data }) => {
   let token = localStorage.getItem("token");
   let headers = { headers: { "Authorization": `Bearer ${token}` } };
-  let url = "https://minga-pjxq.onrender.com/api/authors/authors_me/me";
+  let url = "http://localhost:8080/api/authors/authors_me/me";
   try {
     let response = await axios.put(url, data, headers);
     toast.success('Author info changed')

@@ -44,7 +44,7 @@ export default function EditModal() {
       cover_photo: coverPhoto.current.value
     };
 
-    const url = 'https://minga-pjxq.onrender.com/api/mangas/'+editId
+    const url = 'http://localhost:8080/api/mangas/'+editId
 
     // const { open } = AlertActions
 
@@ -79,7 +79,7 @@ export default function EditModal() {
   }
 
   async function renderCategory() {
-    await axios.get('https://minga-pjxq.onrender.com/api/categories').then((response) => { setCategorias(response.data.categories) })
+    await axios.get('http://localhost:8080/api/categories').then((response) => { setCategorias(response.data.categories) })
   }
 
   function handleClose() {
@@ -87,7 +87,7 @@ export default function EditModal() {
   }
 
   useEffect(() => {
-    axios.get('https://minga-pjxq.onrender.com/api/mangas/' + editId, headers).then(response => setMangaToEdit(response.data.manga))
+    axios.get('http://localhost:8080/api/mangas/' + editId, headers).then(response => setMangaToEdit(response.data.manga))
   }, [editId])
 
   return (

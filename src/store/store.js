@@ -20,6 +20,7 @@ import authorReducer from './Profile/reducer'
 import logoutReducer from './LogoutReload/reducer'
 import checkoutMPReducer from './CheckoutMP/reducer'
 import panelAdminReducer from './PanelAdmin/reducer'
+import verifyReducer from "./User/reducer";
 
 export const store = configureStore({
     reducer: {
@@ -44,5 +45,6 @@ export const store = configureStore({
         logoutState: logoutReducer,
         checkout: checkoutMPReducer,
         panelAdmin : panelAdminReducer,
+        user: verifyReducer,
     }
 })
