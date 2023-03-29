@@ -40,4 +40,4 @@ Copie y pegue el siguiente código en su aplicación, reemplazando YOUR_CLIENT_I
 
 ### Conclusión
 
-En este tutorial, hemos explicado cómo utilizar la API de Google OAuth2 en una aplicación. Siguiendo estos pasos, puede permitir que su aplicación acceda a los datos del usuario sin neces
+En este tutorial, hemos explicado cómo utilizar la API de Google OAuth2 en una aplicación. Siguiendo estos pasos, puede permitir que su aplicación acceda a los datos del usuario sin necesidad de registrarte manualmente.
