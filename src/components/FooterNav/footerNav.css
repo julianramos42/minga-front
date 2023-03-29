@@ -109,7 +109,7 @@ footer .donate-modal .donate-card .donateModal-btns {
 
 footer .donate-modal .donate-card .donateModal-btns .donateBtn {
     text-decoration: none;
-    background: rgb(41, 202, 108);
+    background: linear-gradient(153.39deg,#f9a8d4 -13.9%,#f472b6 58.69%);
     width: 90px;
     height: 40px;
     display: flex;
