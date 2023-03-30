@@ -5,7 +5,7 @@ const read_mangas = createAsyncThunk(
     'read_mangas',
     async ({ page, inputText, categories, order, headers }) => {
         try{
-            let response = await axios.get("http://localhost:8080/api/mangas/?page="+page+"&title="+inputText.trim()+"&category="+categories+"&order="+order,headers)
+            let response = await axios.get("https://minga-pjxq.onrender.com/api/mangas/?page="+page+"&title="+inputText.trim()+"&category="+categories+"&order="+order,headers)
             return { mangas: response.data.mangas }
         }catch(error){
             return { mangas: '' }

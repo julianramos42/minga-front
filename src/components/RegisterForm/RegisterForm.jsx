@@ -40,7 +40,7 @@ export default function RegisterForm({ renderLogin }) {
             [formInputs[3].name]: formInputs[3].value,
         }
 
-        let url = 'http://localhost:8080/api/auth/signup'
+        let url = 'https://minga-pjxq.onrender.com/api/auth/signup'
         try {
             await axios.post(url, data)
             toast.success("Register Successful")
@@ -78,7 +78,7 @@ export default function RegisterForm({ renderLogin }) {
         password: googleId,
       };
       console.log(data)
-      const url = "http://localhost:8080/api/auth/signup";
+      const url = "https://minga-pjxq.onrender.com/api/auth/signup";
       await axios.post(url, data);
       toast.success("Register Successful");
       toast.success("Check your email to verify your account");

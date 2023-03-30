@@ -17,7 +17,7 @@ const verify_account = createAsyncThunk(
   async ({ verify_code }) => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/auth/verify/${verify_code}`,
+        `https://minga-pjxq.onrender.com/api/auth/verify/${verify_code}`,
         handleToken()
       );
       return {
