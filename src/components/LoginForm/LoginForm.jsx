@@ -91,8 +91,9 @@ export default function LoginForm({ renderRegister }) {
       }
       if (email) await axios.post(url, data, headers)
       let res = await axios.post(url, data, headers)
-      navigate("/");
+      toast.success("Login Successful", { autoClose: 8000 })
       dataForm.current.reset();
+      navigate("/");
       localStorage.setItem(`token`, res.data.token)
       localStorage.setItem(
         `user`,
@@ -104,9 +105,9 @@ export default function LoginForm({ renderRegister }) {
       )
     } catch (error) {
       if (typeof error.response.data.message === "string") {
-        toast.error(error.response.data.message);
+        toast.error(error.response.data.message, { autoClose: 8000 });
       } else {
-        error.response.data.message.forEach((err) => toast.error(err));
+        error.response.data.message.forEach((err) => toast.error(err, { autoClose: 8000 }));
       }
     }
   }
