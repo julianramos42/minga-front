@@ -80,16 +80,16 @@ export default function RegisterForm({ renderLogin }) {
       console.log(data)
       const url = "https://minga-pjxq.onrender.com/api/auth/signup";
       await axios.post(url, data);
-      toast.success("Register Successful");
-      toast.success("Check your email to verify your account");
+      toast.success("Register Successful", { autoClose: 8000 });
+      toast.success("Check your email to verify your account", { autoClose: 8000 });
       dataForm.current.reset();
       navigate("/signin");
 
     } catch (error) {
      if (typeof error.response.data.message === "string") {
-       toast.error(error.response.data.message);
+       toast.error(error.response.data.message, { autoClose: 8000 });
      } else {
-       error.response.data.message.forEach((err) => toast.error(err));
+       error.response.data.message.forEach((err) => toast.error(err, { autoClose: 8000 }));
      }
     }
   }
